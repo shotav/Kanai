@@ -1,5 +1,6 @@
-<h1 align="center">Kanai</h1>
-<h2 align="center">A lightweight cross-platform OpenGL text editor.</h2>
+# Kanai
+
+A lightweight cross-platform OpenGL text editor.
 
 ## Features
 
