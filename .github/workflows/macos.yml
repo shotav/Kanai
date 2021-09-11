@@ -23,6 +23,7 @@ jobs:
       run: |
         OPENSSL_ROOT_DIR=/usr/local/opt/openssl/ make
         mv build/kanai kanai-macos
+        echo VERSION=$(./kanai-macos -v | cut -d ' ' -f 2) >> $GITHUB_ENV
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
