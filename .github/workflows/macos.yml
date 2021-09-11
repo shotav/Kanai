@@ -19,11 +19,8 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Install Dependencies
-      run: export OPENSSL_ROOT_DIR=/usr/local/opt/openssl/
-
     - name: Build
-      run: make
+      run: OPENSSL_ROOT_DIR=/usr/local/opt/openssl/ make
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
