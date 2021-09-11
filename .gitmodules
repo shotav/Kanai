@@ -1,3 +1,18 @@
-[submodule "glfw"]
+[submodule "GLFW"]
 	path = libs/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "Glad"]
+	path = libs/glad
+	url = https://github.com/Dav1dde/glad.git
+[submodule "FreeType"]
+	path = libs/freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
+[submodule "Fira"]
+	path = libs/fira
+	url = https://github.com/mozilla/Fira.git
+[submodule "JSON"]
+	path = libs/json
+	url = https://github.com/nlohmann/json.git
+[submodule "curl"]
+	path = libs/curl
+	url = https://github.com/curl/curl.git
