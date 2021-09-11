@@ -1,0 +1,32 @@
+name: Windows
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+  
+    - name: Checkout GitHub
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Build
+      run: make
+
+    - name: Release GitHub
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/Release/kanai.exe
+        tag_name: v${{ env.VERSION }}
+        draft: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
