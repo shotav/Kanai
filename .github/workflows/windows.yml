@@ -20,12 +20,14 @@ jobs:
         submodules: recursive
 
     - name: Build
-      run: make
+      run: |
+        make
+        mv build/Release/kanai.exe kanai-windows.exe
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: build/Release/kanai.exe
+        files: kanai-windows.exe
         tag_name: v${{ env.VERSION }}
         draft: true
       env:

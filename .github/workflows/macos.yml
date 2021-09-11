@@ -20,12 +20,14 @@ jobs:
         submodules: recursive
 
     - name: Build
-      run: OPENSSL_ROOT_DIR=/usr/local/opt/openssl/ make
+      run: |
+        OPENSSL_ROOT_DIR=/usr/local/opt/openssl/ make
+        mv build/kanai kanai-macos
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: build/release/kanai
+        files: kanai-macos
         tag_name: v${{ env.VERSION }}
         draft: true
       env:

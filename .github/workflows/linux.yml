@@ -23,11 +23,12 @@ jobs:
       run: |
         sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
         make
+        mv build/kanai kanai-linux
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: build/release/kanai
+        files: kanai-linux
         tag_name: v${{ env.VERSION }}
         draft: true
       env:
