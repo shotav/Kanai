@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     app.add_option("PATH", path, "Path to open")->check(CLI::ExistingPath);
     CLI11_PARSE(app, argc, argv);
     if (version) {
-        std::cout << "Kanai v" << VERSION << std::endl;
+        std::cout << "Kanai " << VERSION << std::endl;
         return 0;
     }
 
