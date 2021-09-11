@@ -13,6 +13,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE res::rc)
 file(GLOB LUA "libs/lua/*.c")
 include_directories(libs/lua)
 add_library(lua STATIC ${LUA})
+set_property(TARGET lua PROPERTY C_STANDARD 99)
 target_link_libraries(${PROJECT_NAME} PRIVATE lua)
 
 add_subdirectory(libs/glfw EXCLUDE_FROM_ALL)
