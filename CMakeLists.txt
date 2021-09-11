@@ -4,7 +4,11 @@ project(kanai CXX)
 file(GLOB SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall)
+
+file(GLOB RESOURCES "res/*")
+add_subdirectory(libs/cmrc)
+cmrc_add_resource_library(resources ALIAS res::rc NAMESPACE res ${RESOURCES} libs/fira/otf/FiraMono-Regular.otf)
+target_link_libraries(${PROJECT_NAME} PRIVATE res::rc)
 
 add_subdirectory(libs/glfw EXCLUDE_FROM_ALL)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
@@ -20,7 +24,3 @@ target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)
 
 add_subdirectory(libs/curl)
 target_link_libraries(${PROJECT_NAME} PRIVATE libcurl)
-
-add_subdirectory(libs/cmrc)
-cmrc_add_resource_library(foo-resources ALIAS foo::rc NAMESPACE foo res/test.txt libs/fira/otf/FiraMono-Regular.otf)
-target_link_libraries(${PROJECT_NAME} PRIVATE foo::rc)
