@@ -4,7 +4,7 @@ A lightweight cross-platform OpenGL text editor.
 
 ## Download
 
-Releases
+[Releases](https://github.com/PryosCode/Kanai/releases)
 
 ## Compile
 
@@ -15,4 +15,4 @@ make
 
 ## License
 
-Apache License 2.0
+[Apache License 2.0](https://github.com/PryosCode/Kanai/blob/master/LICENSE)

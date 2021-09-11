@@ -14,4 +14,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE glad)
 
 add_subdirectory(libs/freetype)
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
-target_include_directories(${PROJECT_NAME} PRIVATE freetype)
+
+add_subdirectory(libs/json)
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)
+
+add_subdirectory(libs/curl)
+target_link_libraries(${PROJECT_NAME} PRIVATE libcurl)
