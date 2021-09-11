@@ -10,6 +10,11 @@ add_subdirectory(libs/cmrc)
 cmrc_add_resource_library(resources ALIAS res::rc NAMESPACE res ${RESOURCES} libs/fira/otf/FiraMono-Regular.otf)
 target_link_libraries(${PROJECT_NAME} PRIVATE res::rc)
 
+file(GLOB LUA "libs/lua/*.c")
+include_directories(libs/lua)
+add_library(lua STATIC ${LUA})
+target_link_libraries(${PROJECT_NAME} PRIVATE lua)
+
 add_subdirectory(libs/glfw EXCLUDE_FROM_ALL)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 

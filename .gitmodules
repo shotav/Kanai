@@ -1,6 +1,9 @@
 [submodule "CMakeRC"]
 	path = libs/cmrc
 	url = https://github.com/vector-of-bool/cmrc.git
+[submodule "Lua"]
+	path = libs/lua
+	url = https://github.com/lua/lua.git
 [submodule "GLFW"]
 	path = libs/glfw
 	url = https://github.com/glfw/glfw.git
