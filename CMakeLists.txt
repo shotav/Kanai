@@ -20,3 +20,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)
 
 add_subdirectory(libs/curl)
 target_link_libraries(${PROJECT_NAME} PRIVATE libcurl)
+
+add_subdirectory(libs/cmrc)
+cmrc_add_resource_library(foo-resources ALIAS foo::rc NAMESPACE foo res/test.txt libs/fira/otf/FiraMono-Regular.otf)
+target_link_libraries(${PROJECT_NAME} PRIVATE foo::rc)
