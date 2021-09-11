@@ -1,6 +1,18 @@
-# Kanai
+<h1 align="center">Kanai</h1>
+<h2 align="center">A lightweight cross-platform OpenGL text editor.</h2>
 
-A lightweight cross-platform OpenGL text editor.
+## Features
+
+- [x] OpenGL
+- [x] Cross-Platform
+- [x] Portable
+- [ ] Syntax Highlighting
+- [ ] Code Completion
+- [ ] File Hierarchy
+- [ ] Terminal Emulator
+- [ ] Auto Updater
+- [ ] Settings Sync
+- [ ] Lua Plugins
 
 ## Download
 
