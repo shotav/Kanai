@@ -10,6 +10,7 @@ A lightweight cross-platform OpenGL text editor.
 
 ```bash
 git clone --recursive https://github.com/PryosCode/Kanai.git
+cd Kanai
 make
 ```
 
