@@ -14,6 +14,8 @@ namespace font {
         FT_Load_Glyph(face, glyph_index, FT_LOAD_DEFAULT);
         FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL);
 
+        auto font = resource::load("res/fonts/FiraCode.ttf");
+
         FT_Done_Face(face);
         FT_Done_FreeType(library);
     }

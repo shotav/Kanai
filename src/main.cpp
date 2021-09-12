@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include <CLI/CLI.hpp>
-#include "resource.h"
 #include "window.h"
 
 #ifdef _WIN32
@@ -21,8 +20,6 @@ int main(int argc, char* argv[]) {
         std::cout << "Kanai " << VERSION << std::endl;
         return 0;
     }
-
-    std::cout << resource::load("res/test.txt") << std::endl;
 
     #ifdef _WIN32
         FreeConsole();
