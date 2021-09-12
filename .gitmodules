@@ -19,9 +19,6 @@
 [submodule "FreeType"]
 	path = libs/freetype
 	url = https://gitlab.freedesktop.org/freetype/freetype.git
-[submodule "Fira"]
-	path = libs/fira
-	url = https://github.com/mozilla/Fira.git
 [submodule "JSON"]
 	path = libs/json
 	url = https://github.com/nlohmann/json.git

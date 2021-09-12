@@ -5,9 +5,9 @@ file(GLOB SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
 
-file(GLOB RESOURCES "res/*")
+file(GLOB RESOURCES "res/**.*")
 add_subdirectory(libs/cmrc)
-cmrc_add_resource_library(resources ALIAS res::rc NAMESPACE res ${RESOURCES} libs/fira/ttf/FiraMono-Regular.ttf)
+cmrc_add_resource_library(resources ALIAS res::rc NAMESPACE res ${RESOURCES})
 target_link_libraries(${PROJECT_NAME} PRIVATE res::rc)
 
 add_subdirectory(libs/cli11)
