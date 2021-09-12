@@ -4,6 +4,10 @@
 #include "resource.h"
 #include "window.h"
 
+#ifdef _WIN32
+    #include <Windows.h>
+#endif
+
 const std::string VERSION = "0.1.0";
 
 int main(int argc, char* argv[]) {
@@ -20,6 +24,10 @@ int main(int argc, char* argv[]) {
 
     std::cout << resource::load("res/test.txt") << std::endl;
 
+    #ifdef _WIN32
+        FreeConsole();
+    #endif
+
     GLFWwindow* window = window::setup();
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -33,11 +41,3 @@ int main(int argc, char* argv[]) {
     glfwTerminate();
     return 0;
 }
-
-#ifdef _WIN32
-#include <Windows.h>
-
-int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
-    return main(__argc, __argv);
-}
-#endif
