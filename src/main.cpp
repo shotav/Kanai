@@ -33,3 +33,11 @@ int main(int argc, char* argv[]) {
     glfwTerminate();
     return 0;
 }
+
+#ifdef _WIN32
+#include <Windows.h>
+
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
+    return main(__argc, __argv);
+}
+#endif

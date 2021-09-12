@@ -2,7 +2,7 @@
 
 namespace window {
 
-    const GLuint WIDTH = 800, HEIGHT = 600;
+    const GLuint WIDTH = 1280, HEIGHT = 720;
 
     void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
         std::cout << key << std::endl;
