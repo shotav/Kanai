@@ -10,9 +10,6 @@ add_subdirectory(libs/cmrc)
 cmrc_add_resource_library(resources ALIAS res::rc NAMESPACE res ${RESOURCES})
 target_link_libraries(${PROJECT_NAME} PRIVATE res::rc)
 
-add_subdirectory(libs/cli11)
-target_link_libraries(${PROJECT_NAME} PRIVATE CLI11)
-
 file(GLOB LUA "libs/lua/*.c")
 include_directories(libs/lua)
 add_library(lua STATIC ${LUA})
