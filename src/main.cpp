@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 #include "window.h"
 
 const std::string VERSION = "0.1.0";

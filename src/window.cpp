@@ -5,7 +5,6 @@ namespace window {
     const GLuint WIDTH = 1280, HEIGHT = 720;
 
     void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
-        std::cout << key << std::endl;
         if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
             glfwSetWindowShouldClose(window, GL_TRUE);
     }
@@ -23,7 +22,6 @@ namespace window {
         glfwSwapInterval(1);
 
         GLFWimage icons[1];
-        // auto icon = fs.open("res/icon.png");
         // icons[0].pixels = ;
         glfwSetWindowIcon(window, 1, icons);
 
