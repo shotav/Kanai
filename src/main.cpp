@@ -1,4 +1,5 @@
 #include <string>
+#include "plugin.h"
 #include "window.h"
 #include "font.h"
 
@@ -7,6 +8,7 @@ const std::string VERSION = "0.1.0";
 int main(int argc, char* argv[]) {
     std::string path = (argc > 1) ? argv[1] : "";
 
+    plugin::load();
     GLFWwindow* window = window::setup();
     // font::load();
     while (!glfwWindowShouldClose(window)) {

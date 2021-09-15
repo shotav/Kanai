@@ -1,3 +1,7 @@
 #include "plugin.h"
 
-namespace plugin {}
+namespace plugin {
+
+    void load() {}
+
+}
