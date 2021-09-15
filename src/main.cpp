@@ -8,12 +8,13 @@ int main(int argc, char* argv[]) {
     std::string path = (argc > 1) ? argv[1] : "";
 
     GLFWwindow* window = window::setup();
+    // font::load();
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        font::test();
+        // font::test();
 
         glfwSwapBuffers(window);
     }

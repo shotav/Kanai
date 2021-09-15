@@ -20,8 +20,6 @@ namespace font {
         FT_Done_FreeType(library);
     }
 
-    void test() {
-        load();
-    }
+    void test() {}
 
 }

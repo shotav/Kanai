@@ -8,6 +8,7 @@
 
 namespace font {
 
+    void load();
     void test();
 
 }
