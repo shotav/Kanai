@@ -1,5 +1,6 @@
 #include <string>
 #include "window.h"
+#include "font.h"
 
 const std::string VERSION = "0.1.0";
 
@@ -12,6 +13,7 @@ int main(int argc, char* argv[]) {
 
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        font::test();
 
         glfwSwapBuffers(window);
     }
