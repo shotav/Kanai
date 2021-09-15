@@ -4,7 +4,6 @@
 #include <backends/imgui_impl_opengl3.h>
 #include "plugin.h"
 #include "window.h"
-#include "font.h"
 
 const std::string VERSION = "0.1.0";
 
@@ -15,18 +14,43 @@ int main(int argc, char* argv[]) {
     GLFWwindow* window = window::setup();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
     ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 150");
-    bool show_demo_window = true;
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
-
+ 
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowDemoWindow(&show_demo_window);
+        if (ImGui::BeginMainMenuBar()) {
+            if (ImGui::BeginMenu("File")) {
+                if (ImGui::MenuItem("New File")) {}
+                if (ImGui::MenuItem("Open File")) {}
+                if (ImGui::MenuItem("Open Folder")) {}
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Edit")) {
+                if (ImGui::MenuItem("Undo")) {}
+                if (ImGui::MenuItem("Redo")) {}
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+
+        ImGui::ShowDemoWindow(NULL);
+
+        {
+            ImGui::Begin("File Hierarchy");
+            ImGui::End();
+        }
+
+        {
+            ImGui::Begin("Text Editor");
+            ImGui::End();
+        }
 
         ImGui::Render();
         int display_w, display_h;
