@@ -21,11 +21,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 add_subdirectory(libs/glad)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad)
 
-add_subdirectory(libs/glm)
-target_link_libraries(${PROJECT_NAME} PRIVATE glm)
-
-add_subdirectory(libs/freetype)
-target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+file(GLOB IMGUI "libs/imgui/*.cpp")
+include_directories(libs/imgui libs/glfw/include)
+add_library(imgui STATIC ${IMGUI} libs/imgui/backends/imgui_impl_glfw.cpp libs/imgui/backends/imgui_impl_opengl3.cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE imgui)
 
 add_subdirectory(libs/json)
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)
