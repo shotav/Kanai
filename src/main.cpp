@@ -24,7 +24,15 @@ int main(int argc, char* argv[]) {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        if (ImGui::BeginMainMenuBar()) {
+        int width, height;
+        glfwGetWindowSize(window, &width, &height);
+
+        ImGui::SetNextWindowPos(ImVec2(0, 0));
+        ImGui::SetNextWindowSize(ImVec2(width, height));
+        ImGui::Begin("Plane", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+
+        /*
+        if (ImGui::BeginMenuBar()) {
             if (ImGui::BeginMenu("File")) {
                 if (ImGui::MenuItem("New File")) {}
                 if (ImGui::MenuItem("Open File")) {}
@@ -36,26 +44,33 @@ int main(int argc, char* argv[]) {
                 if (ImGui::MenuItem("Redo")) {}
                 ImGui::EndMenu();
             }
-            ImGui::EndMainMenuBar();
+            ImGui::EndMenuBar();
         }
-
-        ImGui::ShowDemoWindow(NULL);
+        */ 
 
         {
-            ImGui::Begin("File Hierarchy");
+            ImGui::SetNextWindowPos(ImVec2(0, 0));
+            ImGui::SetNextWindowSize(ImVec2(300, height));
+            ImGui::BeginChild("File Hierarchy");
+            ImGui::Text("File Hierarchy");
             ImGui::End();
         }
 
         {
-            ImGui::Begin("Text Editor");
+            ImGui::SetNextWindowPos(ImVec2(300, 0));
+            ImGui::SetNextWindowSize(ImVec2(width - 300, height));
+            ImGui::BeginChild("Text Editor");
+            ImGui::Text("Text Editor");
             ImGui::End();
         }
+
+        ImGui::End();
 
         ImGui::Render();
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
-        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
