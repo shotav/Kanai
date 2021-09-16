@@ -14,10 +14,9 @@ int main(int argc, char* argv[]) {
     GLFWwindow* window = window::setup();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsDark();   
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 150");
+    ImGui_ImplOpenGL3_Init("#version 330 core");
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
  
