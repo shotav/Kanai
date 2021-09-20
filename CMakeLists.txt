@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(kanai)
+project(Kanai)
+
+set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_CURRENT_SOURCE_DIR}/setup/license.rtf)
 
 file(GLOB SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
@@ -31,3 +33,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)
 
 add_subdirectory(libs/curl)
 target_link_libraries(${PROJECT_NAME} PRIVATE libcurl)
+
+include(CPack)

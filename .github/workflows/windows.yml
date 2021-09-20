@@ -21,14 +21,13 @@ jobs:
 
     - name: Build
       run: |
-        make
-        mv build/Release/kanai.exe kanai-windows.exe
-        echo VERSION=$(./kanai-windows.exe -v | cut -d ' ' -f 2) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        make windows
+#       echo VERSION=$(./kanai-windows.exe -v | cut -d ' ' -f 2) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: kanai-windows.exe
+        files: build/Kanai-0.1.1-win64.msi
         tag_name: v${{ env.VERSION }}
         draft: true
       env:
