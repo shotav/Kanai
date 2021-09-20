@@ -6,7 +6,7 @@
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/PryosCode/Kanai/blob/master/res/logo.png"><img src="https://github.com/PryosCode/Cinyras/raw/master/res/logo.png" alt="File" width="30" height="auto"></a> Kanai
+# <a href="https://github.com/PryosCode/Kanai/blob/master/res/logo.png"><img src="https://github.com/PryosCode/Kanai/raw/master/res/logo.png" alt="File" width="30" height="auto"></a> Kanai
 
 A lightweight cross-platform OpenGL text editor.
 
