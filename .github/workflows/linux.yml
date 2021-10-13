@@ -16,15 +16,19 @@ jobs:
   
     - name: Checkout GitHub
       uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
-    - name: Build
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Build Yarn
       run: |
-        sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev mesa-common-dev
-        make
-        mv build/kanai kanai-linux
-        echo VERSION=$(./kanai-linux -v | cut -d ' ' -f 2) >> $GITHUB_ENV
+        yarn install
+        yarn build
+        echo VERSION=$(node -p require('./package.json').version) >> $GITHUB_ENV
+        cd dist
+        ls
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1

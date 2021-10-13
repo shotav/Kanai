@@ -1,0 +1,71 @@
+{
+  "name": "kanai",
+  "version": "0.1.0",
+  "description": "A cross-platform text editor.",
+  "homepage": "https://github.com/PryosCode/Kanai",
+  "license": "Apache-2.0",
+  "private": true,
+  "author": {
+    "name": "PryosCode",
+    "email": "info@pryoscode.net",
+    "url": "https://pryoscode.net"
+  },
+  "bugs": {
+    "url": "https://github.com/PryosCode/Kanai/issues",
+    "email": "info@pryoscode.net"
+  },
+  "main": "main.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PryosCode/Kanai.git"
+  },
+  "build": {
+    "icon": "public/favicon.png",
+    "productName": "Kanai",
+    "files": [
+      "public/**/*",
+      "main.ts",
+      "preload.ts"
+    ],
+    "win": {},
+    "linux": {},
+    "mac": {}
+  },
+  "scripts": {
+    "start": "sirv public --no-clear",
+    "electron": "wait-on http://localhost:5000 && electron .",
+    "dev": "concurrently \"yarn run rollup -c -w\" \"yarn run electron\"",
+    "build": "rollup -c && electron-builder",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "yarn": ">=1.0.0 <2"
+  },
+  "dependencies": {
+    "electron-serve": "^1.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@tsconfig/svelte": "^2.0.1",
+    "@types/node": "^16.10.9",
+    "concurrently": "^6.3.0",
+    "electron": "^15.1.2",
+    "electron-builder": "^22.13.1",
+    "less": "^4.1.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^1.0.14",
+    "svelte": "^3.43.2",
+    "svelte-check": "^2.2.7",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4",
+    "wait-on": "^6.0.0"
+  }
+}

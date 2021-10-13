@@ -6,33 +6,31 @@
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/PryosCode/Kanai/blob/master/res/logo.png"><img src="https://github.com/PryosCode/Kanai/raw/master/res/logo.png" alt="File" width="30" height="auto"></a> Kanai
+# <a href="https://github.com/PryosCode/Kanai/blob/master/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai
 
-A lightweight cross-platform OpenGL text editor.
+A cross-platform text editor.
 
 ## Features
 
-- [x] OpenGL
 - [x] Cross-Platform
-- [x] Portable
 - [ ] Syntax Highlighting
 - [ ] Code Completion
 - [ ] File Hierarchy
 - [ ] Terminal Emulator
 - [ ] Auto Updater
 - [ ] Settings Sync
-- [ ] Lua Plugins
+- [ ] Plugins
 
 ## Download
 
 [Releases](https://github.com/PryosCode/Kanai/releases)
 
-## Compile
+## Build
 
 ```bash
-git clone --recursive https://github.com/PryosCode/Kanai.git
-cd Kanai
-make
+$ git clone https://github.com/PryosCode/Kanai.git
+$ yarn install
+$ yarn build
 ```
 
 ## License
