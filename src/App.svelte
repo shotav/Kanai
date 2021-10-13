@@ -1,23 +1,29 @@
 <script lang="ts">
-	export let name: string;
+	export let content: string;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <div id="editor" contenteditable="true">{content}</div>
 </main>
 
 <style lang="less">
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
+  :global(html, body, main) {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: FiraCode, monospace;
 
-    h1 {
-      color: #ff3e00;
-      text-transform: uppercase;
-      font-size: 4em;
-      font-weight: 100;
+    @font-face {
+      font-family: FiraCode;
+      src: url("/fonts/FiraCode.ttf");
     }
-	}
+  }
+  #editor {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: black;
+    color: white;
+    outline: none;
+  }
 </style>

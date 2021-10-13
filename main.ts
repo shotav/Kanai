@@ -33,6 +33,7 @@ function createWindow() {
   // Delete this entire block of code when you are ready to package the application.
   if (isDev()) {
     mainWindow.loadURL("http://localhost:5000/");
+    mainWindow.webContents.openDevTools({ mode: "undocked" });
   } else {
     loadURL(mainWindow);
   }

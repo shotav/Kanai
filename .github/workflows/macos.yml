@@ -33,7 +33,7 @@ jobs:
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: kanai-macos
+        files: dist/Kanai-${{ env.VERSION }}.dmg
         tag_name: v${{ env.VERSION }}
         draft: true
       env:
