@@ -27,8 +27,6 @@ jobs:
         yarn install
         yarn build
         echo VERSION=$(node -p require('./package.json').version) >> $GITHUB_ENV
-        cd dist
-        ls
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
