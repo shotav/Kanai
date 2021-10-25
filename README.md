@@ -8,7 +8,7 @@
 
 # <a href="https://github.com/PryosCode/Kanai/blob/master/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai
 
-A cross-platform text editor.
+A cross-platform text editor made with HTML, CSS and JS.
 
 ## Features
 
