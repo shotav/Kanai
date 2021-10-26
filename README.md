@@ -6,7 +6,7 @@
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/PryosCode/Kanai/blob/master/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai
+# <a href="https://github.com/PryosCode/Kanai/blob/master/src/renderer/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/src/renderer/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai
 
 A cross-platform code editor.
 
