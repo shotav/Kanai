@@ -6,8 +6,8 @@ const loadURL = serve({ directory: "build" });
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 500,
+    width: 1280,
+    height: 720,
     show: false,
     icon: path.join(process.cwd(), "public/favicon.png"),
     webPreferences: {
