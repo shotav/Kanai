@@ -11,12 +11,12 @@ module.exports = {
   resolve: {
       modules: [
         path.resolve(__dirname, "node_modules"),
-        path.resolve(__dirname, "src/renderer")
+        path.resolve(__dirname, "src", "renderer")
       ],
       extensions: [ ".jsx", ".js" ]
   },
   devServer: {
-    static: path.join(__dirname, "public")
+    static: path.join(__dirname, "src", "renderer", "public")
   },
   module: {
     rules: [
@@ -27,13 +27,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ "style-loader", "css-loader" ]
+        use: [ "style-loader", "css-loader", "postcss-loader" ]
       }
     ]
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "public", to: "." }]
+      patterns: [{ context: path.join(__dirname, "src", "renderer"), from: "public", to: "." }]
     })
   ]
 };

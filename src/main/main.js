@@ -9,7 +9,7 @@ const createWindow = () => {
     width: 1280,
     height: 720,
     show: false,
-    icon: path.join(process.cwd(), "public/favicon.png"),
+    icon: path.join(process.cwd(), "src", "renderer", "public", "favicon.png"),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

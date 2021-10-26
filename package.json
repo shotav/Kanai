@@ -1,13 +1,10 @@
 {
   "name": "kanai",
   "version": "1.0.0",
-  "description": "A cross-platform text editor made with HTML, CSS and JS.",
+  "description": "A cross-platform code editor.",
   "keywords": [
-    "css",
-    "html",
-    "js",
     "cross-platform",
-    "text-editor"
+    "code-editor"
   ],
   "homepage": "https://github.com/PryosCode/Kanai",
   "license": "Apache-2.0",
@@ -28,7 +25,7 @@
   },
   "build": {
     "appId": "net.pryoscode.kanai",
-    "icon": "public/favicon.png",
+    "icon": "src/renderer/public/favicon.png",
     "productName": "Kanai",
     "files": [
       "build/**/*",
@@ -59,12 +56,17 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/register": "^7.15.3",
+    "autoprefixer": "^10.3.7",
     "babel-loader": "^8.2.3",
     "concurrently": "^6.3.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.4.0",
+    "cssnano": "^5.0.8",
     "electron": "^15.3.0",
     "electron-builder": "^22.13.1",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "style-loader": "^3.3.1",
