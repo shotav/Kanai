@@ -9,18 +9,18 @@ export default class App extends React.Component {
     return (
       <>
         <div id="files">
-          <ul>
-            <li onClick={this.handleClick.bind(this)} data-name="1.txt"><a>Test</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="2.txt"><a>Test</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="3.txt"><a>Test</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="4.txt"><a>Test</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="5.txt"><a>Test</a></li>
-          </ul>
+          <div className="container">
+            <ul>
+              <li onClick={this.handleClick.bind(this)} data-name="1.txt"><a>Test</a></li>
+              <li onClick={this.handleClick.bind(this)} data-name="2.txt"><a>Test</a></li>
+              <li onClick={this.handleClick.bind(this)} data-name="3.txt"><a>Test</a></li>
+              <li onClick={this.handleClick.bind(this)} data-name="4.txt"><a>Test</a></li>
+              <li onClick={this.handleClick.bind(this)} data-name="5.txt"><a>Test</a></li>
+            </ul>
+          </div>
         </div>
-        <div className="editor">
-          Test<br/>
-          Test<br/>
-          Test
+        <div className="container">
+          <div className="editor" contentEditable={true}></div>
         </div>
       </>
     );

@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/renderer/main.js",
-  target: "electron-renderer",
+  target: "web",
   output: {
     path: path.join(__dirname, "build"),
     filename: "bundle.js"

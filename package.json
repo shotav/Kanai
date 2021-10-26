@@ -1,7 +1,7 @@
 {
   "name": "kanai",
   "version": "1.0.0",
-  "description": "A cross-platform code editor.",
+  "description": "A lightweight cross-platform code editor.",
   "keywords": [
     "cross-platform",
     "code-editor"
@@ -23,11 +23,12 @@
     "url": "https://github.com/PryosCode/Kanai.git"
   },
   "scripts": {
+    "dev:compile": "go build -o dist/kanai src/main/main.go",
     "dev:bundle": "webpack serve --mode=development",
-    "dev:open": "wait-on http://localhost:8080 && electron .",
-    "dev": "concurrently -k \"yarn dev:bundle\" \"yarn dev:open\"",
+    "dev:open": "wait-on http://localhost:8080 && ./dist/kanai",
+    "dev": "yarn dev:compile && concurrently -k \"yarn dev:bundle\" \"yarn dev:open\"",
     "build:bundle": "webpack --mode=production",
-    "build:compile": "cmake -S . -B dist && cmake --build dist --config release",
+    "build:compile": "",
     "build": "yarn build:bundle && yarn build:compile"
   },
   "engines": {
