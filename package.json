@@ -18,38 +18,21 @@
     "url": "https://github.com/PryosCode/Kanai/issues",
     "email": "info@pryoscode.net"
   },
-  "main": "src/main/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/PryosCode/Kanai.git"
-  },
-  "build": {
-    "appId": "net.pryoscode.kanai",
-    "icon": "src/renderer/public/favicon.png",
-    "productName": "Kanai",
-    "files": [
-      "build/**/*",
-      "src/main/**/*"
-    ],
-    "linux": {
-      "target": "AppImage"
-    }
   },
   "scripts": {
     "dev:bundle": "webpack serve --mode=development",
     "dev:open": "wait-on http://localhost:8080 && electron .",
     "dev": "concurrently -k \"yarn dev:bundle\" \"yarn dev:open\"",
     "build:bundle": "webpack --mode=production",
-    "build:pack": "electron-builder",
-    "build": "yarn build:bundle && yarn build:pack"
+    "build:compile": "cmake -S . -B dist && cmake --build dist --config release",
+    "build": "yarn build:bundle && yarn build:compile"
   },
   "engines": {
     "node": ">=14.0.0",
     "yarn": ">=1.0.0 <2"
-  },
-  "dependencies": {
-    "electron-is-dev": "^2.0.0",
-    "electron-serve": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -62,8 +45,6 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.4.0",
     "cssnano": "^5.0.8",
-    "electron": "^15.3.0",
-    "electron-builder": "^22.13.1",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
     "postcss-preset-env": "^6.7.0",

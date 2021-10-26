@@ -28,7 +28,7 @@ A cross-platform code editor.
 ## Build
 
 ```bash
-$ git clone https://github.com/PryosCode/Kanai.git
+$ git clone ---recursive https://github.com/PryosCode/Kanai.git
 $ yarn install
 $ yarn build
 ```
