@@ -3,7 +3,7 @@ import { ipcRenderer } from "electron";
 import { Helmet } from "react-helmet";
 import "./assets/less/Editor.less";
 
-export default class Editor extends React.Component<{ file: string }, { lines: number }> {
+export default class Editor extends React.Component<{ file: string }, { name: string, lines: number }> {
   private lines: React.RefObject<HTMLDivElement>;
   private text: React.RefObject<HTMLTextAreaElement>;
   constructor(props) {
@@ -11,6 +11,7 @@ export default class Editor extends React.Component<{ file: string }, { lines: n
     this.lines = React.createRef();
     this.text = React.createRef();
     this.state = {
+      name: "Untitled",
       lines: 1
     };
   }
@@ -23,8 +24,8 @@ export default class Editor extends React.Component<{ file: string }, { lines: n
   componentDidUpdate(prevProps) {
     if (this.props.file !== prevProps.file && this.props.file) {
       ipcRenderer.invoke("read", this.props.file).then((data) => {
-        this.text.current.value = data;
-        this.setState({ lines: this.text.current.value.split(/\r|\r\n|\n/).length });
+        this.text.current.value = data.content;
+        this.setState({ name: data.name, lines: this.text.current.value.split(/\r|\r\n|\n/).length });
         this.lines.current.scrollTop = this.text.current.scrollTop;
       });
     }
@@ -43,7 +44,7 @@ export default class Editor extends React.Component<{ file: string }, { lines: n
     return (
       <>
         <Helmet>
-          <title>{this.props.file || "Untitled"}</title>
+          <title>{this.state.name}</title>
         </Helmet>
         <div id="editor">
           <div ref={this.lines}>

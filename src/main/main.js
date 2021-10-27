@@ -97,7 +97,10 @@ app.on("window-all-closed", () => {
 });
 
 ipcMain.handle("read", (_, file) => {
-  return fs.readFileSync(file, "utf-8");
+  return {
+    name: path.basename(file),
+    content: fs.readFileSync(file, "utf-8")
+  };
 });
 ipcMain.on("write", (_, file, content) => {
   fs.writeFileSync(file, content);

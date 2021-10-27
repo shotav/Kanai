@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/PryosCode/Kanai/blob/master/img/screenshot.png">
+    <img src="https://github.com/PryosCode/Kanai/raw/master/img/screenshot.png" alt="Screenshot" width="600" height="auto">
+  </a>
+</p>
+
+<p align="center">
     <a href="https://github.com/PryosCode/Kanai/tags"><img alt="Version" src="https://img.shields.io/github/v/release/PryosCode/Kanai?label=Version"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Linux" src="https://github.com/PryosCode/Kanai/actions/workflows/linux.yml/badge.svg"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Windows" src="https://github.com/PryosCode/Kanai/actions/workflows/windows.yml/badge.svg"></a>
