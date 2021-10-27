@@ -10,18 +10,16 @@ export default class Files extends React.Component {
   render() {
     return (
       <div id="files">
-        <div className="container">
-          <ul>
-            <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 1</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 2</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 3</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test1.txt"><a><FaFile/> Test1.txt</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test2.txt"><a><FaFile/> Test2.txt</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test3.txt"><a><FaFile/> Test3.txt</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test4.txt"><a><FaFile/> Test4.txt</a></li>
-            <li onClick={this.handleClick.bind(this)} data-name="Test5.txt"><a><FaFile/> Test5.txt</a></li>
-          </ul>
-        </div>
+        <ul>
+          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 1</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 2</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 3</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test1.txt"><a><FaFile/> Test1.txt</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test2.txt"><a><FaFile/> Test2.txt</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test3.txt"><a><FaFile/> Test3.txt</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test4.txt"><a><FaFile/> Test4.txt</a></li>
+          <li onClick={this.handleClick.bind(this)} data-name="Test5.txt"><a><FaFile/> Test5.txt</a></li>
+        </ul>
       </div>
     );
   }

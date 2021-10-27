@@ -33,15 +33,6 @@ $ yarn install
 $ yarn build
 ```
 
-## Keystrokes
-
-| KEYSTROKE        | DESCRIPTION    |
-|------------------|----------------|
-| CTRL + S         | Save           |
-| CTRL + SHIFT + S | Save as        |
-| CTRL + O         | Open File      |
-| CTRL + SHIFT + O | Open Directory |
-
 ## License
 
 [Apache License 2.0](https://github.com/PryosCode/Kanai/blob/master/LICENSE)
