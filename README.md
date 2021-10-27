@@ -8,7 +8,7 @@
 
 # <a href="https://github.com/PryosCode/Kanai/blob/master/src/renderer/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/src/renderer/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai
 
-A lightweight cross-platform code editor.
+A cross-platform code editor.
 
 ## Features
 
@@ -28,10 +28,19 @@ A lightweight cross-platform code editor.
 ## Build
 
 ```bash
-$ git clone ---recursive https://github.com/PryosCode/Kanai.git
+$ git clone https://github.com/PryosCode/Kanai.git
 $ yarn install
 $ yarn build
 ```
+
+## Keystrokes
+
+| KEYSTROKE        | DESCRIPTION    |
+|------------------|----------------|
+| CTRL + S         | Save           |
+| CTRL + SHIFT + S | Save as        |
+| CTRL + O         | Open File      |
+| CTRL + SHIFT + O | Open Directory |
 
 ## License
 

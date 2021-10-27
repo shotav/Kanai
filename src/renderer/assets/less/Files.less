@@ -1,0 +1,26 @@
+@import "Theme.less";
+
+#files {
+  width: 300px;
+  max-height: 100%;
+  color: @foreground;
+  background: @backgroundDark;
+  overflow: auto;
+  font-family: @fontSans, sans-serif;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      user-select: none;
+      padding: 3px 10px;
+
+      &:hover {
+        background: @backgroundLight;
+        cursor: pointer;
+      }
+    }
+  }
+}
