@@ -19,6 +19,8 @@ A cross-platform code editor.
 ## Features
 
 - [x] Cross-Platform
+- [x] Line Numbers
+- [x] Ligatures
 - [ ] File Hierarchy
 - [ ] Syntax Highlighting
 - [ ] Code Completion
