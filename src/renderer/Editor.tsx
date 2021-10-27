@@ -1,9 +1,10 @@
 import React from "react";
 import { ipcRenderer } from "electron";
 import { Helmet } from "react-helmet";
+import CryptoJS from "crypto-js";
 import "./assets/less/Editor.less";
 
-export default class Editor extends React.Component<{ file: string }, { name: string, lines: number }> {
+export default class Editor extends React.Component<{ file: string }, { name: string, lines: number, currentHash: string, savedHash: string }> {
   private lines: React.RefObject<HTMLDivElement>;
   private text: React.RefObject<HTMLTextAreaElement>;
   constructor(props) {
@@ -12,6 +13,8 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     this.text = React.createRef();
     this.state = {
       name: "Untitled",
+      currentHash: "",
+      savedHash: undefined,
       lines: 1
     };
   }
@@ -19,24 +22,35 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     this.lines.current.scrollTop = event.currentTarget.scrollTop;
   }
   handleChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
-    this.setState({ lines: event.currentTarget.value.split(/\r|\r\n|\n/).length });
+    this.setState({
+      currentHash: CryptoJS.SHA1(event.currentTarget.value).toString(),
+      lines: event.currentTarget.value.split(/\r|\r\n|\n/).length
+    });
   }
   componentDidUpdate(prevProps) {
     if (this.props.file !== prevProps.file && this.props.file) {
       ipcRenderer.invoke("read", this.props.file).then((data) => {
+        const hash = CryptoJS.SHA1(data.content).toString();
         this.text.current.value = data.content;
-        this.setState({ name: data.name, lines: this.text.current.value.split(/\r|\r\n|\n/).length });
+        this.setState({
+          name: data.name,
+          currentHash: hash,
+          savedHash: hash,
+          lines: this.text.current.value.split(/\r|\r\n|\n/).length
+        });
         this.lines.current.scrollTop = this.text.current.scrollTop;
       });
     }
   }
   componentDidMount() {
+    ipcRenderer.on("saved", (_, hash) => this.setState({ savedHash: hash }));
     ipcRenderer.on("saveAs", () => ipcRenderer.send("saveAs", this.text.current.value));
     ipcRenderer.on("save", () => {
+      const hash = CryptoJS.SHA1(this.text.current.value).toString();
       if (this.props.file) {
-        ipcRenderer.send("write", this.props.file, this.text.current.value);
+        ipcRenderer.send("write", this.props.file, this.text.current.value, hash);
       } else {
-        ipcRenderer.send("saveAs", this.text.current.value);
+        ipcRenderer.send("writeAs", this.text.current.value, hash);
       }
     });
   }
@@ -44,7 +58,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     return (
       <>
         <Helmet>
-          <title>{this.state.name}</title>
+          <title>{this.state.name}{this.state.currentHash === this.state.savedHash ? "" : "*"}</title>
         </Helmet>
         <div id="editor">
           <div ref={this.lines}>
@@ -52,7 +66,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
               <span key={i}/>
             ))}
           </div>
-          <textarea ref={this.text} spellCheck="false" onScroll={this.handleScroll.bind(this)} onChange={this.handleChange.bind(this)}/>
+          <textarea ref={this.text} onScroll={this.handleScroll.bind(this)} onChange={this.handleChange.bind(this)}/>
         </div>
       </>
     );

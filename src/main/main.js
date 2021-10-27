@@ -13,9 +13,11 @@ const createWindow = () => {
     height: 720,
     show: false,
     icon: path.join(process.cwd(), "src", "renderer", "public", "favicon.png"),
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      spellcheck: false,
       preload: path.join(__dirname, "preload.js")
     }
   });
@@ -71,7 +73,6 @@ const createWindow = () => {
   }));
   Menu.setApplicationMenu(menu);
 
-  win.setAutoHideMenuBar(true);
   win.setMenuBarVisibility(false);
   win.once("ready-to-show", () => win.show());
 
@@ -102,10 +103,14 @@ ipcMain.handle("read", (_, file) => {
     content: fs.readFileSync(file, "utf-8")
   };
 });
-ipcMain.on("write", (_, file, content) => {
-  fs.writeFileSync(file, content);
+ipcMain.on("write", (event, file, content, hash) => {
+  fs.writeFile(file, content, (error) => {
+    if (!error) {
+      event.reply("saved", hash);
+    }
+  });
 });
-ipcMain.on("saveAs", (event, content) => {
+ipcMain.on("writeAs", (event, content) => {
   dialog.showSaveDialog(win, { title: "Kanai", properties: [ "showHiddenFiles" ] }).then((result) => {
     if (!result.canceled) {
       const file = result.filePath;
