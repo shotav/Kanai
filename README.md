@@ -13,9 +13,9 @@ A cross-platform code editor.
 ## Features
 
 - [x] Cross-Platform
+- [ ] File Hierarchy
 - [ ] Syntax Highlighting
 - [ ] Code Completion
-- [ ] File Hierarchy
 - [ ] Terminal Emulator
 - [ ] Auto Updater
 - [ ] Settings Sync

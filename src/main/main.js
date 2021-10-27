@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const { app, BrowserWindow, Menu, MenuItem, ipcMain, dialog } = require("electron");
 const isDev = require("electron-is-dev");
 const serve = require("electron-serve");
@@ -27,14 +28,20 @@ const createWindow = () => {
       { label: "New Window", accelerator: "CTRL+SHIFT+N", enabled: false },
       { type: "separator" },
       { label: "Open File...", accelerator: "CTRL+O", click: () => {
-        dialog.showOpenDialog(win, { title: "Kanai", properties: [ "openFile", "showHiddenFiles" ] });
+        dialog.showOpenDialog(win, { title: "Kanai", properties: [ "openFile", "showHiddenFiles" ] }).then((result) => {
+          if (!result.canceled) {
+            win.webContents.send("open", result.filePaths[0]);
+          }
+        });
       }},
-      { label: "Open Folder...", accelerator: "CTRL+SHIFT+O", click: () => {
-        dialog.showOpenDialog(win, { title: "Kanai", properties: [ "openDirectory" ] });
-      }},
+      { label: "Open Folder...", accelerator: "CTRL+SHIFT+O", enabled: false },
       { type: "separator" },
-      { label: "Save", accelerator: "CTRL+S", click: () => {} },
-      { label: "Save As...", accelerator: "CTRL+SHIFT+S", click: () => {} },
+      { label: "Save", accelerator: "CTRL+S", click: () => {
+        win.webContents.send("save");
+      }},
+      { label: "Save As...", accelerator: "CTRL+SHIFT+S", click: () => {
+        win.webContents.send("saveAs");
+      }},
       { type: "separator" },
       { role: "quit" }
     ]
@@ -57,7 +64,7 @@ const createWindow = () => {
       { role: "togglefullscreen" },
       { role: "toggleDevTools" },
       { type: "separator" },
-      { label: "Increase Font Size", accelerator: "CTRL+Plus", enabled: false },
+      { label: "Increase Font Size", accelerator: "CTRL+PLUS", enabled: false },
       { label: "Decrease Font Size", accelerator: "CTRL+-", enabled: false },
       { label: "Reset Font Size", accelerator: "CTRL+0", enabled: false }
     ]
@@ -89,5 +96,18 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-ipcMain.on("read", (_, args) => {
+ipcMain.handle("read", (_, file) => {
+  return fs.readFileSync(file, "utf-8");
+});
+ipcMain.on("write", (_, file, content) => {
+  fs.writeFileSync(file, content);
+});
+ipcMain.on("saveAs", (event, content) => {
+  dialog.showSaveDialog(win, { title: "Kanai", properties: [ "showHiddenFiles" ] }).then((result) => {
+    if (!result.canceled) {
+      const file = result.filePath;
+      fs.writeFileSync(file, content);
+      event.reply("open", file);
+    }
+  });
 });
