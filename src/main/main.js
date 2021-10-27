@@ -30,7 +30,7 @@ const createWindow = () => {
       { label: "New Window", accelerator: "CTRL+SHIFT+N", enabled: false },
       { type: "separator" },
       { label: "Open File...", accelerator: "CTRL+O", click: () => {
-        dialog.showOpenDialog(win, { title: "Kanai", properties: [ "openFile", "showHiddenFiles" ] }).then((result) => {
+        dialog.showOpenDialog(win, { title: "Kanai Editor", properties: [ "openFile", "showHiddenFiles" ] }).then((result) => {
           if (!result.canceled) {
             win.webContents.send("open", result.filePaths[0]);
           }
@@ -111,7 +111,7 @@ ipcMain.on("write", (event, file, content, hash) => {
   });
 });
 ipcMain.on("writeAs", (event, content) => {
-  dialog.showSaveDialog(win, { title: "Kanai", properties: [ "showHiddenFiles" ] }).then((result) => {
+  dialog.showSaveDialog(win, { title: "Kanai Editor", properties: [ "showHiddenFiles" ] }).then((result) => {
     if (!result.canceled) {
       const file = result.filePath;
       fs.writeFileSync(file, content);

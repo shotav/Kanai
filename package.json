@@ -26,7 +26,7 @@
   "build": {
     "appId": "net.pryoscode.kanai",
     "icon": "src/renderer/public/favicon.png",
-    "productName": "Kanai",
+    "productName": "Kanai Editor",
     "files": [
       "build/**/*",
       "src/main/**/*"

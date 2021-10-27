@@ -58,7 +58,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     return (
       <>
         <Helmet>
-          <title>{this.state.name}{this.state.currentHash === this.state.savedHash ? "" : "*"}</title>
+          <title>{this.state.currentHash === this.state.savedHash ? "" : "\u2022"} {this.state.name} - Kanai Editor</title>
         </Helmet>
         <div id="editor">
           <div ref={this.lines}>
