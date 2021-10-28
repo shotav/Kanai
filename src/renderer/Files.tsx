@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFolder, FaFile, FaAngleRight, FaAngleDown } from "react-icons/fa";
-import "./assets/less/Files.less";
+import "./assets/styles/Files.less";
 
 type Entity = {
   name: string,

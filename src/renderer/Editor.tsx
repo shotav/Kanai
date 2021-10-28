@@ -3,8 +3,8 @@ import { ipcRenderer } from "electron";
 import { Helmet } from "react-helmet";
 import CryptoJS from "crypto-js";
 import Prism from "prismjs";
-import "./assets/less/Editor.less";
-import "./assets/less/Syntax.less";
+import "./assets/styles/Editor.less";
+import "./assets/styles/Syntax.less";
 
 export default class Editor extends React.Component<{ file: string }, { name: string, lines: number, currentHash: string, savedHash: string, preview: string }> {
   private lines: React.RefObject<HTMLDivElement>;

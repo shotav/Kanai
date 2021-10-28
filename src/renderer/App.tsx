@@ -2,8 +2,8 @@ import React from "react";
 import { ipcRenderer } from "electron";
 import Files from "./Files";
 import Editor from "./Editor";
-import "./assets/less/App.less";
-import "./assets/less/Fonts.less";
+import "./assets/styles/App.less";
+import "./assets/styles/Fonts.less";
 
 export default class App extends React.Component<unknown, { path: string }> {
   constructor(props) {

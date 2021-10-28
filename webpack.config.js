@@ -1,7 +1,7 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/renderer/main.ts",
@@ -34,14 +34,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/renderer/assets/views/index.ejs"
+    }),
     new ESLintPlugin({
       extensions: [ "js", "jsx", "ts", "tsx" ]
     }),
     new StylelintPlugin({
       extensions: [ "css", "less" ]
-    }),
-    new CopyPlugin({
-      patterns: [{ context: path.join(__dirname, "src", "renderer"), from: "public", to: "." }]
     })
   ]
 };
