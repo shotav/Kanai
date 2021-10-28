@@ -24,8 +24,8 @@ A cross-platform code editor.
 - [x] Line Numbers
 - [x] Ligatures
 - [ ] Terminal Emulator
-- [ ] Auto Updater
 - [ ] Code Completion
+- [ ] Settings Sync
 - [ ] Auto Updater
 - [ ] Plugins
 - [ ] Themes
