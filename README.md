@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/PryosCode/Kanai/blob/master/img/screenshot.png">
-    <img src="https://github.com/PryosCode/Kanai/raw/master/img/screenshot.png" alt="Screenshot" width="600" height="auto">
+  <a href="https://github.com/PryosCode/Kanai/blob/master/assets/screenshot.png">
+    <img src="https://github.com/PryosCode/Kanai/raw/master/assets/screenshot.png" alt="Screenshot" width="600" height="auto">
   </a>
 </p>
 
@@ -12,22 +12,23 @@
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/PryosCode/Kanai/blob/master/src/renderer/public/favicon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/src/renderer/public/favicon.png" alt="File" width="30" height="auto"></a> Kanai Editor
+# <a href="https://github.com/PryosCode/Kanai/blob/master/assets/icon.png"><img src="https://github.com/PryosCode/Kanai/raw/master/assets/icon.png" alt="File" width="30" height="auto"></a> Kanai Editor
 
 A cross-platform code editor.
 
 ## Features
 
+- [x] Syntax Highlighting
 - [x] Cross-Platform
 - [x] File Hierarchy
 - [x] Line Numbers
 - [x] Ligatures
-- [ ] Syntax Highlighting
-- [ ] Code Completion
 - [ ] Terminal Emulator
 - [ ] Auto Updater
-- [ ] Settings Sync
+- [ ] Code Completion
+- [ ] Auto Updater
 - [ ] Plugins
+- [ ] Themes
 
 ## Download
 

@@ -2,14 +2,14 @@
 
 #editor {
   width: 100%;
-  max-height: 100%;
-  color: @foregroundLight;
-  background: @backgroundLight;
+  height: 100%;
+  background: transparent;
   font-size: 16px;
   font-family: @fontCode, monospace;
   display: flex;
 
-  div {
+  #numbers {
+    background: @backgroundLight;
     padding: 5px 15px 5px 5px;
     user-select: none;
     counter-reset: line;
@@ -20,28 +20,52 @@
       color: @foregroundDark;
       display: block;
       text-align: right;
-    }
-    span::before {
-      counter-increment: line;
-      content: counter(line);
+
+      &::before {
+        counter-increment: line;
+        content: counter(line);
+      }
     }
   }
-  textarea {
+  #code {
     width: 100%;
-    height: auto;
-    padding: 5px;
-    color: @foregroundLight;
-    background: transparent;
-    font-size: 16px;
-    font-family: @fontCode, monospace;
-    outline: none;
-    border: none;
-    resize: none;
-    overflow: auto;
-    white-space: nowrap;
-  }
-  textarea::selection {
-    color: @backgroundLight;
-    background: @foregroundLight;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+
+    #preview, textarea {
+      padding: 5px;
+    }
+    #preview {
+      max-width: 100%;
+      max-height: 100%;
+      color: @foregroundLight;
+      background: @backgroundLight;
+      user-select: none;
+      font-family: @fontCode, monospace;
+      z-index: -1;
+      white-space: pre;
+      overflow: hidden;
+      position: absolute;
+    }
+    textarea {
+      width: 100%;
+      height: auto;
+      color: transparent;
+      background: transparent;
+      caret-color: @foregroundLight;
+      font-size: 16px;
+      font-family: @fontCode, monospace;
+      outline: none;
+      border: none;
+      resize: none;
+      white-space: nowrap;
+
+      &::selection {
+        color: @backgroundLight;
+        background: @foregroundLight;
+      }
+    }
   }
 }

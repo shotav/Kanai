@@ -12,7 +12,7 @@ const createWindow = () => {
     width: 1280,
     height: 720,
     show: false,
-    icon: path.join(process.cwd(), "src", "renderer", "public", "favicon.png"),
+    icon: path.join(process.cwd(), "assets", "icon.png"),
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,

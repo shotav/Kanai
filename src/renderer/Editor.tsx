@@ -2,29 +2,37 @@ import React from "react";
 import { ipcRenderer } from "electron";
 import { Helmet } from "react-helmet";
 import CryptoJS from "crypto-js";
+import Prism from "prismjs";
 import "./assets/less/Editor.less";
+import "./assets/less/Syntax.less";
 
-export default class Editor extends React.Component<{ file: string }, { name: string, lines: number, currentHash: string, savedHash: string }> {
+export default class Editor extends React.Component<{ file: string }, { name: string, lines: number, currentHash: string, savedHash: string, preview: string }> {
   private lines: React.RefObject<HTMLDivElement>;
+  private preview: React.RefObject<HTMLDivElement>;
   private text: React.RefObject<HTMLTextAreaElement>;
   constructor(props) {
     super(props);
     this.lines = React.createRef();
+    this.preview = React.createRef();
     this.text = React.createRef();
     this.state = {
       name: undefined,
       currentHash: "",
       savedHash: undefined,
-      lines: 1
+      lines: 1,
+      preview: ""
     };
   }
   handleScroll = (event: React.UIEvent<HTMLElement>) => {
+    this.preview.current.scrollTop = event.currentTarget.scrollTop;
+    this.preview.current.scrollLeft = event.currentTarget.scrollLeft;
     this.lines.current.scrollTop = event.currentTarget.scrollTop;
   }
   handleChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
     this.setState({
       currentHash: CryptoJS.SHA1(event.currentTarget.value).toString(),
-      lines: event.currentTarget.value.split(/\r|\r\n|\n/).length
+      lines: event.currentTarget.value.split(/\r|\r\n|\n/).length,
+      preview: Prism.highlight(event.currentTarget.value, Prism.languages["html"], "html")
     });
   }
   componentDidUpdate(prevProps) {
@@ -37,8 +45,11 @@ export default class Editor extends React.Component<{ file: string }, { name: st
             name: data.name,
             currentHash: hash,
             savedHash: hash,
-            lines: this.text.current.value.split(/\r|\r\n|\n/).length
+            lines: this.text.current.value.split(/\r|\r\n|\n/).length,
+            preview: Prism.highlight(data.content, Prism.languages["html"], "html")
           });
+          this.preview.current.scrollTop = this.text.current.scrollTop;
+          this.preview.current.scrollLeft = this.text.current.scrollLeft;
           this.lines.current.scrollTop = this.text.current.scrollTop;
         });
       } else {
@@ -47,8 +58,11 @@ export default class Editor extends React.Component<{ file: string }, { name: st
           name: undefined,
           currentHash: "",
           savedHash: undefined,
-          lines: this.text.current.value.split(/\r|\r\n|\n/).length
+          lines: 1,
+          preview: ""
         });
+        this.preview.current.scrollTop = this.text.current.scrollTop;
+        this.preview.current.scrollLeft = this.text.current.scrollLeft;
         this.lines.current.scrollTop = this.text.current.scrollTop;
       }
     }
@@ -72,12 +86,15 @@ export default class Editor extends React.Component<{ file: string }, { name: st
           <title>{this.state.currentHash === this.state.savedHash ? "" : "\u2022"} {this.state.name ? this.state.name : "Untitled"} - Kanai Editor</title>
         </Helmet>
         <div id="editor">
-          <div ref={this.lines}>
+          <div id="numbers" ref={this.lines}>
             {Array(this.state.lines).fill(0).map((_, i) => (
               <span key={i}/>
             ))}
           </div>
-          <textarea ref={this.text} onScroll={this.handleScroll.bind(this)} onChange={this.handleChange.bind(this)}/>
+          <div id="code">
+            <div id="preview" ref={this.preview} dangerouslySetInnerHTML={{ __html: this.state.preview }}/>
+            <textarea ref={this.text} onScroll={this.handleScroll.bind(this)} onChange={this.handleChange.bind(this)}/>
+          </div>
         </div>
       </>
     );
