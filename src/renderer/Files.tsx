@@ -1,26 +1,87 @@
 import React from "react";
-import { ipcRenderer } from "electron";
-import { FaFolder, FaFile } from "react-icons/fa";
+import { FaFolder, FaFile, FaAngleRight, FaAngleDown } from "react-icons/fa";
 import "./assets/less/Files.less";
 
-export default class Files extends React.Component {
-  handleClick(event: React.MouseEvent<HTMLElement>) {
-    ipcRenderer.send("openFile", event.currentTarget.dataset.name);
+type Entity = {
+  name: string,
+  path: string,
+  files?: Entity[]
+};
+
+export default class Files extends React.Component<unknown, { files: Entity[] }> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      files: [
+        { name: "Test", path: "Test/", files: [
+          { name: "Test", path: "Test/Test/", files: [] },
+          { name: "Test", path: "Test/Test/", files: [
+            { name: "Test", path: "Test/", files: [] },
+            { name: "Test.txt", path: "Test/Test/Test.txt" }
+          ]}
+        ]},
+        { name: "Test", path: "Test/", files: [
+          { name: "Test.txt", path: "Test/Test.txt" }
+        ]},
+        { name: "Test", path: "Test/", files: [] },
+        { name: "Test.txt", path: "Test.txt" },
+        { name: "Test.txt", path: "Test.txt" },
+        { name: "Test.txt", path: "Test.txt" }
+      ]
+    };
   }
   render() {
     return (
       <div id="files">
         <ul>
-          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 1</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 2</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test 1"><a><FaFolder/> Test 3</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test1.txt"><a><FaFile/> Test1.txt</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test2.txt"><a><FaFile/> Test2.txt</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test3.txt"><a><FaFile/> Test3.txt</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test4.txt"><a><FaFile/> Test4.txt</a></li>
-          <li onClick={this.handleClick.bind(this)} data-name="Test5.txt"><a><FaFile/> Test5.txt</a></li>
+          {this.state.files.map((e, i) => (
+            <File key={i} {...e}/>
+          ))}
         </ul>
       </div>
+    );
+  }
+}
+
+class File extends React.Component<Entity, unknown> {
+  handleClick(event: React.MouseEvent<HTMLElement>) {
+    console.log(event.currentTarget.dataset.path);
+  }
+  render() {
+    return (
+      <li>
+        {this.props.files ?
+          <Folder {...this.props}/> :
+          <span onClick={this.handleClick.bind(this)} data-path={this.props.path} className="file"><FaFile/> {this.props.name}</span>
+        }
+      </li>
+    );
+  }
+}
+
+class Folder extends React.Component<Entity, { collapsed: boolean }> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: true
+    }
+  }
+  handleClick() {
+    this.setState({ collapsed: !this.state.collapsed })
+  }
+  render() {
+    return (
+      <>
+        <span className="caret">{this.state.collapsed ? <FaAngleRight/> : <FaAngleDown/>}</span> 
+        <span className="folder" onClick={this.handleClick.bind(this)}><FaFolder/> {this.props.name}</span>
+        {this.state.collapsed ? "" : 
+          <ul>
+            {this.props.files.map((e, i) => (
+              <File key={i} {...e}/>
+            ))}
+          </ul>
+        }
+      </>
     );
   }
 }

@@ -12,7 +12,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     this.lines = React.createRef();
     this.text = React.createRef();
     this.state = {
-      name: "Untitled",
+      name: undefined,
       currentHash: "",
       savedHash: undefined,
       lines: 1
@@ -28,18 +28,29 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     });
   }
   componentDidUpdate(prevProps) {
-    if (this.props.file !== prevProps.file && this.props.file) {
-      ipcRenderer.invoke("read", this.props.file).then((data) => {
-        const hash = CryptoJS.SHA1(data.content).toString();
-        this.text.current.value = data.content;
+    if (this.props.file !== prevProps.file) {
+      if (this.props.file) {
+        ipcRenderer.invoke("read", this.props.file).then((data) => {
+          const hash = CryptoJS.SHA1(data.content).toString();
+          this.text.current.value = data.content;
+          this.setState({
+            name: data.name,
+            currentHash: hash,
+            savedHash: hash,
+            lines: this.text.current.value.split(/\r|\r\n|\n/).length
+          });
+          this.lines.current.scrollTop = this.text.current.scrollTop;
+        });
+      } else {
+        this.text.current.value = "";
         this.setState({
-          name: data.name,
-          currentHash: hash,
-          savedHash: hash,
+          name: undefined,
+          currentHash: "",
+          savedHash: undefined,
           lines: this.text.current.value.split(/\r|\r\n|\n/).length
         });
         this.lines.current.scrollTop = this.text.current.scrollTop;
-      });
+      }
     }
   }
   componentDidMount() {
@@ -58,7 +69,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     return (
       <>
         <Helmet>
-          <title>{this.state.currentHash === this.state.savedHash ? "" : "\u2022"} {this.state.name} - Kanai Editor</title>
+          <title>{this.state.currentHash === this.state.savedHash ? "" : "\u2022"} {this.state.name ? this.state.name : "Untitled"} - Kanai Editor</title>
         </Helmet>
         <div id="editor">
           <div ref={this.lines}>

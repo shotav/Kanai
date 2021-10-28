@@ -3,7 +3,7 @@
 #editor {
   width: 100%;
   max-height: 100%;
-  color: @foreground;
+  color: @foregroundLight;
   background: @backgroundLight;
   font-size: 16px;
   font-family: @fontCode, monospace;
@@ -17,7 +17,7 @@
 
     span {
       width: 100%;
-      color: darken(@foreground, 25%);
+      color: @foregroundDark;
       display: block;
       text-align: right;
     }
@@ -30,7 +30,7 @@
     width: 100%;
     height: auto;
     padding: 5px;
-    color: @foreground;
+    color: @foregroundLight;
     background: transparent;
     font-size: 16px;
     font-family: @fontCode, monospace;
@@ -42,6 +42,6 @@
   }
   textarea::selection {
     color: @backgroundLight;
-    background: @foreground;
+    background: @foregroundLight;
   }
 }

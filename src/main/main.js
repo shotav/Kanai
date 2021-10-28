@@ -26,7 +26,9 @@ const createWindow = () => {
   menu.append(new MenuItem({
     label: "File",
     submenu: [
-      { label: "New File", accelerator: "CTRL+N", enabled: false },
+      { label: "New File", accelerator: "CTRL+N", click: () => {
+        win.webContents.send("open", "");
+      }},
       { label: "New Window", accelerator: "CTRL+SHIFT+N", enabled: false },
       { type: "separator" },
       { label: "Open File...", accelerator: "CTRL+O", click: () => {
