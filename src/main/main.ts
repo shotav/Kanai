@@ -1,11 +1,11 @@
-const path = require("path");
-const fs = require("fs");
-const { app, BrowserWindow, Menu, MenuItem, ipcMain, dialog } = require("electron");
-const isDev = require("electron-is-dev");
-const serve = require("electron-serve");
-const loadURL = serve({ directory: "build" });
-
-let win;
+import path from "path";
+import fs from "fs";
+import { app, BrowserWindow, Menu, MenuItem, ipcMain, IpcMainEvent, IpcMainInvokeEvent, dialog } from "electron";
+import electronReload from "electron-reload";
+import isDev from "electron-is-dev";
+import serve from "electron-serve";
+const loadURL = serve({ directory: path.join("build", "renderer") });
+let win: BrowserWindow;
 
 const createWindow = () => {
   win = new BrowserWindow({
@@ -79,6 +79,9 @@ const createWindow = () => {
   win.once("ready-to-show", () => win.show());
 
   if (isDev) {
+    electronReload(__dirname, {
+      electron: path.join(process.cwd(), "node_modules", ".bin", "electron")
+    });
     process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = "true";
     win.loadURL("http://localhost:8080");
     win.webContents.openDevTools({ mode: "detach" });
@@ -99,22 +102,22 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-ipcMain.handle("read", (_, file) => {
+ipcMain.handle("read", (_: IpcMainInvokeEvent, file: string) => {
   return {
     name: path.basename(file),
     content: fs.readFileSync(file, "utf-8")
   };
 });
-ipcMain.on("write", (event, file, content, hash) => {
-  fs.writeFile(file, content, (error) => {
+ipcMain.on("write", (event: IpcMainEvent, file: string, content: string, hash: string) => {
+  fs.writeFile(file, content, (error: unknown) => {
     if (!error) {
       event.reply("saved", hash);
     }
   });
 });
-ipcMain.on("writeAs", (event, content) => {
+ipcMain.on("writeAs", (event: IpcMainEvent, content: string) => {
   dialog.showSaveDialog(win, { title: "Kanai Editor", properties: [ "showHiddenFiles" ] }).then((result) => {
-    if (!result.canceled) {
+    if (result.filePath) {
       const file = result.filePath;
       fs.writeFileSync(file, content);
       event.reply("open", file);

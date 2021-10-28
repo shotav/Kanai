@@ -7,7 +7,7 @@ module.exports = {
   entry: "./src/renderer/main.ts",
   target: "electron-renderer",
   output: {
-    path: path.join(__dirname, "build"),
+    path: path.join(__dirname, "build", "renderer"),
     filename: "bundle.js"
   },
   resolve: {
