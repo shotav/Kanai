@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/pryoscode/Dokumente/Code/Kanai/assets/icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     showguides="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="240.76986"
+     inkscape:cy="209.30361"
+     inkscape:window-width="2560"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="15.374023"
+       y="32.142136"
+       width="485.15808"
+       height="457.36195"
+       id="rect313492" />
+    <rect
+       x="97.074401"
+       y="81.481704"
+       width="387.98504"
+       height="384.50731"
+       id="rect207982" />
+    <rect
+       x="0.33071899"
+       y="0.015846252"
+       width="114.05818"
+       height="64.590294"
+       id="rect177990" />
+    <rect
+       x="0.0033829212"
+       y="0.0025330782"
+       width="21.38689"
+       height="98.387133"
+       id="rect130398" />
+    <rect
+       x="-1.3051976"
+       y="0.14921607"
+       width="131.7136"
+       height="80.404263"
+       id="rect10682" />
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       id="text130396"
+       style="line-height:1.25;font-family:'Fira Code';font-weight:bold;font-size:40px;-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect130398)" />
+    <text
+       xml:space="preserve"
+       id="text177988"
+       style="font-weight:bold;font-size:40px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect177990)" />
+    <rect
+       style="fill:#282c34;fill-opacity:1;stroke:#282c34;stroke-width:25.4222;stroke-opacity:1"
+       id="rect308172"
+       width="386.57785"
+       height="386.57782"
+       x="62.711132"
+       y="62.711132"
+       ry="30.310858" />
+    <text
+       xml:space="preserve"
+       id="text313490"
+       style="font-weight:bold;font-size:40px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect313492);fill:#abb2bf;fill-opacity:1"
+       transform="matrix(2.3317931,0,0,2.3317931,36.476069,78.371587)"><tspan
+         x="15.375"
+         y="106.80921"
+         id="tspan365201"><tspan
+           style="font-size:85.3333px"
+           id="tspan365199">{K}</tspan></tspan></text>
+  </g>
+</svg>
