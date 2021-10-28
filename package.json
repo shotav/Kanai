@@ -40,10 +40,11 @@
     "dev:bundle": "webpack serve --mode=development",
     "dev:open": "wait-on http://localhost:8080 && electron .",
     "dev": "concurrently -k \"yarn dev:lint\" \"yarn dev:transpile\" \"yarn dev:bundle\" \"yarn dev:open\"",
+    "build:lint": "eslint src/main/**/*",
     "build:transpile": "tsc",
     "build:bundle": "webpack --mode=production",
     "build:pack": "electron-builder",
-    "build": "yarn build:transpile && yarn build:bundle && yarn build:pack"
+    "build": "yarn build:lint && yarn build:transpile && yarn build:bundle && yarn build:pack"
   },
   "engines": {
     "node": ">=14.0.0",
