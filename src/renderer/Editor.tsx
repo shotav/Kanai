@@ -2,7 +2,7 @@ import React from "react";
 import { ipcRenderer } from "electron";
 import { Helmet } from "react-helmet";
 import CryptoJS from "crypto-js";
-import Prism from "prismjs";
+import hljs from "highlight.js";
 import "./assets/styles/Editor.less";
 import "./assets/styles/Syntax.less";
 
@@ -16,7 +16,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     this.preview = React.createRef();
     this.text = React.createRef();
     this.state = {
-      name: undefined,
+      name: "",
       currentHash: "",
       savedHash: undefined,
       lines: 1,
@@ -29,10 +29,11 @@ export default class Editor extends React.Component<{ file: string }, { name: st
     this.lines.current.scrollTop = event.currentTarget.scrollTop;
   }
   handleChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    const lang = this.state.name.split(".").pop().toLowerCase();
     this.setState({
       currentHash: CryptoJS.SHA1(event.currentTarget.value).toString(),
       lines: event.currentTarget.value.split(/\r|\r\n|\n/).length,
-      preview: Prism.highlight(event.currentTarget.value, Prism.languages["html"], "html")
+      preview: hljs.highlight(event.currentTarget.value, {language: hljs.getLanguage(lang) ? lang : "text"}).value
     });
   }
   componentDidUpdate(prevProps) {
@@ -40,13 +41,14 @@ export default class Editor extends React.Component<{ file: string }, { name: st
       if (this.props.file) {
         ipcRenderer.invoke("read", this.props.file).then((data) => {
           const hash = CryptoJS.SHA1(data.content).toString();
+          const preview = data.name.split(".").pop().toLowerCase();
           this.text.current.value = data.content;
           this.setState({
             name: data.name,
             currentHash: hash,
             savedHash: hash,
             lines: this.text.current.value.split(/\r|\r\n|\n/).length,
-            preview: Prism.highlight(data.content, Prism.languages["html"], "html")
+            preview: hljs.highlight(data.content, {language: hljs.getLanguage(preview) ? preview : "text"}).value
           });
           this.preview.current.scrollTop = this.text.current.scrollTop;
           this.preview.current.scrollLeft = this.text.current.scrollLeft;
@@ -55,7 +57,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
       } else {
         this.text.current.value = "";
         this.setState({
-          name: undefined,
+          name: "",
           currentHash: "",
           savedHash: undefined,
           lines: 1,
@@ -69,7 +71,7 @@ export default class Editor extends React.Component<{ file: string }, { name: st
   }
   componentDidMount() {
     ipcRenderer.on("saved", (_, hash) => this.setState({ savedHash: hash }));
-    ipcRenderer.on("saveAs", () => ipcRenderer.send("saveAs", this.text.current.value));
+    ipcRenderer.on("saveAs", () => ipcRenderer.send("writeAs", this.text.current.value));
     ipcRenderer.on("save", () => {
       const hash = CryptoJS.SHA1(this.text.current.value).toString();
       if (this.props.file) {

@@ -1,69 +1,75 @@
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #5C6370;
+@import "Theme.less";
+
+.hljs {
+  color: @foregroundLight;
 }
 
-.token.punctuation {
-  color: #abb2bf;
-}
-
-.token.selector,
-.token.tag {
-  color: #e06c75;
-}
-
-.token.property,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.attr-name,
-.token.deleted {
-  color: #d19a66;
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.builtin,
-.token.inserted {
-  color: #98c379;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #56b6c2;
-}
-
-.token.atrule,
-.token.keyword {
-  color: #c678dd;
-}
-
-.token.function {
-  color: #61afef;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #c678dd;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
+.hljs-comment,
+.hljs-quote {
+  color: @foregroundDark;
   font-style: italic;
 }
 
-.token.entity {
-  cursor: help;
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: @primaryPurple;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: @primaryRedLight;
+}
+
+.hljs-literal {
+  color: @primaryCyan;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: @primaryGreen;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: @primaryOrangeDark;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: @primaryBlue;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: @primaryOrangeLight;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }
