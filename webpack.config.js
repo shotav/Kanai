@@ -6,6 +6,7 @@ const StylelintPlugin = require("stylelint-webpack-plugin");
 module.exports = {
   entry: "./src/renderer/main.ts",
   target: "electron-renderer",
+  devtool: "source-map",
   output: {
     path: path.join(__dirname, "build", "renderer"),
     filename: "bundle.js"

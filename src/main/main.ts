@@ -102,6 +102,8 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+// Editor
+
 ipcMain.handle("read", (_: IpcMainInvokeEvent, file: string) => {
   return {
     name: path.basename(file),
@@ -123,4 +125,45 @@ ipcMain.on("writeAs", (event: IpcMainEvent, content: string) => {
       event.reply("open", file);
     }
   });
+});
+
+// Files
+
+type Entity = {
+  name: string,
+  path: string,
+  files?: Entity[]
+};
+
+const readDir = (file: string) => {
+  const files: Entity[] = [];
+  fs.readdirSync(file, "utf-8")
+  .sort((a, b) => {
+    const aDir = fs.lstatSync(path.join(file, a)).isDirectory();
+    const bDir = fs.lstatSync(path.join(file, b)).isDirectory();
+    if (!aDir && bDir) return 1;
+    if (aDir && !bDir) return -1;
+    return 0;
+  })
+  .forEach((f) => {
+    const p = path.join(file, f);
+    if (fs.lstatSync(p).isDirectory()) {
+      files.push({
+        name: path.basename(f),
+        path: p,
+        files: readDir(p)
+      });
+    } else {
+      files.push({
+        name: path.basename(f),
+        path: p
+      });
+    }
+  });
+  return files;
+};
+
+ipcMain.handle("list", (_: IpcMainInvokeEvent, file: string) => {
+  const files: Entity[] = readDir(file);
+  return { files };
 });

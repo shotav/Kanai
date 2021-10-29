@@ -1,5 +1,7 @@
 import React from "react";
+import { ipcRenderer } from "electron";
 import { FaFolder, FaFile, FaAngleRight, FaAngleDown } from "react-icons/fa";
+import { subject } from "./bridge";
 import "./assets/styles/Files.less";
 
 type Entity = {
@@ -8,27 +10,17 @@ type Entity = {
   files?: Entity[]
 };
 
-export default class Files extends React.Component<unknown, { files: Entity[] }> {
+export default class Files extends React.Component<{ workspace: string }, { files: Entity[] }> {
   constructor(props) {
     super(props);
     this.state = {
-      files: [
-        { name: "Test", path: "Test/", files: [
-          { name: "Test", path: "Test/Test/", files: [] },
-          { name: "Test", path: "Test/Test/", files: [
-            { name: "Test", path: "Test/", files: [] },
-            { name: "Test.txt", path: "Test/Test/Test.txt" }
-          ]}
-        ]},
-        { name: "Test", path: "Test/", files: [
-          { name: "Test.txt", path: "Test/Test.txt" }
-        ]},
-        { name: "Test", path: "Test/", files: [] },
-        { name: "Test.txt", path: "Test.txt" },
-        { name: "Test.txt", path: "Test.txt" },
-        { name: "Test.txt", path: "Test.txt" }
-      ]
+      files: []
     };
+  }
+  componentDidMount() {
+    ipcRenderer.invoke("list", this.props.workspace).then((data) => {
+      this.setState({ files: data.files })
+    });
   }
   render() {
     return (
@@ -45,7 +37,7 @@ export default class Files extends React.Component<unknown, { files: Entity[] }>
 
 class File extends React.Component<Entity, unknown> {
   handleClick(event: React.MouseEvent<HTMLElement>) {
-    console.log(event.currentTarget.dataset.path);
+    subject.next(event.currentTarget.dataset.path);
   }
   render() {
     return (
