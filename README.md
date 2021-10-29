@@ -27,6 +27,9 @@ A cross-platform code editor.
 - [ ] Code Completion
 - [ ] Settings Sync
 - [ ] Auto Updater
+- [ ] Image Viewer
+- [ ] Font Viewer
+- [ ] Hex Editor
 - [ ] Plugins
 - [ ] Themes
 
