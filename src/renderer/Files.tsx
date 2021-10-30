@@ -1,7 +1,7 @@
 import React from "react";
 import { ipcRenderer } from "electron";
 import { FaFolder, FaFile, FaAngleRight, FaAngleDown, FaFileAlt } from "react-icons/fa";
-import { SiMarkdown, SiJson, SiJavascript, SiTypescript, SiCss3, SiLess, SiSass, SiHtml5, SiPython, SiRust, SiC, SiCplusplus, SiRuby, SiCsharp, SiJava, SiGo, SiReact, SiKotlin, SiLua, SiCoffeescript, SiDart } from "react-icons/si";
+import { SiMarkdown, SiJson, SiJavascript, SiTypescript, SiCss3, SiLess, SiSass, SiHtml5, SiPython, SiRust, SiC, SiCplusplus, SiRuby, SiCsharp, SiJava, SiGo, SiReact, SiKotlin, SiLua, SiCoffeescript, SiDart, SiHandlebarsdotjs } from "react-icons/si";
 import { subject } from "./bridge";
 import "./assets/styles/Files.less";
 
@@ -47,6 +47,7 @@ class File extends React.Component<Entity, unknown> {
         case "css": return <SiCss3/>;
         case "dart": return <SiDart/>;
         case "go": return <SiGo/>;
+        case "hbs": return <SiHandlebarsdotjs/>;
         case "html": return <SiHtml5/>;
         case "java": return <SiJava/>;
         case "js": return <SiJavascript/>;

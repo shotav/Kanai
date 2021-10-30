@@ -24,9 +24,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.hbs$/,
+        loader: "handlebars-loader"
+      },
+      {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: [ "babel-loader" ]
+        loader: "babel-loader"
       },
       {
         test: /\.(css|less)$/,
@@ -36,7 +40,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/renderer/assets/views/index.ejs"
+      template: "src/renderer/assets/views/index.hbs",
+      inject: false
     }),
     new ESLintPlugin({
       extensions: [ "js", "jsx", "ts", "tsx" ]
