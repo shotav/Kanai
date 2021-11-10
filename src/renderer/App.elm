@@ -1,5 +1,6 @@
 module App exposing (main)
-import Html exposing (text)
+import Html exposing (..)
 
+main : Html msg
 main =
-  text "Hello World!"
+  h1 [] [ text "Hello World!" ]
