@@ -14,7 +14,7 @@
 
 # <a href="https://github.com/PryosCode/Kanai/blob/master/assets/icon.svg"><img src="https://github.com/PryosCode/Kanai/raw/master/assets/icon.png" alt="File" width="30" height="auto"></a> Kanai Editor
 
-A cross-platform code editor.
+A lightweight cross-platform code editor.
 
 ## Features
 

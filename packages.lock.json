@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETCoreApp,Version=v5.0": {
+      "FSharp.Core": {
+        "type": "Direct",
+        "requested": "[5.0.0, )",
+        "resolved": "5.0.0",
+        "contentHash": "iHoYXA0VaSQUONGENB1aVafjDDZDZpwu39MtaRCTrmwFW/cTcK0b2yKNVYneFHJMc3ChtsSoM9lNtJ1dYXkHfA=="
+      },
+      "Photino.NET": {
+        "type": "Direct",
+        "requested": "[2.0.13, )",
+        "resolved": "2.0.13",
+        "contentHash": "vnQdV+TD9sDmMBshScQuoU21Iu4upFxpNh2btNOuvStGGSJfXWudwNvlRV9BLcYg4Q9CeOgF//6yppbot2gmBA==",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "Photino.Native": "2.0.19"
+        }
+      },
+      "Newtonsoft.Json": {
+        "type": "Transitive",
+        "resolved": "13.0.1",
+        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
+      },
+      "Photino.Native": {
+        "type": "Transitive",
+        "resolved": "2.0.19",
+        "contentHash": "+yM860RFWYe4Oba0rueCpsnUIrZsfhkFm1BZ+VdVS0Yq5fBF/INWQ+RytwVYtjwnHOSHsLlcNZf0+fkISJKm5g=="
+      }
+    }
+  }
+}
