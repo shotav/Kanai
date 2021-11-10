@@ -13,6 +13,7 @@ A lightweight cross-platform code editor.
 ## Features
 
 - [x] Cross-Platform
+- [x] Lightweight
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
