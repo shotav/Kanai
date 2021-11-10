@@ -1,10 +1,4 @@
 <p align="center">
-  <a href="https://github.com/PryosCode/Kanai/blob/master/assets/screenshot.png">
-    <img src="https://github.com/PryosCode/Kanai/raw/master/assets/screenshot.png" alt="Screenshot" width="600" height="auto">
-  </a>
-</p>
-
-<p align="center">
     <a href="https://github.com/PryosCode/Kanai/tags"><img alt="Version" src="https://img.shields.io/github/v/release/PryosCode/Kanai?label=Version"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Linux" src="https://github.com/PryosCode/Kanai/actions/workflows/linux.yml/badge.svg"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Windows" src="https://github.com/PryosCode/Kanai/actions/workflows/windows.yml/badge.svg"></a>
@@ -18,18 +12,18 @@ A lightweight cross-platform code editor.
 
 ## Features
 
-- [x] Syntax Highlighting
 - [x] Cross-Platform
-- [x] File Hierarchy
-- [x] Line Numbers
-- [x] Ligatures
+- [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
+- [ ] File Hierarchy
 - [ ] Settings Sync
 - [ ] Auto Updater
+- [ ] Line Numbers
 - [ ] Image Viewer
 - [ ] Font Viewer
 - [ ] Hex Editor
+- [ ] Ligatures
 - [ ] Plugins
 - [ ] Themes
 

@@ -22,10 +22,16 @@ jobs:
       with:
         node-version: 14
 
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+
     - name: Build Yarn
       run: |
         echo VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
         yarn install
+        yarn build
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
