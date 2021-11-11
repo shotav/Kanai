@@ -17,10 +17,7 @@ module.exports = {
         path.resolve(__dirname, "node_modules"),
         path.resolve(__dirname, "src", "renderer")
       ],
-      extensions: [ ".coffee" ]
-  },
-  devServer: {
-    static: path.join(__dirname, "src", "renderer", "public")
+      extensions: [ ".js", ".coffee" ]
   },
   module: {
     rules: [
@@ -37,7 +34,7 @@ module.exports = {
         use: [ "babel-loader", "coffee-loader" ]
       },
       {
-        test: /\.(sass)$/,
+        test: /\.sass$/,
         use: [ "style-loader", "css-loader", "postcss-loader", "sass-loader" ]
       }
     ]

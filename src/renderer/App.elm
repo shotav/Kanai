@@ -1,6 +1,10 @@
-module App exposing (main)
+module App exposing (..)
 import Html exposing (..)
+import Files
 
 main : Html msg
 main =
-  h1 [] [ text "Hello World!" ]
+  div []
+    [ p [] [ text "App" ]
+    , Files.view
+    ]

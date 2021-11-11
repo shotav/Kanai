@@ -3,15 +3,20 @@
 all: install build
 
 install:
-	npm install
+	npm install --force
 
 build:
 	npx webpack --mode=production
-	dotnet build --configuration Release
+#	dotnet publish -c Release -r linux-x64
 
 dev:
-	npx webpack --mode=development
-	dotnet run --configuration Debug
+	make -j 2 dev-serve dev-run
+
+dev-serve:
+	npx webpack serve --mode=development
+
+dev-run:
+	dotnet watch run -c Debug
 
 clean:
 	rm -rf bin
