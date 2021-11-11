@@ -30,11 +30,11 @@ module.exports = {
       },
       {
         test: /\.elm$/,
-        loader: "elm-webpack-loader"
+        use: [ "babel-loader", "elm-webpack-loader" ]
       },
       {
         test: /\.coffee$/,
-        loader: "coffee-loader"
+        use: [ "babel-loader", "coffee-loader" ]
       },
       {
         test: /\.(sass)$/,

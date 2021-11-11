@@ -23,20 +23,15 @@
     "type": "git",
     "url": "https://github.com/PryosCode/Kanai.git"
   },
-  "scripts": {
-    "dev:bundle": "webpack --mode=development",
-    "dev:run": "dotnet run",
-    "dev": "yarn dev:bundle && yarn dev:run",
-    "build:bundle": "webpack --mode=production",
-    "build:compile": "dotnet build --configuration Release",
-    "build": "yarn build:bundle && yarn build:compile"
-  },
   "engines": {
     "node": ">=14.0.0",
     "yarn": ">=1.0.0 <2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
     "codemirror": "^5.63.3",
     "coffee-loader": "^3.0.0",
     "coffeescript": "^2.6.1",
