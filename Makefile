@@ -7,7 +7,7 @@ install:
 
 build:
 	npx webpack --mode=production
-#	dotnet publish -c Release -r linux-x64
+	dotnet publish -c Release -r linux-x64 --self-contained
 
 dev:
 	make -j 2 dev-serve dev-run

@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <SelfContained>true</SelfContained>
-    <TargetFramework>net5.0</TargetFramework>
-    <PublishReadyToRun>true</PublishReadyToRun>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TargetFramework>net6.0</TargetFramework>
+    <PublishReadyToRun>false</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 

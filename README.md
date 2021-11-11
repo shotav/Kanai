@@ -14,6 +14,8 @@ A lightweight cross-platform code editor.
 
 - [x] Cross-Platform
 - [x] Lightweight
+- [x] Portable
+- [x] Fast
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
