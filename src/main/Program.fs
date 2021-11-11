@@ -6,7 +6,7 @@ module Program =
   [<EntryPoint>]
   let main _ =
     PhotinoWindow()
-      .SetTitle("Kanai")
+      .SetTitle("Kanai Editor")
       .SetUseOsDefaultSize(false)
       .SetSize(Size(600, 400))
       .Center()

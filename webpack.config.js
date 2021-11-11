@@ -5,7 +5,7 @@ const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
   entry: [
-    "./src/renderer/main.coffee",
+    "./src/renderer/Main.coffee",
     "./src/renderer/assets/styles/styles.sass"
   ],
   output: {

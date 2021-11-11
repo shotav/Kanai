@@ -6,11 +6,11 @@ install:
 	npm install
 
 build:
-	npm exec -- webpack --mode=production
+	npx webpack --mode=production
 	dotnet build --configuration Release
 
 dev:
-	npm exec -- webpack --mode=development
+	npx webpack --mode=development
 	dotnet run --configuration Debug
 
 clean:
