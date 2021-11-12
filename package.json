@@ -37,7 +37,7 @@
     "build:bundle": "webpack --mode=production",
     "build:compile": "stack build --copy-bins --local-bin-path .",
     "build": "yarn build:bundle && yarn build:compile",
-    "clean": "del .stack-work build elm-stuff node_modules Kanai Kanai.exe"
+    "clean": "del .stack-work build elm-stuff node_modules Kanai kanai.cabal Kanai.exe"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
