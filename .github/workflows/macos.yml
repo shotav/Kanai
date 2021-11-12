@@ -22,15 +22,18 @@ jobs:
       with:
         node-version: 14
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+    - name: Setup Haskell
+      uses: haskell/actions/setup@v1
       with:
-        dotnet-version: 6.0.x
+        ghc-version: 9.0.0
+        enable-stack: true
+        stack-version: latest
 
     - name: Make
       run: |
         echo VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
-#       make
+        yarn install
+        yarn build
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1

@@ -1,0 +1,8 @@
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2021/11/6.yaml
+
+extra-deps:
+  - git: https://github.com/lettier/webviewhs.git
+    commit: 21ddd4b4872b2e7eb50c9735e70cfbdedf2c6c1a
+  - text-format-heavy-0.1.5.3
+  - happy-1.20.0

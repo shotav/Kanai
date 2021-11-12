@@ -1,0 +1,20 @@
+name:                kanai
+version:             0.4.0
+description:         "A lightweight cross-platform code editor."
+github:              "PryosCode/Kanai"
+license:             "Apache-2.0"
+author:              "PryosCode"
+maintainer:          "info@pryoscode.net"
+copyright:           "2021 PryosCode"
+
+extra-source-files:
+- README.md
+- LICENSE
+
+executables:
+  Kanai:
+    main:           Main.hs
+    source-dirs:    src/main
+    dependencies:
+    - base >= 4.7 && < 5
+    - webviewhs

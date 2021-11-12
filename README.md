@@ -38,7 +38,8 @@ A lightweight cross-platform code editor.
 
 ```bash
 $ git clone https://github.com/PryosCode/Kanai.git
-$ make
+$ yarn install
+$ yarn build
 ```
 
 ## License
