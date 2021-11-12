@@ -29,7 +29,7 @@ jobs:
         enable-stack: true
         stack-version: latest
 
-    - name: Make
+    - name: Yarn Build
       run: |
         echo VERSION=$(node -p "require('./package.json').version") | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
         yarn install
