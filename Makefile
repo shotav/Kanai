@@ -7,7 +7,7 @@ install:
 
 build:
 	npx webpack --mode=production
-	dotnet publish -c Release -r linux-x64 --self-contained
+	cabal build
 
 dev:
 	make -j 2 dev-serve dev-run
@@ -16,11 +16,11 @@ dev-serve:
 	npx webpack serve --mode=development
 
 dev-run:
-	dotnet watch run -c Debug
+	echo TODO
 
 clean:
-	rm -rf bin
 	rm -rf build
+	rm -rf dist-newstyle
 	rm -rf elm-stuff
 	rm -rf node_modules
 	rm -rf obj

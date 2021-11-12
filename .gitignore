@@ -1,5 +1,5 @@
-bin
 build
+dist-newstyle
 elm-stuff
 node_modules
 obj
