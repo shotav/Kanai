@@ -1,6 +1,4 @@
-.stack-work
+.gradle
+.vscode
+bin
 build
-elm-stuff
-node_modules
-Kanai*
-kanai.cabal

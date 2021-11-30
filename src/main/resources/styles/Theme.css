@@ -1,0 +1,6 @@
+.label {
+    -fx-text-fill: white;
+}
+#titlebar {
+    -fx-background-color: black;
+}

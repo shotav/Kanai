@@ -1,0 +1,9 @@
+#titlebar #controls {
+    -fx-alignment: center;
+    -fx-padding: 0 10px 0 10px;
+    -fx-spacing: 5px;
+}
+#titlebar #controls .button {
+    -fx-background-radius: 100%;
+    -fx-background-insets: 0;
+}

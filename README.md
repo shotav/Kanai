@@ -8,14 +8,11 @@
 
 # <a href="https://github.com/PryosCode/Kanai/blob/master/assets/icon.svg"><img src="https://github.com/PryosCode/Kanai/raw/master/assets/icon.png" alt="File" width="30" height="auto"></a> Kanai Editor
 
-A lightweight cross-platform code editor.
+A cross-platform code editor.
 
 ## Features
 
 - [x] Cross-Platform
-- [x] Lightweight
-- [x] Portable
-- [x] Fast
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
@@ -38,8 +35,7 @@ A lightweight cross-platform code editor.
 
 ```bash
 $ git clone https://github.com/PryosCode/Kanai.git
-$ yarn install
-$ yarn build
+$ gradle build
 ```
 
 ## License

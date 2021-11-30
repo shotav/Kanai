@@ -1,6 +1,0 @@
-{
-  "parser": "eslint-plugin-coffeescript",
-  "plugins": [
-    "coffeescript"
-  ]
-}

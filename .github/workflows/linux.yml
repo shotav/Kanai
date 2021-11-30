@@ -17,23 +17,16 @@ jobs:
     - name: Checkout GitHub
       uses: actions/checkout@v2
 
-    - name: Setup Node
-      uses: actions/setup-node@v2
+    - name: Setup Java
+      uses: actions/setup-java@v2
       with:
-        node-version: 14
+        distribution: temurin
+        java-version: 17
 
-    - name: Setup Haskell
-      uses: haskell/actions/setup@v1
-      with:
-        ghc-version: 9.0
-        enable-stack: true
-        stack-version: latest
-
-    - name: Yarn Build
+    - name: Gradle Build
       run: |
-        echo VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
-        yarn install
-        yarn build
+        echo VERSION=$(gradle -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
+        gradle build
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
