@@ -6,17 +6,17 @@
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/PryosCode/Kanai/blob/master/assets/icon.svg"><img src="https://github.com/PryosCode/Kanai/raw/master/assets/icon.png" alt="File" width="30" height="auto"></a> Kanai Editor
+# <a href="https://github.com/PryosCode/Kanai/blob/master/assets/icon.svg"><img src="https://github.com/PryosCode/Kanai/raw/master/src/main/resources/icon.png" alt="File" width="30" height="auto"></a> Kanai Editor
 
 A cross-platform code editor.
 
 ## Features
 
 - [x] Cross-Platform
+- [X] File Hierarchy
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
-- [ ] File Hierarchy
 - [ ] Settings Sync
 - [ ] Auto Updater
 - [ ] Line Numbers
