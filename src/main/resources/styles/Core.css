@@ -7,6 +7,8 @@
     -fx-background-radius: 100%;
     -fx-background-insets: 0;
 }
-#titlebar, #files, #files .tree-cell {
+#titlebar,
+#files, #files .tree-cell,
+#editor .tab-header-background {
     -fx-background-color: transparent;
 }

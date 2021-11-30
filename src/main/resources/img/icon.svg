@@ -9,7 +9,7 @@
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="/home/pryoscode/Dokumente/Code/Kanai/assets/icon.png"
+   inkscape:export-filename="C:\Users\pryos\Documents\Code\Kanai\src\main\resources\img\icon.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,12 +28,12 @@
      showgrid="false"
      showguides="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="240.76986"
-     inkscape:cy="209.30361"
-     inkscape:window-width="2560"
-     inkscape:window-height="1371"
-     inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:cx="78.842404"
+     inkscape:cy="261.27595"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -82,22 +82,25 @@
        id="text177988"
        style="font-weight:bold;font-size:40px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect177990)" />
     <rect
-       style="fill:#282c34;fill-opacity:1;stroke:#282c34;stroke-width:25.4222;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:25.4222;stroke-opacity:1"
        id="rect308172"
-       width="386.57785"
+       width="386.57764"
        height="386.57782"
        x="62.711132"
        y="62.711132"
-       ry="30.310858" />
+       ry="30.310858"
+       inkscape:export-filename="C:\Users\pryos\Documents\Code\Kanai\src\main\resources\img\icon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <text
        xml:space="preserve"
        id="text313490"
-       style="font-weight:bold;font-size:40px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect313492);fill:#abb2bf;fill-opacity:1"
+       style="font-weight:bold;font-size:40px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';white-space:pre;shape-inside:url(#rect313492);fill:#ffffff;fill-opacity:1"
        transform="matrix(2.3317931,0,0,2.3317931,36.476069,78.371587)"><tspan
          x="15.375"
          y="106.80921"
-         id="tspan365201"><tspan
+         id="tspan4160"><tspan
            style="font-size:85.3333px"
-           id="tspan365199">{K}</tspan></tspan></text>
+           id="tspan4158">{K}</tspan></tspan></text>
   </g>
 </svg>

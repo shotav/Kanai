@@ -16,7 +16,7 @@ public class Window extends Application {
     public void start(Stage stage) throws Exception {
         BorderPane root = new BorderPane();
         root.setId("root");
-        root.setTop(new Titlebar("Test"));
+        root.setTop(new Titlebar(stage));
         root.setLeft(new Files());
         root.setCenter(new Editor());
         stage.setScene(new BorderlessScene(stage, root, 1280, 720));

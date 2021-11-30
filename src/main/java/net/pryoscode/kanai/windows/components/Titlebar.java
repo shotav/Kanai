@@ -18,16 +18,17 @@ public class Titlebar extends BorderPane {
     private double x;
     private double y;
 
-    public Titlebar(String text) {
+    public Titlebar(Stage stage) {
         ImageView icon = new ImageView(new Image(Loader.load("img/icon.png")));
-        title = new Label(text);
+        title = new Label();
         setMinHeight(32);
         setPrefHeight(32);
         setMaxHeight(32);
         icon.setFitHeight(getPrefHeight());
         icon.setPreserveRatio(true);
         title.setPrefHeight(getPrefHeight());
-        
+        title.textProperty().bind(stage.titleProperty());
+
         HBox controls = new HBox();
         Button minimize = new Button();
         Button maximize = new Button();

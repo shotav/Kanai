@@ -6,22 +6,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 public class Files extends TreeView<String> {
     
     public Files() {
-        TreeItem<String> files = new FileItem(new File(Paths.get("").toAbsolutePath().toString()));
-        MenuItem rename = new MenuItem("Rename");
-        MenuItem delete = new MenuItem("Delete");
-        ContextMenu context = new ContextMenu(rename, delete);
-
-        setRoot(files);
+        setRoot(new FileItem(new File(Paths.get("").toAbsolutePath().toString())));
         setShowRoot(false);
-        setContextMenu(context);
         setId("files");
     }
 
