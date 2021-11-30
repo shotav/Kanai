@@ -1,6 +1,13 @@
 .label {
     -fx-text-fill: white;
 }
-#titlebar {
+#root {
     -fx-background-color: black;
+}
+#files .tree-cell {
+    -fx-text-fill: gray;
+}
+#files .tree-cell:focused {
+    -fx-text-fill: white;
+    -fx-background-color: gray;
 }

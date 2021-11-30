@@ -2,19 +2,26 @@ package net.pryoscode.kanai.windows.components;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 public class Files extends TreeView<String> {
     
     public Files() {
-        TreeItem<String> files = new TreeItem<>();
-
-        for (File file : new File(Paths.get("").toAbsolutePath().toString()).listFiles())
-            files.getChildren().add(new FileItem(file));
+        TreeItem<String> files = new FileItem(new File(Paths.get("").toAbsolutePath().toString()));
+        MenuItem rename = new MenuItem("Rename");
+        MenuItem delete = new MenuItem("Delete");
+        ContextMenu context = new ContextMenu(rename, delete);
 
         setRoot(files);
         setShowRoot(false);
+        setContextMenu(context);
         setId("files");
     }
 
@@ -25,6 +32,18 @@ public class Files extends TreeView<String> {
         public FileItem(File file) {
             super(file.getName());
             this.file = file;
+
+            if (file.isDirectory()) {
+                List<File> files = Arrays.asList(file.listFiles());
+                Collections.sort(files, new Comparator<File>() {
+                    @Override
+                    public int compare(File f1, File f2) {
+                        return f1.isDirectory() && !f2.isDirectory() ? -1 : 1;
+                    }
+                });
+                for (File f : files)
+                    getChildren().add(new FileItem(f));
+            }
         }
 
         @Override

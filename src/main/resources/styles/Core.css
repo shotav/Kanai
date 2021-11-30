@@ -7,3 +7,6 @@
     -fx-background-radius: 100%;
     -fx-background-insets: 0;
 }
+#titlebar, #files, #files .tree-cell {
+    -fx-background-color: transparent;
+}
