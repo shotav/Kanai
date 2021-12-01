@@ -1,8 +1,8 @@
 <p align="center">
     <a href="https://github.com/PryosCode/Kanai/tags"><img alt="Version" src="https://img.shields.io/github/v/release/PryosCode/Kanai?label=Version"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Windows" src="https://github.com/PryosCode/Kanai/actions/workflows/windows.yml/badge.svg"></a>
-    <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Linux" src="https://github.com/PryosCode/Kanai/actions/workflows/linux.yml/badge.svg"></a>
     <a href="https://github.com/PryosCode/Kanai/actions"><img alt="MacOS" src="https://github.com/PryosCode/Kanai/actions/workflows/macos.yml/badge.svg"></a>
+    <a href="https://github.com/PryosCode/Kanai/actions"><img alt="Linux" src="https://github.com/PryosCode/Kanai/actions/workflows/linux.yml/badge.svg"></a>
     <a href="https://github.com/PryosCode/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/PryosCode/Kanai?label=License"></a>
 </p>
 
@@ -35,7 +35,7 @@ A cross-platform code editor.
 
 ```bash
 $ git clone https://github.com/PryosCode/Kanai.git
-$ gradle build
+$ gradlew build
 ```
 
 ## License

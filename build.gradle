@@ -60,6 +60,7 @@ task jpackage(type: Exec) {
                 "--linux-menu-group", "PryosCode"
     }
 }
+build.finalizedBy(jpackage)
 
 javafx {
     version = "17"
