@@ -46,7 +46,7 @@ task jpackage(type: Exec) {
                 "--app-version", project.version,
                 "--vendor", "PryosCode",
                 "--type", "dmg",
-                "--icon", "src/main/resources/img/icon.ico"
+                "--icon", "src/main/resources/img/icon.icns"
     } else {
         commandLine "jpackage",
                 "--input", "build/libs",
@@ -69,7 +69,4 @@ javafx {
 dependencies {
     implementation group: "com.google.code.gson", name: "gson", version: "2.8.9"
     implementation group: "org.fxmisc.richtext", name: "richtextfx", version: "0.10.7"
-    implementation group: "org.kordamp.ikonli", name: "ikonli-core", version: "12.2.0"
-    implementation group: "org.kordamp.ikonli", name: "ikonli-javafx", version: "12.2.0"
-    implementation group: "org.kordamp.ikonli", name: "ikonli-fontawesome-pack", version: "12.2.0"
 }

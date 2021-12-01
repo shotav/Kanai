@@ -27,12 +27,13 @@ jobs:
       run: |
         echo VERSION=$(gradle -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
         gradle build jpackage
-        ls
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: Kanai-${{ env.VERSION }}.deb
+        files: |
+          build/libs/Kanai.jar
+          kanai_${{ env.VERSION }}-1_amd64.deb
         tag_name: v${{ env.VERSION }}
         draft: true
       env:
