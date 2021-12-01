@@ -37,7 +37,9 @@ jobs:
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: Kanai-${{ env.VERSION }}.deb
+        files: |
+          Kanai-${{ env.VERSION }}.jar
+          Kanai-${{ env.VERSION }}.deb
         tag_name: v${{ env.VERSION }}
         draft: true
       env:
