@@ -14,13 +14,12 @@ import net.pryoscode.kanai.utils.Loader;
 
 public class Titlebar extends BorderPane {
 
-    private Label title;
     private double x;
     private double y;
 
     public Titlebar(Stage stage) {
         ImageView icon = new ImageView(new Image(Loader.load("img/icon.png")));
-        title = new Label();
+        Label title = new Label();
         setMinHeight(32);
         setPrefHeight(32);
         setMaxHeight(32);
@@ -81,8 +80,4 @@ public class Titlebar extends BorderPane {
         stage.setY(event.getScreenY() - y);
     }
 
-    public void setTitle(String text) {
-        title.setText(text);
-    }
-   
 }

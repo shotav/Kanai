@@ -10,7 +10,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 public class Files extends TreeView<String> {
-    
+
     public Files() {
         setRoot(new FileItem(new File(Paths.get("").toAbsolutePath().toString())));
         setShowRoot(false);

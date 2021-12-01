@@ -12,5 +12,4 @@ public class BorderlessScene extends Scene {
         stage.initStyle(StageStyle.UNDECORATED);
     }
 
-    
 }

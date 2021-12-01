@@ -24,6 +24,42 @@ jar {
         configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+ 
+task jpackage(type: Exec) {
+    if (System.getProperty("os.name").toLowerCase().contains("win")) {
+        commandLine "jpackage",
+                "--input", "build/libs",
+                "--main-jar", project.name + ".jar",
+                "--name", project.name,
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--type", "exe",
+                "--icon", "src/main/resources/img/icon.ico",
+                "--win-shortcut",
+                "--win-menu",
+                "--win-menu-group", "PryosCode"
+    } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        commandLine "jpackage",
+                "--input", "build/libs",
+                "--main-jar", project.name + ".jar",
+                "--name", project.name,
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--type", "dmg",
+                "--icon", "src/main/resources/img/icon.ico"
+    } else {
+        commandLine "jpackage",
+                "--input", "build/libs",
+                "--main-jar", project.name + ".jar",
+                "--name", project.name,
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--type", "deb",
+                "--icon", "src/main/resources/img/icon.ico",
+                "--linux-shortcut",
+                "--linux-menu-group", "PryosCode"
+    }
+}
 
 javafx {
     version = "17"
