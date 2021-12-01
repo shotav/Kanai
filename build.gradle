@@ -4,7 +4,7 @@ plugins {
 }
 
 group "net.pryoscode"
-version "0.5.0"
+version "1.0.0"
 sourceCompatibility = 17
 targetCompatibility = 17
 
@@ -55,7 +55,7 @@ task jpackage(type: Exec) {
                 "--app-version", project.version,
                 "--vendor", "PryosCode",
                 "--type", "deb",
-                "--icon", "src/main/resources/img/icon.ico",
+                "--icon", "src/main/resources/img/icon.png",
                 "--linux-shortcut",
                 "--linux-menu-group", "PryosCode"
     }
