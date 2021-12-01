@@ -25,12 +25,14 @@ jobs:
 
     - name: Gradle Build
       run: |
-        echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
         chmod +x gradlew
+        echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
         ./gradlew build
 
     - name: Rename
-      run: mv kanai_${{ env.VERSION }}-1_amd64.deb Kanai-${{ env.VERSION }}.deb
+      run: |
+        mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
+        mv kanai_${{ env.VERSION }}-1_amd64.deb Kanai-${{ env.VERSION }}.deb
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1

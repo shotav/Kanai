@@ -25,8 +25,8 @@ jobs:
 
     - name: Gradle Build
       run: |
-        echo VERSION=$(gradlew.bat -q properties | grep 'version:' | cut -d ' ' -f 2) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-        gradlew.bat build
+        echo VERSION=$(./gradlew.bat -q properties | grep 'version:' | cut -d ' ' -f 2) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        ./gradlew.bat build
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1

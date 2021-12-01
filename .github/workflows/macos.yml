@@ -25,8 +25,8 @@ jobs:
 
     - name: Gradle Build
       run: |
-        echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
         chmod +x gradlew
+        echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
         ./gradlew build
 
     - name: Release GitHub
