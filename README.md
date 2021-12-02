@@ -12,13 +12,13 @@ A cross-platform code editor.
 
 ## Features
 
+- [x] Update Checker
 - [x] Cross-Platform
 - [x] File Hierarchy
 - [x] Line Numbers
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
-- [ ] Update Checker
 - [ ] Settings Sync
 - [ ] Image Viewer
 - [ ] Font Viewer
