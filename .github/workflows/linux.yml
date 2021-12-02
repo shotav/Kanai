@@ -32,8 +32,7 @@ jobs:
     - name: Rename
       run: |
         mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
-        cd Kanai
-        ls -la
+        tree Kanai
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
