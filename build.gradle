@@ -62,7 +62,6 @@ task jpackage(type: Exec) {
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "app-image",
                 "--icon", "src/main/resources/img/icon.png",
-                "--linux-shortcut",
                 "--linux-menu-group", "PryosCode"
     }
 }
