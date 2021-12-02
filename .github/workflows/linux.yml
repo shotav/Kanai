@@ -31,17 +31,16 @@ jobs:
 
     - name: Rename
       run: |
-        echo PWD=$(pwd) >> $GITHUB_ENV
         mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
+        chmod 777 Kanai
         mv Kanai Kanai-${{ env.VERSION }}.AppImage
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          Kanai-*.jar
-          ${{ env.PWD }}/Kanai-${{ env.VERSION }}.AppImage
+        files: Kanai-*.*
         tag_name: v${{ env.VERSION }}
+        fail_on_unmatched_files: true
         draft: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
