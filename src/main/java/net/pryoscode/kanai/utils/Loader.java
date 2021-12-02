@@ -2,6 +2,7 @@ package net.pryoscode.kanai.utils;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import net.pryoscode.kanai.Reporter;
 
 public class Loader {
     
@@ -15,7 +16,7 @@ public class Loader {
         try {
             return new String(load(name).readAllBytes(), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            e.printStackTrace();
+            new Reporter(e);
         }
         return null;
     }

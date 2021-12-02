@@ -35,6 +35,7 @@ A cross-platform code editor.
 
 ```bash
 $ git clone https://github.com/PryosCode/Kanai.git
+$ chmod +x gradlew
 $ ./gradlew build
 ```
 

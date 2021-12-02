@@ -32,7 +32,9 @@ task jpackage(type: Exec) {
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
                 "--app-version", project.version,
+                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
                 "--type", "exe",
                 "--icon", "src/main/resources/img/icon.ico",
                 "--win-shortcut",
@@ -44,7 +46,9 @@ task jpackage(type: Exec) {
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
                 "--app-version", project.version,
+                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
                 "--type", "dmg",
                 "--icon", "src/main/resources/img/icon.icns"
     } else {
@@ -53,11 +57,14 @@ task jpackage(type: Exec) {
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
                 "--app-version", project.version,
+                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
                 "--type", "deb",
                 "--icon", "src/main/resources/img/icon.png",
                 "--linux-shortcut",
-                "--linux-menu-group", "PryosCode"
+                "--linux-menu-group", "PryosCode",
+                "--linux-deb-maintainer", "info@pryoscode.net"
     }
 }
 build.finalizedBy(jpackage)

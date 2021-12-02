@@ -1,5 +1,6 @@
 package net.pryoscode.kanai.windows.components;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,6 +33,9 @@ public class Titlebar extends BorderPane {
         Button minimize = new Button();
         Button maximize = new Button();
         Button close = new Button();
+        minimize.setFocusTraversable(false);
+        minimize.setFocusTraversable(false);
+        close.setFocusTraversable(false);
         minimize.setStyle("-fx-background-color: palegreen;");
         maximize.setStyle("-fx-background-color: orange;");
         close.setStyle("-fx-background-color: tomato;");
@@ -64,9 +68,7 @@ public class Titlebar extends BorderPane {
     }
 
     private void onCloseClick(ActionEvent event) {
-        Stage stage = (Stage) getScene().getWindow();
-        stage.hide();
-        System.exit(0);
+        Platform.exit();
     }
 
     private void onMousePressed(MouseEvent event) {
