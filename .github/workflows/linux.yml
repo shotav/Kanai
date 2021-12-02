@@ -33,6 +33,7 @@ jobs:
       run: |
         mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
         mv Kanai Kanai-${{ env.VERSION }}.AppImage
+        ls
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
