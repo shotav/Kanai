@@ -31,8 +31,8 @@ task jpackage(type: Exec) {
                 "--input", "build/libs",
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
+                "--description", "Kanai Editor",
                 "--app-version", project.version,
-                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "exe",
@@ -45,8 +45,8 @@ task jpackage(type: Exec) {
                 "--input", "build/libs",
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
+                "--description", "Kanai Editor",
                 "--app-version", project.version,
-                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "dmg",
@@ -56,15 +56,14 @@ task jpackage(type: Exec) {
                 "--input", "build/libs",
                 "--main-jar", project.name + ".jar",
                 "--name", project.name,
+                "--description", "Kanai Editor",
                 "--app-version", project.version,
-                "--description", "A cross-platform code editor.",
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
-                "--type", "deb",
+                "--type", "app-image",
                 "--icon", "src/main/resources/img/icon.png",
                 "--linux-shortcut",
-                "--linux-menu-group", "PryosCode",
-                "--linux-deb-maintainer", "info@pryoscode.net"
+                "--linux-menu-group", "PryosCode"
     }
 }
 build.finalizedBy(jpackage)
