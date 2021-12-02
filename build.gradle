@@ -61,8 +61,7 @@ task jpackage(type: Exec) {
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "app-image",
-                "--icon", "src/main/resources/img/icon.png",
-                "--linux-menu-group", "PryosCode"
+                "--icon", "src/main/resources/img/icon.png"
     }
 }
 build.finalizedBy(jpackage)
