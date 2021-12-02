@@ -32,12 +32,13 @@ jobs:
     - name: Rename
       run: |
         mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
+        cd Kanai
         ls -la
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: Kanai-${{ env.VERSION }}.AppImage
+        files: Kanai*
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true
