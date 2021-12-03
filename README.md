@@ -20,9 +20,6 @@ A cross-platform code editor.
 - [ ] Terminal Emulator
 - [ ] Code Completion
 - [ ] Settings Sync
-- [ ] Image Viewer
-- [ ] Font Viewer
-- [ ] Hex Editor
 - [ ] Ligatures
 - [ ] Plugins
 - [ ] Themes
