@@ -1,4 +1,4 @@
-package net.pryoscode.kanai.api;
+package net.pryoscode.kanai.sdk;
 
 public class Plugin {
 

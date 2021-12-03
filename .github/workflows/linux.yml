@@ -37,7 +37,7 @@ jobs:
       with:
         files: |
           app/build/libs/Kanai-*.jar
-          api/build/libs/Kanai-API-*.jar
+          sdk/build/libs/Kanai-SDK-*.jar
           app/dist/Kanai-*.deb
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true

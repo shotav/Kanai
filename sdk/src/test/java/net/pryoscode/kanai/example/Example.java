@@ -1,6 +1,6 @@
 package net.pryoscode.kanai.example;
 
-import net.pryoscode.kanai.api.Plugin;
+import net.pryoscode.kanai.sdk.Plugin;
 
 public class Example extends Plugin {
 

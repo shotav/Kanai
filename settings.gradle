@@ -1,6 +1,6 @@
 include "app"
-include "api"
+include "sdk"
 
 rootProject.name = "Kanai"
 project(":app").name = "Kanai"
-project(":api").name = "Kanai-API"
+project(":sdk").name = "Kanai-SDK"
