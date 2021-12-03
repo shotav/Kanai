@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -38,8 +39,8 @@ public class Titlebar extends BorderPane {
         minimize.setStyle("-fx-background-color: palegreen;");
         maximize.setStyle("-fx-background-color: orange;");
         close.setStyle("-fx-background-color: tomato;");
-        minimize.setOnAction((e) -> ((Stage) getScene().getWindow()).setIconified(true));
-        maximize.setOnAction((e) -> ((Stage) getScene().getWindow()).setMaximized(!((Stage) getScene().getWindow()).isMaximized()));
+        minimize.setOnAction((e) -> stage.setIconified(true));
+        maximize.setOnAction((e) -> stage.setMaximized(!stage.isMaximized()));
         close.setOnAction((e) -> Platform.exit());
         double size = getPrefHeight() / 2;
         GUI.setSize(minimize, size, size);
@@ -54,6 +55,7 @@ public class Titlebar extends BorderPane {
         setId("titlebar");
         setOnMousePressed(this::onMousePressed);
         setOnMouseDragged(this::onMouseDragged);
+        setOnMouseClicked(this::onMouseClicked);
     }
 
     private void onMousePressed(MouseEvent event) {
@@ -65,6 +67,12 @@ public class Titlebar extends BorderPane {
         Stage stage = (Stage) getScene().getWindow();
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
+    }
+
+    private void onMouseClicked(MouseEvent event) {
+        Stage stage = ((Stage) getScene().getWindow());
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2)
+            stage.setMaximized(!stage.isMaximized());
     }
 
 }
