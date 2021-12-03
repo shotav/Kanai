@@ -1,7 +1,6 @@
 package net.pryoscode.kanai.windows.components;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -39,9 +38,9 @@ public class Titlebar extends BorderPane {
         minimize.setStyle("-fx-background-color: palegreen;");
         maximize.setStyle("-fx-background-color: orange;");
         close.setStyle("-fx-background-color: tomato;");
-        minimize.setOnAction(this::onMinimizeClick);
-        maximize.setOnAction(this::onMaximizeClick);
-        close.setOnAction(this::onCloseClick);
+        minimize.setOnAction((e) -> ((Stage) getScene().getWindow()).setIconified(true));
+        maximize.setOnAction((e) -> ((Stage) getScene().getWindow()).setMaximized(!((Stage) getScene().getWindow()).isMaximized()));
+        close.setOnAction((e) -> Platform.exit());
         double size = getPrefHeight() / 2;
         GUI.setSize(minimize, size, size);
         GUI.setSize(maximize, size, size);
@@ -55,20 +54,6 @@ public class Titlebar extends BorderPane {
         setId("titlebar");
         setOnMousePressed(this::onMousePressed);
         setOnMouseDragged(this::onMouseDragged);
-    }
-
-    private void onMinimizeClick(ActionEvent event) {
-        Stage stage = (Stage) getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    private void onMaximizeClick(ActionEvent event) {
-        Stage stage = (Stage) getScene().getWindow();
-        stage.setMaximized(!stage.isMaximized());
-    }
-
-    private void onCloseClick(ActionEvent event) {
-        Platform.exit();
     }
 
     private void onMousePressed(MouseEvent event) {
