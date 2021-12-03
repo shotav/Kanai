@@ -16,12 +16,12 @@ A cross-platform code editor.
 - [x] Cross-Platform
 - [x] File Hierarchy
 - [x] Line Numbers
+- [x] Plugins
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
 - [ ] Settings Sync
 - [ ] Ligatures
-- [ ] Plugins
 - [ ] Themes
 
 ## Download

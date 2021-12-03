@@ -1,1 +1,6 @@
+include "app"
+include "api"
+
 rootProject.name = "Kanai"
+project(":app").name = "Kanai"
+project(":api").name = "Kanai-API"

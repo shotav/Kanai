@@ -32,7 +32,7 @@ jobs:
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: Kanai-*.dmg
+        files: app/dist/Kanai-*.dmg
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true

@@ -30,14 +30,15 @@ jobs:
         ./gradlew build
 
     - name: Rename
-      run: |
-        mv build/libs/Kanai.jar Kanai-${{ env.VERSION }}.jar
-        mv kanai_${{ env.VERSION }}-1_amd64.deb Kanai-${{ env.VERSION }}.deb
+      run: mv app/dist/kanai_${{ env.VERSION }}-1_amd64.deb app/dist/Kanai-${{ env.VERSION }}.deb
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: Kanai*
+        files: |
+          app/build/libs/Kanai-*.jar
+          api/build/libs/Kanai-API-*.jar
+          app/dist/Kanai-*.deb
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true
