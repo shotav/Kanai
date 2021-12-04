@@ -35,10 +35,7 @@ jobs:
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          app/build/libs/Kanai-*.jar
-          sdk/build/libs/Kanai-SDK-*.jar
-          app/dist/Kanai-*.deb
+        files: app/dist/Kanai-*.deb
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true
