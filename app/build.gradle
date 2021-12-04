@@ -69,7 +69,6 @@ task jpackage(type: Exec) {
                 "--linux-deb-maintainer", "info@pryoscode.net"
     }
 }
-build.finalizedBy(jpackage)
 
 javafx {
     version = myJavaVersion

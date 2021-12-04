@@ -65,6 +65,7 @@ public class Titlebar extends BorderPane {
 
     private void onMouseDragged(MouseEvent event) {
         Stage stage = (Stage) getScene().getWindow();
+        if (stage.isMaximized()) stage.setMaximized(false);
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
     }

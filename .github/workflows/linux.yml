@@ -27,7 +27,7 @@ jobs:
       run: |
         chmod +x gradlew
         echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
-        ./gradlew build
+        ./gradlew build jpackage
 
     - name: Rename
       run: mv app/dist/kanai_${{ env.VERSION }}-1_amd64.deb app/dist/Kanai-${{ env.VERSION }}.deb
