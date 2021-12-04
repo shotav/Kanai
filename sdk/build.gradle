@@ -2,7 +2,7 @@ plugins {
     id "java"
 }
 
-group "net.pryoscode"
-version "1.0.0"
-sourceCompatibility = 17
-targetCompatibility = 17
+group myGroup
+version myVersion
+sourceCompatibility = myJavaVersion
+targetCompatibility = myJavaVersion
