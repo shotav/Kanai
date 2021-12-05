@@ -39,7 +39,7 @@ public class Reporter {
 
             ButtonType github = new ButtonType("New issue", ButtonData.OK_DONE);
             alert.getDialogPane().getButtonTypes().setAll(github, ButtonType.CANCEL);
-            
+
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(github)) {
                 try {

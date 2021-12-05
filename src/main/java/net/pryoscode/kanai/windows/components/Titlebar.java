@@ -7,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import net.pryoscode.kanai.utils.GUI;
+import net.pryoscode.kanai.windows.tabs.SettingsTab;
 
 public class Titlebar extends BorderPane {
 
@@ -39,6 +40,7 @@ public class Titlebar extends BorderPane {
 
         Button settings = new Button();
         settings.setGraphic(new FontIcon("fa-cog"));
+        settings.setOnAction((e) -> Editor.open(new SettingsTab()));
         setRight(settings);
     }
 

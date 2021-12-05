@@ -11,15 +11,14 @@ public class StylesheetHandlerFactory implements URLStreamHandlerFactory {
 
     @Override
     public URLStreamHandler createURLStreamHandler(String protocol) {
-        if (protocol.equals("styles")) {
+        if (protocol.equals("styles"))
             return new StylesheetStreamHandler();
-        }
         return null;
     }
 
     private class StylesheetConnection extends URLConnection {
 
-        protected StylesheetConnection(URL url) {
+        public StylesheetConnection(URL url) {
             super(url);
         }
 
@@ -36,7 +35,7 @@ public class StylesheetHandlerFactory implements URLStreamHandlerFactory {
     private class StylesheetStreamHandler extends URLStreamHandler {
 
         @Override
-        protected URLConnection openConnection(URL url) throws IOException {
+        public URLConnection openConnection(URL url) throws IOException {
             return new StylesheetConnection(url);
         }
 

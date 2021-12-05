@@ -25,15 +25,13 @@ public class Window extends Application {
         stage.getScene().getStylesheets().add("styles:core");
         stage.getScene().getStylesheets().add("styles:theme");
 
-        BorderPane panel = new BorderPane();
+        BorderPane sidepanel = new BorderPane();
         Titlebar titlebar = new Titlebar(stage);
         scene.setDraggable(titlebar);
-        panel.setTop(titlebar);
-        panel.setCenter(new Files(new File(System.getProperty("user.dir"))));
-        root.setLeft(panel);
-        Editor editor = new Editor();
-        scene.setDraggable(editor);
-        root.setCenter(editor);
+        sidepanel.setTop(titlebar);
+        sidepanel.setCenter(new Files(new File(System.getProperty("user.dir"))));
+        root.setLeft(sidepanel);
+        root.setCenter(new Editor());
         Editor.open(new CodeTab());
 
         stage.show();
