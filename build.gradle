@@ -13,11 +13,11 @@ repositories {
 }
 
 jar {
+    archiveFileName = project.name + ".jar"
     duplicatesStrategy = "include"
     manifest {
         attributes "Implementation-Title": project.name,
-                   "Implementation-Version": project.version,
-                   "Main-Class": project.group + "." + project.name.toLowerCase() + ".Main"
+                   "Implementation-Version": project.version
     }
     from {
         configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
@@ -29,41 +29,46 @@ task dist(type: Exec) {
         commandLine "jpackage",
                 "--dest", "dist",
                 "--input", "build\\libs",
-                "--main-jar", project.name + "-" + project.version + ".jar",
-                "--name", project.name,
-                "--description", "Kanai Editor",
+                "--main-jar", project.name + ".jar",
+                "--name", project.name + " Editor",
                 "--app-version", project.version,
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "exe",
+                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
                 "--icon", "src\\main\\resources\\img\\icon.ico",
+                "--license-file", "src\\main\\resources\\license.txt",
+                "--win-dir-chooser",
                 "--win-shortcut",
                 "--win-menu",
-                "--win-menu-group", "PryosCode"
+                "--win-menu-group", "PryosCode",
+                "--win-upgrade-uuid", "362df9c4-52e2-4256-a184-447c20cd42e1"
     } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
         commandLine "jpackage",
                 "--dest", "dist",
                 "--input", "build/libs",
-                "--main-jar", project.name + "-" + project.version + ".jar",
+                "--main-jar", project.name + ".jar",
                 "--name", project.name,
-                "--description", "Kanai Editor",
                 "--app-version", project.version,
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "dmg",
-                "--icon", "src/main/resources/img/icon.icns"
+                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
+                "--icon", "src/main/resources/img/icon.icns",
+                "--license-file", "src/main/resources/license.txt"
     } else {
         commandLine "jpackage",
                 "--dest", "dist",
                 "--input", "build/libs",
-                "--main-jar", project.name + "-" + project.version + ".jar",
+                "--main-jar", project.name + ".jar",
                 "--name", project.name,
-                "--description", "Kanai Editor",
                 "--app-version", project.version,
                 "--vendor", "PryosCode",
                 "--copyright", "Copyright 2021 PryosCode",
                 "--type", "deb",
+                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
                 "--icon", "src/main/resources/img/icon.png",
+                "--license-file", "src/main/resources/license.txt",
                 "--linux-shortcut",
                 "--linux-menu-group", "PryosCode",
                 "--linux-deb-maintainer", "info@pryoscode.net"

@@ -1,7 +1,6 @@
 package net.pryoscode.kanai.windows.components;
 
 import java.io.File;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,8 +10,8 @@ import javafx.scene.control.TreeView;
 
 public class Files extends TreeView<String> {
 
-    public Files() {
-        setRoot(new FileItem(new File(Paths.get("").toAbsolutePath().toString())));
+    public Files(File directory) {
+        setRoot(new FileItem(directory));
         setShowRoot(false);
         setId("files");
     }

@@ -29,7 +29,7 @@ public class Window extends Application {
         if (getParameters().getRaw().size() > 0) {
             File file = new File(getParameters().getRaw().get(0));
             if (file.isDirectory())
-                root.setLeft(new Files());
+                root.setLeft(new Files(file));
             else
                 Editor.open(new CodeTab(file));
         } else {
