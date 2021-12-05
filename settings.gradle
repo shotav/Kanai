@@ -1,6 +1,4 @@
-include "app"
 include "sdk"
 
 rootProject.name = myName
-project(":app").name = myName
 project(":sdk").name = myName + "-SDK"

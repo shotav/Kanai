@@ -17,24 +17,24 @@ public class Window extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         BorderPane root = new BorderPane();
+        BorderlessScene scene = new BorderlessScene(stage, root, 1280, 720);
         root.setId("root");
-        root.setTop(new Titlebar(stage));
-        root.setCenter(new Editor());
-        stage.setScene(new BorderlessScene(stage, root, 1280, 720));
+        stage.setScene(scene);
         stage.setTitle("Kanai Editor");
         stage.getIcons().add(new Image(Loader.load("img/icon.png")));
         stage.getScene().getStylesheets().add("styles:core");
         stage.getScene().getStylesheets().add("styles:theme");
 
-        if (getParameters().getRaw().size() > 0) {
-            File file = new File(getParameters().getRaw().get(0));
-            if (file.isDirectory())
-                root.setLeft(new Files(file));
-            else
-                Editor.open(new CodeTab(file));
-        } else {
-            Editor.open(new CodeTab());
-        }
+        BorderPane panel = new BorderPane();
+        Titlebar titlebar = new Titlebar(stage);
+        scene.setDraggable(titlebar);
+        panel.setTop(titlebar);
+        panel.setCenter(new Files(new File(System.getProperty("user.dir"))));
+        root.setLeft(panel);
+        Editor editor = new Editor();
+        scene.setDraggable(editor);
+        root.setCenter(editor);
+        Editor.open(new CodeTab());
 
         stage.show();
     }

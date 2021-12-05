@@ -7,10 +7,12 @@
     -fx-background-radius: 100%;
     -fx-background-insets: 0;
 }
-/*
+#editor .tab-header-area {
+    -fx-pref-height: 32;
+    -fx-padding: 0;
+}
 #titlebar,
 #files, #files .tree-cell,
 #editor .tab-header-background {
     -fx-background-color: transparent;
 }
-*/

@@ -3,16 +3,23 @@ package net.pryoscode.kanai.windows.components;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class BorderlessScene extends Scene {
 
+    private final Stage stage;
+    private double x;
+    private double y;
+
     public BorderlessScene(Stage stage, Parent root, double width, double height) {
         super(new Pane(), width, height);
+        this.stage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
         AnchorPane pane = new AnchorPane();
         setRoot(pane);
@@ -119,8 +126,29 @@ public class BorderlessScene extends Scene {
         });
     }
 
+    public void setDraggable(Region region) {
+        region.setOnMousePressed(this::onMousePressed);
+        region.setOnMouseDragged(this::onMouseDragged);
+        region.setOnMouseClicked(this::onMouseClicked);
+    }
+
+    private void onMousePressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    private void onMouseDragged(MouseEvent event) {
+        if (stage.isMaximized()) stage.setMaximized(false);
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    private void onMouseClicked(MouseEvent event) {
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2)
+            stage.setMaximized(!stage.isMaximized());
+    }
+
     private void topDragged(MouseEvent event) {
-        Stage stage = (Stage) getWindow();
         if (event.isPrimaryButtonDown()) {
             if (stage.getHeight() > stage.getMinHeight() || event.getY() < 0) {
                 stage.setHeight(stage.getHeight() - event.getScreenY() + stage.getY());
@@ -130,21 +158,18 @@ public class BorderlessScene extends Scene {
     }
     
     private void rightDragged(MouseEvent event) {
-        Stage stage = (Stage) getWindow();
         if (event.isPrimaryButtonDown())
             if (stage.getWidth() > stage.getMinWidth() || event.getX() > 0)
                 stage.setWidth(stage.getWidth() + event.getX());
     }
 
     private void bottomDragged(MouseEvent event) {
-        Stage stage = (Stage) getWindow();
         if (event.isPrimaryButtonDown()) 
             if (stage.getHeight() > stage.getMinHeight() || event.getY() > 0)
                 stage.setHeight(stage.getHeight() + event.getY());
     }
 
     private void leftDragged(MouseEvent event) {
-        Stage stage = (Stage) getWindow();
         if (event.isPrimaryButtonDown()) {
             if (stage.getWidth() > stage.getMinWidth() || event.getX() < 0) {
                 stage.setWidth(stage.getWidth() - event.getScreenX() + stage.getX());
