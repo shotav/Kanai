@@ -27,12 +27,12 @@ jobs:
       run: |
         chmod +x gradlew
         echo VERSION=$(./gradlew -q properties | grep 'version:' | cut -d ' ' -f 2) >> $GITHUB_ENV
-        ./gradlew build jpackage
+        ./gradlew build dist
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: app/dist/Kanai-*.dmg
+        files: dist/Kanai-*.dmg
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true

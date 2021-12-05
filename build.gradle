@@ -1,1 +1,81 @@
-version = myVersion
+plugins {
+    id "java"
+    id "org.openjfx.javafxplugin" version "0.0.10"
+}
+
+group myGroup
+version myVersion
+sourceCompatibility = myJavaVersion
+targetCompatibility = myJavaVersion
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    duplicatesStrategy = "include"
+    manifest {
+        attributes "Implementation-Title": project.name,
+                   "Implementation-Version": project.version,
+                   "Main-Class": project.group + "." + project.name.toLowerCase() + ".Main"
+    }
+    from {
+        configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+ 
+task dist(type: Exec) {
+    if (System.getProperty("os.name").toLowerCase().contains("win")) {
+        commandLine "jpackage",
+                "--dest", "dist",
+                "--input", "build\\libs",
+                "--main-jar", project.name + "-" + project.version + ".jar",
+                "--name", project.name,
+                "--description", "Kanai Editor",
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
+                "--type", "exe",
+                "--icon", "src\\main\\resources\\img\\icon.ico",
+                "--win-shortcut",
+                "--win-menu",
+                "--win-menu-group", "PryosCode"
+    } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        commandLine "jpackage",
+                "--dest", "dist",
+                "--input", "build/libs",
+                "--main-jar", project.name + "-" + project.version + ".jar",
+                "--name", project.name,
+                "--description", "Kanai Editor",
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
+                "--type", "dmg",
+                "--icon", "src/main/resources/img/icon.icns"
+    } else {
+        commandLine "jpackage",
+                "--dest", "dist",
+                "--input", "build/libs",
+                "--main-jar", project.name + "-" + project.version + ".jar",
+                "--name", project.name,
+                "--description", "Kanai Editor",
+                "--app-version", project.version,
+                "--vendor", "PryosCode",
+                "--copyright", "Copyright 2021 PryosCode",
+                "--type", "deb",
+                "--icon", "src/main/resources/img/icon.png",
+                "--linux-shortcut",
+                "--linux-menu-group", "PryosCode",
+                "--linux-deb-maintainer", "info@pryoscode.net"
+    }
+}
+
+javafx {
+    version = myJavaVersion
+    modules = [ "javafx.controls" ]
+}
+
+dependencies {
+    implementation group: "com.google.code.gson", name: "gson", version: "2.8.9"
+    implementation group: "org.fxmisc.richtext", name: "richtextfx", version: "0.10.7"
+}

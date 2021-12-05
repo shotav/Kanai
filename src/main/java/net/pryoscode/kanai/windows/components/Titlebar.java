@@ -36,8 +36,8 @@ public class Titlebar extends BorderPane {
         minimize.setFocusTraversable(false);
         minimize.setFocusTraversable(false);
         close.setFocusTraversable(false);
-        minimize.setStyle("-fx-background-color: palegreen;");
-        maximize.setStyle("-fx-background-color: orange;");
+        minimize.setStyle("-fx-background-color: orange;");
+        maximize.setStyle("-fx-background-color: palegreen;");
         close.setStyle("-fx-background-color: tomato;");
         minimize.setOnAction((e) -> stage.setIconified(true));
         maximize.setOnAction((e) -> stage.setMaximized(!stage.isMaximized()));

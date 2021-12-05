@@ -26,12 +26,12 @@ jobs:
     - name: Gradle Build
       run: |
         echo VERSION=$(./gradlew.bat -q properties | grep 'version:' | cut -d ' ' -f 2) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-        ./gradlew.bat build jpackage
+        ./gradlew.bat build dist
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: app/dist/Kanai-*.exe
+        files: dist/Kanai-*.exe
         tag_name: v${{ env.VERSION }}
         fail_on_unmatched_files: true
         draft: true

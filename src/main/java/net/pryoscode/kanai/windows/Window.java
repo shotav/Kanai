@@ -23,8 +23,8 @@ public class Window extends Application {
         stage.setScene(new BorderlessScene(stage, root, 1280, 720));
         stage.setTitle("Kanai Editor");
         stage.getIcons().add(new Image(Loader.load("img/icon.png")));
-        stage.getScene().getStylesheets().add("styles:Core");
-        stage.getScene().getStylesheets().add("styles:Theme");
+        stage.getScene().getStylesheets().add("styles:core");
+        stage.getScene().getStylesheets().add("styles:theme");
 
         if (getParameters().getRaw().size() > 0) {
             File file = new File(getParameters().getRaw().get(0));
