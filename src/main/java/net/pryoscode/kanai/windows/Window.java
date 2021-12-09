@@ -32,9 +32,9 @@ public class Window extends Application {
         sidepanel.setCenter(new Files(new File(System.getProperty("user.dir"))));
         root.setLeft(sidepanel);
         root.setCenter(new Editor());
-        Editor.open(new CodeTab());
 
         stage.show();
+        Editor.open(new CodeTab());
     }
 
 }

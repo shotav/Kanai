@@ -15,6 +15,7 @@ public class Editor extends TabPane  {
     public static void open(Tab tab) {
         instance.getTabs().add(tab);
         instance.getSelectionModel().select(tab);
+        tab.getTabPane().requestFocus();
     }
 
 }
