@@ -41,13 +41,13 @@ public class Reporter {
             alert.getDialogPane().getButtonTypes().setAll(github, ButtonType.CANCEL);
 
             Optional<ButtonType> option = alert.showAndWait();
-            if (option.get().equals(github)) {
+            if (option.isPresent() && option.get().equals(github)) {
                 try {
                     String title = URLEncoder.encode(exception.getMessage(), StandardCharsets.UTF_8.toString());
-                    String body = URLEncoder.encode("\u0060\u0060\u0060\n" + sw.toString() + "\u0060\u0060\u0060\n", StandardCharsets.UTF_8.toString());
+                    String body = URLEncoder.encode("\u0060\u0060\u0060\n" + sw + "\u0060\u0060\u0060\n", StandardCharsets.UTF_8.toString());
                     String url = String.format("https://github.com/PryosCode/Kanai/issues/new?title=%s&body=%s&labels=bug", title, body);
                     Desktop.getDesktop().browse(new URI(url));
-                } catch (Exception e) {}
+                } catch (Exception ignored) {}
             }
         });
     }

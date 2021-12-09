@@ -44,7 +44,7 @@ public class Updater {
                 });
                 icon.displayMessage("Kanai Editor", "A new version is available to download.", TrayIcon.MessageType.INFO);
 
-            } catch (UnknownHostException e) {
+            } catch (UnknownHostException ignored) {
             } catch (Exception e) {
                 new Reporter(e);
             }

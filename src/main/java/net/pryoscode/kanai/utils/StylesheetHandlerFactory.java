@@ -1,6 +1,5 @@
 package net.pryoscode.kanai.utils;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -16,26 +15,26 @@ public class StylesheetHandlerFactory implements URLStreamHandlerFactory {
         return null;
     }
 
-    private class StylesheetConnection extends URLConnection {
+    private static class StylesheetConnection extends URLConnection {
 
         public StylesheetConnection(URL url) {
             super(url);
         }
 
         @Override
-        public void connect() throws IOException {}
+        public void connect() {}
 
         @Override
-        public InputStream getInputStream() throws IOException {
+        public InputStream getInputStream() {
             return Loader.load("styles/" + getURL().getPath() + ".css");
         }
 
     }
 
-    private class StylesheetStreamHandler extends URLStreamHandler {
+    private static class StylesheetStreamHandler extends URLStreamHandler {
 
         @Override
-        public URLConnection openConnection(URL url) throws IOException {
+        public URLConnection openConnection(URL url) {
             return new StylesheetConnection(url);
         }
 

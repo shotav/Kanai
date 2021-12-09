@@ -15,7 +15,7 @@ import net.pryoscode.kanai.windows.tabs.CodeTab;
 public class Window extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         BorderPane root = new BorderPane();
         BorderlessScene scene = new BorderlessScene(stage, root, 1280, 720);
         root.setId("root");

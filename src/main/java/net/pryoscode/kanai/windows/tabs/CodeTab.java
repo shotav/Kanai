@@ -11,7 +11,7 @@ import net.pryoscode.kanai.Reporter;
 
 public class CodeTab extends Tab {
 
-    private String name;
+    private final String name;
 
     public CodeTab() {
         this(null);

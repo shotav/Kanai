@@ -2,8 +2,6 @@ package net.pryoscode.kanai.windows.components;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -16,7 +14,7 @@ public class Files extends TreeView<String> {
         setId("files");
     }
 
-    private class FileItem extends TreeItem<String> {
+    private static class FileItem extends TreeItem<String> {
 
         private final File file;
 
@@ -26,12 +24,7 @@ public class Files extends TreeView<String> {
 
             if (file.isDirectory()) {
                 List<File> files = Arrays.asList(file.listFiles());
-                Collections.sort(files, new Comparator<File>() {
-                    @Override
-                    public int compare(File f1, File f2) {
-                        return f1.isDirectory() && !f2.isDirectory() ? -1 : 1;
-                    }
-                });
+                files.sort((f1, f2) -> f1.isDirectory() && !f2.isDirectory() ? -1 : 1);
                 for (File f : files)
                     getChildren().add(new FileItem(f));
             }

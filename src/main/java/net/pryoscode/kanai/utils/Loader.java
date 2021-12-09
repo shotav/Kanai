@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import net.pryoscode.kanai.Reporter;
 
 public class Loader {
-    
+
     public Loader() {}
 
     public static InputStream load(String name) {
@@ -20,5 +20,5 @@ public class Loader {
         }
         return null;
     }
-    
+
 }

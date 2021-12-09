@@ -36,6 +36,10 @@ $ chmod +x gradlew
 $ ./gradlew build
 ```
 
+## Special Thanks
+
+<a href="https://jb.gg/OpenSourceSupport"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains" width="100"></a>
+
 ## License
 
 [Apache License 2.0](https://github.com/PryosCode/Kanai/blob/master/LICENSE)
