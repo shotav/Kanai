@@ -40,6 +40,8 @@ $ ./gradlew build
 
 <a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains" width="100"></a>
 
+<a href="https://www.atlassian.com/"><img src="https://images.ctfassets.net/8j5aqoy0ts8s/7FbH83JH3iPW7VmdDt7cc0/07934c87fee6896972325d50ba266b2a/horizontal-logo-gradient-blue-atlassian.svg" alt="JetBrains" height="50"></a>
+
 ## License
 
 [Apache License 2.0](https://github.com/PryosCode/Kanai/blob/master/LICENSE)
