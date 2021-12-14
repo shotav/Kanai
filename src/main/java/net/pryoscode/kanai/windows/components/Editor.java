@@ -9,7 +9,6 @@ public class Editor extends TabPane  {
 
     public Editor() {
         instance = this;
-        setId("editor");
     }
 
     public static void open(Tab tab) {

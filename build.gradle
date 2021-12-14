@@ -86,5 +86,4 @@ dependencies {
     implementation group: "org.kordamp.ikonli", name: "ikonli-core", version: "12.2.0"
     implementation group: "org.kordamp.ikonli", name: "ikonli-javafx", version: "12.2.0"
     implementation group: "org.kordamp.ikonli", name: "ikonli-fontawesome-pack", version: "12.2.0"
-
 }
