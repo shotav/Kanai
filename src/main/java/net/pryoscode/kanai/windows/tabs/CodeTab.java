@@ -1,6 +1,7 @@
 package net.pryoscode.kanai.windows.tabs;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
@@ -30,7 +31,7 @@ public class CodeTab extends Tab {
             name = file.getName();
             if (file.exists()) {
                 try {
-                    code.appendText(Files.readString(file.toPath()));
+                    code.appendText(Files.readString(file.toPath(), StandardCharsets.UTF_8));
                 } catch (Exception e) {
                     new Reporter(e);
                 }

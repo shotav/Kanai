@@ -8,7 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.pryoscode.kanai.utils.Loader;
 import net.pryoscode.kanai.windows.components.Editor;
-import net.pryoscode.kanai.windows.components.Files;
+import net.pryoscode.kanai.windows.components.Sidebar;
 import net.pryoscode.kanai.windows.tabs.CodeTab;
 
 public class Window extends Application {
@@ -22,7 +22,7 @@ public class Window extends Application {
         stage.getScene().getStylesheets().add("styles:core");
         stage.getScene().getStylesheets().add("styles:theme");
 
-        root.setLeft(new Files(new File(System.getProperty("user.dir"))));
+        root.setLeft(new Sidebar(new File(System.getProperty("user.dir"))));
         root.setCenter(new Editor());
         Editor.open(new CodeTab());
 
