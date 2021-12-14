@@ -60,7 +60,7 @@ public class Sidebar extends TreeView<File> {
 
         private void onMouseClicked(MouseEvent event) {
             if (event.getButton().equals(MouseButton.PRIMARY) && getTreeItem() != null) {
-                if (event.getClickCount() == 2 && !getTreeItem().getValue().isDirectory())
+                if (event.getClickCount() % 2 == 0 && !getTreeItem().getValue().isDirectory())
                     Editor.open(new CodeTab(getTreeItem().getValue()));
             } else if (event.getButton().equals(MouseButton.SECONDARY)) {
                 ContextMenu menu = new ContextMenu();
