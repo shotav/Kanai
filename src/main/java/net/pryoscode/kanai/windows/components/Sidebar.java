@@ -69,6 +69,8 @@ public class Sidebar extends TreeView<File> {
                     Menu newMenu = new Menu("New");
                     MenuItem file = new MenuItem("File");
                     MenuItem directory = new MenuItem("Directory");
+                    file.setDisable(true);
+                    directory.setDisable(true);
                     newMenu.getItems().addAll(file, directory);
                     menu.getItems().add(newMenu);
                 } else {

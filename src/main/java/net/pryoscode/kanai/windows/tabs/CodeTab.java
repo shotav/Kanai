@@ -67,7 +67,7 @@ public class CodeTab extends CustomTab {
     @Override
     public String getIdentifier() {
         if (file == null)
-            return null;
+            return "";
         return file.getPath();
     }
 
