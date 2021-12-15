@@ -18,6 +18,7 @@ public class Editor extends TabPane  {
     public Editor() {
         instance = this;
         setTabDragPolicy(TabDragPolicy.REORDER);
+        setTabClosingPolicy(TabClosingPolicy.ALL_TABS);
     }
 
     public static void open(CustomTab tab) {

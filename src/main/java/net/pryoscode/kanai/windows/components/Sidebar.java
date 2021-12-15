@@ -10,6 +10,8 @@ import java.util.List;
 import javafx.scene.control.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import net.pryoscode.kanai.Reporter;
@@ -19,9 +21,19 @@ import net.pryoscode.kanai.windows.tabs.CodeTab;
 public class Sidebar extends TreeView<File> {
 
     public Sidebar(File directory) {
-        setRoot(new FileItem(directory));
+        setOnKeyPressed(this::onKeyPressed);
         setShowRoot(false);
+        setRoot(new FileItem(directory));
         setCellFactory(param -> new FileCell());
+    }
+
+    private void onKeyPressed(KeyEvent event) {
+        TreeItem<File> selected = getSelectionModel().getSelectedItem();
+        if (selected != null && event.getCode() == KeyCode.ENTER)
+            if (selected.getValue().isDirectory())
+                selected.setExpanded(!selected.isExpanded());
+            else
+                Editor.open(new CodeTab(selected.getValue()));
     }
 
     private static class FileItem extends TreeItem<File> {
@@ -52,10 +64,8 @@ public class Sidebar extends TreeView<File> {
         @Override
         protected void updateItem(File item, boolean empty) {
             super.updateItem(item, empty);
-            if (empty)
-                setText("");
-            else
-                setText(item.getName());
+            if (empty) setText("");
+            else setText(item.getName());
         }
 
         private void onMouseClicked(MouseEvent event) {
