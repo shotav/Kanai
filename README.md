@@ -15,13 +15,13 @@ A modern cross-platform code editor.
 - [x] Update Checker
 - [x] File Hierarchy
 - [x] Line Numbers
+- [x] Discord RPC
 - [x] Plugins
 - [x] Themes
 - [ ] Syntax Highlighting
 - [ ] Terminal Emulator
 - [ ] Code Completion
 - [ ] Settings Sync
-- [ ] Discord RPC
 - [ ] Ligatures
 
 ## Download
