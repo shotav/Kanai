@@ -15,8 +15,7 @@ public class Discord {
         if (Config.getSetting(net.pryoscode.kanai.config.settings.Discord.class) == Boolean.FALSE) return;
         DiscordRPC.discordInitialize(APPLICATION_ID, new DiscordEventHandlers.Builder().build(), true);
         Runtime.getRuntime().addShutdownHook(new Thread(DiscordRPC::discordShutdown));
-        DiscordRichPresence rich = new DiscordRichPresence.Builder(null).build();
-        DiscordRPC.discordUpdatePresence(rich);
+        DiscordRPC.discordUpdatePresence(new DiscordRichPresence.Builder(null).build());
     }
 
 }

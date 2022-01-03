@@ -23,4 +23,8 @@ public class Config {
         return null;
     }
 
+    public static List<Setting<?>> getSettings() {
+        return settings;
+    }
+
 }

@@ -1,9 +1,12 @@
 package net.pryoscode.kanai.windows.tabs;
 
-import javafx.collections.FXCollections;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import net.pryoscode.kanai.config.Config;
+import net.pryoscode.kanai.config.Setting;
 import net.pryoscode.kanai.utils.CustomTab;
 
 public class SettingsTab extends CustomTab {
@@ -13,8 +16,17 @@ public class SettingsTab extends CustomTab {
         setText("Settings");
         setContent(pane);
 
-        ComboBox<String> theme = new ComboBox<>(FXCollections.observableArrayList("Default"));
-        pane.addRow(0, new Label("Theme"), theme);
+        for (int i = 0; i < Config.getSettings().size(); i++) {
+            Setting<?> setting = Config.getSettings().get(i);
+            Control control = null;
+            if (setting.getValue() instanceof String) {
+                control = new TextField((String) setting.getValue());
+            } else if (setting.getValue() instanceof Boolean) {
+                control = new CheckBox();
+                ((CheckBox) control).setSelected((boolean) setting.getValue());
+            }
+            pane.addRow(i, new Label(setting.getName()), control);
+        }
     }
 
     @Override
