@@ -10,6 +10,7 @@ targetCompatibility = myJavaVersion
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 jar {
@@ -87,4 +88,5 @@ dependencies {
     implementation group: "org.kordamp.ikonli", name: "ikonli-core", version: "12.2.0"
     implementation group: "org.kordamp.ikonli", name: "ikonli-javafx", version: "12.2.0"
     implementation group: "org.kordamp.ikonli", name: "ikonli-fontawesome-pack", version: "12.2.0"
+    implementation group: "com.github.Vatuu", name: "discord-rpc", version: "1.6.2"
 }
