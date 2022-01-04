@@ -6,3 +6,8 @@ group myGroup
 version myVersion
 sourceCompatibility = myJavaVersion
 targetCompatibility = myJavaVersion
+
+task example(type: Jar) {
+    archiveFileName = "Example.jar"
+    from sourceSets.test.output
+}

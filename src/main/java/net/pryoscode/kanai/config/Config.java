@@ -2,11 +2,13 @@ package net.pryoscode.kanai.config;
 
 import net.pryoscode.kanai.config.settings.Discord;
 import net.pryoscode.kanai.config.settings.Theme;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Config {
 
+    public static final File FOLDER = new File(System.getProperty("user.home") + File.separator + ".kanai");
     private static final List<Setting<?>> settings = new ArrayList<>();
 
     private Config() {}

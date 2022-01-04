@@ -9,4 +9,9 @@ public class Example extends Plugin {
         System.out.println("Hello World!");
     }
 
+    @Override
+    public void onDisable() {
+        System.out.println("Bye World!");
+    }
+
 }
