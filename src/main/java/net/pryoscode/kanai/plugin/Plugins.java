@@ -23,7 +23,7 @@ public class Plugins {
                     JarFile jar = new JarFile(file);
                     Properties properties = new Properties();
                     properties.load(jar.getInputStream(jar.getEntry("plugin.properties")));
-                    URLClassLoader child = new URLClassLoader(new URL[]{new URL("file:///" + file.getPath())}, Plugins.class.getClassLoader());
+                    URLClassLoader child = new URLClassLoader(new URL[] { new URL("file:///" + file.getPath()) }, Plugins.class.getClassLoader());
                     Class<?> clazz = Class.forName(properties.getProperty("main"), true, child);
                     Object object = clazz.getDeclaredConstructor().newInstance();
                     clazz.getMethod("onEnable").invoke(object);
