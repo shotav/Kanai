@@ -35,11 +35,11 @@ public class Updater {
                 icon.setImageAutoSize(true);
                 SystemTray.getSystemTray().add(icon);
                 Runtime.getRuntime().addShutdownHook(new Thread(() -> SystemTray.getSystemTray().remove(icon)));
-                icon.addActionListener((e) -> {
+                icon.addActionListener((event) -> {
                     try {
                         Desktop.getDesktop().browse(uri);
-                    } catch (Exception ex) {
-                        new Reporter(ex);
+                    } catch (Exception e) {
+                        new Reporter(e);
                     }
                 });
                 icon.displayMessage("Kanai Editor", "A new version is available to download.", TrayIcon.MessageType.INFO);

@@ -2,10 +2,10 @@ plugins {
     id "java"
 }
 
-group myGroup
-version myVersion
-sourceCompatibility = myJavaVersion
-targetCompatibility = myJavaVersion
+group "net.pryoscode"
+version VERSION
+sourceCompatibility = 17
+targetCompatibility = 17
 
 task example(type: Jar) {
     archiveFileName = "Example.jar"

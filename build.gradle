@@ -3,10 +3,10 @@ plugins {
     id "org.openjfx.javafxplugin" version "0.0.10"
 }
 
-group myGroup
-version myVersion
-sourceCompatibility = myJavaVersion
-targetCompatibility = myJavaVersion
+group "net.pryoscode"
+version VERSION
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     mavenCentral()
@@ -77,7 +77,7 @@ task dist(type: Exec) {
 }
 
 javafx {
-    version = myJavaVersion
+    version = 17
     modules = [ "javafx.controls" ]
 }
 
