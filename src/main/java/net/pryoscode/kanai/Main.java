@@ -14,7 +14,7 @@ public class Main {
         PlatformImpl.startup(() -> {});
         URL.setURLStreamHandlerFactory(new StylesheetHandlerFactory());
         Config.init();
-        Updater.init();
+        // Updater.init();
         Plugins.init();
         Discord.init();
         Application.launch(Window.class, args);

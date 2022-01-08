@@ -21,6 +21,7 @@ public class Window extends Application {
         stage.setTitle("Kanai Editor");
         stage.getIcons().add(new Image(Loader.load("img/icon.png")));
         stage.getScene().getStylesheets().add("styles:core");
+        stage.getScene().getStylesheets().add("styles:window");
         stage.getScene().getStylesheets().add("styles:theme");
 
         BorderPane sidebar = new BorderPane();
