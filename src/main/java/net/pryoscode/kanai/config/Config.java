@@ -9,14 +9,22 @@ import java.util.List;
 public class Config {
 
     public static final File FOLDER = new File(System.getProperty("user.home") + File.separator + ".kanai");
+    private static final File FILE = new File(FOLDER.getPath() + File.separator + "config.toml");
     private static final List<Setting<?>> settings = new ArrayList<>();
 
     private Config() {}
 
-    public static void setup() {
+    public static void init() {
+        setup();
+        load();
+    }
+
+    private static void setup() {
         settings.add(new Theme());
         settings.add(new Discord());
     }
+
+    private static void load() {}
 
     public static <T> T getSetting(Class<?> clazz) {
         for (Setting<?> setting : settings)

@@ -11,7 +11,7 @@ public class Discord {
 
     private Discord() {}
 
-    public static void start() {
+    public static void init() {
         if (Config.getSetting(net.pryoscode.kanai.config.settings.Discord.class) == Boolean.FALSE) return;
         DiscordRPC.discordInitialize(APPLICATION_ID, new DiscordEventHandlers.Builder().build(), true);
         Runtime.getRuntime().addShutdownHook(new Thread(DiscordRPC::discordShutdown));

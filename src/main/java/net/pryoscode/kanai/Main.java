@@ -12,11 +12,11 @@ public class Main {
 
     public static void main(String[] args) {
         PlatformImpl.startup(() -> {});
-        Config.setup();
         URL.setURLStreamHandlerFactory(new StylesheetHandlerFactory());
-        Updater.check();
-        Plugins.load();
-        Discord.start();
+        Config.init();
+        Updater.init();
+        Plugins.init();
+        Discord.init();
         Application.launch(Window.class, args);
     }
 

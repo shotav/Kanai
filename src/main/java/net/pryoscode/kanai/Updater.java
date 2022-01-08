@@ -15,7 +15,7 @@ public class Updater {
 
     private Updater() {}
 
-    public static void check() {
+    public static void init() {
         new Thread(() -> {
             try {
 

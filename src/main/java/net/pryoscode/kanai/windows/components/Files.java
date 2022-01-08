@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.io.File;
-import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import javafx.scene.control.*;
@@ -18,9 +17,9 @@ import net.pryoscode.kanai.Reporter;
 import net.pryoscode.kanai.utils.FileTransferable;
 import net.pryoscode.kanai.windows.tabs.CodeTab;
 
-public class Sidebar extends TreeView<File> {
+public class Files extends TreeView<File> {
 
-    public Sidebar(File directory) {
+    public Files(File directory) {
         setOnKeyPressed(this::onKeyPressed);
         setShowRoot(false);
         setRoot(new FileItem(directory));
@@ -108,9 +107,9 @@ public class Sidebar extends TreeView<File> {
                             List<File> files = (List<File>) transferable.getTransferData(DataFlavor.javaFileListFlavor);
                             for (File source : files) {
                                 if (getTreeItem() == null)
-                                    Files.copy(source.toPath(), new File(getTreeView().getRoot().getValue().getPath() + File.separator + source.getName()).toPath());
+                                    java.nio.file.Files.copy(source.toPath(), new File(getTreeView().getRoot().getValue().getPath() + File.separator + source.getName()).toPath());
                                 else
-                                    Files.copy(source.toPath(), new File(getTreeItem().getValue().getPath() + File.separator + source.getName()).toPath());
+                                    java.nio.file.Files.copy(source.toPath(), new File(getTreeItem().getValue().getPath() + File.separator + source.getName()).toPath());
                             }
                         } catch (Exception e) {
                             new Reporter(e);
