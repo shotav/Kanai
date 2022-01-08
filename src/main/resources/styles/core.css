@@ -1,3 +1,6 @@
+* {
+    -fx-font-family: "Fira Sans";
+}
 .tab-header-area {
     -fx-padding: 0;
 }

@@ -13,8 +13,8 @@ A modern cross-platform code editor.
 ## Features
 
 - [x] Update Checker
-- [x] File Hierarchy
 - [x] Line Numbers
+- [x] File Hierarchy
 - [x] Discord RPC
 - [x] Plugins
 - [x] Themes
@@ -22,11 +22,25 @@ A modern cross-platform code editor.
 - [ ] Terminal Emulator
 - [ ] Code Completion
 - [ ] Settings Sync
-- [ ] Ligatures
 
 ## Download
 
 [Releases](https://github.com/PryosCode/Kanai/releases)
+
+## Plugins
+
+```java
+public class MyPlugin extends Plugin {
+
+    @Override
+    public void onEnable() {
+        System.out.println("Hello World!");
+    }
+
+}
+```
+
+A full example can be found [here](https://github.com/PryosCode/Kanai/tree/master/sdk/src/test).
 
 ## Build
 
@@ -35,10 +49,6 @@ $ git clone https://github.com/PryosCode/Kanai.git
 $ chmod +x gradlew
 $ ./gradlew build
 ```
-
-## Special Thanks
-
-<a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains" width="100"></a>
 
 ## License
 
