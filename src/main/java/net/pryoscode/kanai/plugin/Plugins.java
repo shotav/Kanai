@@ -3,7 +3,9 @@ package net.pryoscode.kanai.plugin;
 import net.pryoscode.kanai.Reporter;
 import net.pryoscode.kanai.config.Config;
 import net.pryoscode.kanai.sdk.Plugin;
+import net.pryoscode.kanai.windows.Window;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Properties;
@@ -19,6 +21,15 @@ public class Plugins {
     public static void init() {
         if (!FOLDER.exists()) FOLDER.mkdirs();
         if (FOLDER.isFile()) return;
+
+        try {
+            Field window = Plugin.class.getDeclaredField("WINDOW");
+            window.setAccessible(true);
+            window.set(null, Window.getStage());
+        } catch (Exception e) {
+            new Reporter(e);
+        }
+
         for (File file : FOLDER.listFiles()) {
             if (file.isFile() && file.getName().toLowerCase().endsWith(".jar")) {
                 try {

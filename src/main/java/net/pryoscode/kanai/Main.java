@@ -2,7 +2,8 @@ package net.pryoscode.kanai;
 
 import java.net.URL;
 import com.sun.javafx.application.PlatformImpl;
-import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import net.pryoscode.kanai.config.Config;
 import net.pryoscode.kanai.plugin.Plugins;
 import net.pryoscode.kanai.utils.StylesheetHandlerFactory;
@@ -13,11 +14,14 @@ public class Main {
     public static void main(String[] args) {
         PlatformImpl.startup(() -> {});
         URL.setURLStreamHandlerFactory(new StylesheetHandlerFactory());
-        Config.init();
-        Updater.init();
-        Plugins.init();
-        Discord.init();
-        Application.launch(Window.class, args);
+        Platform.runLater(() -> {
+            Stage window = new Window();
+            Config.init();
+            Updater.init();
+            Discord.init();
+            Plugins.init();
+            window.show();
+        });
     }
 
 }

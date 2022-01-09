@@ -2,7 +2,6 @@ package net.pryoscode.kanai.windows;
 
 import java.io.File;
 import com.sun.javafx.tk.Toolkit;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
@@ -16,29 +15,34 @@ import net.pryoscode.kanai.windows.components.Files;
 import net.pryoscode.kanai.windows.components.Toolbar;
 import net.pryoscode.kanai.windows.tabs.CodeTab;
 
-public class Window extends Application {
+public class Window extends Stage {
 
-    @Override
-    public void start(Stage stage) {
+    private static Stage stage;
+
+    public Window() {
+        stage = this;
         BorderPane root = new BorderPane();
-        stage.setScene(new Scene(root, 1280, 720));
-        stage.setTitle("Kanai Editor");
-        stage.getIcons().add(new Image(Loader.load("img/icon.png")));
-        stage.getScene().getStylesheets().add("styles:core");
-        stage.getScene().getStylesheets().add("styles:window");
-        stage.getScene().getStylesheets().add("styles:theme");
-        stage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyManager()::onKeyPressed);
+        setScene(new Scene(root, 1280, 720));
+        setTitle("Kanai Editor");
+        setFullScreenExitHint("");
+        getIcons().add(new Image(Loader.load("img/icon.png")));
+        getScene().getStylesheets().add("styles:core");
+        getScene().getStylesheets().add("styles:window");
+        getScene().getStylesheets().add("styles:theme");
+        addEventHandler(KeyEvent.KEY_PRESSED, new KeyManager()::onKeyPressed);
         Font.loadFont(Loader.load("fonts/FiraSans-Regular.ttf"), Toolkit.getToolkit().getFontLoader().getSystemFontSize());
         Font.loadFont(Loader.load("fonts/FiraMono-Regular.ttf"), Toolkit.getToolkit().getFontLoader().getSystemFontSize());
 
         BorderPane sidebar = new BorderPane();
         sidebar.setCenter(new Files(new File(System.getProperty("user.dir"))));
-        sidebar.setBottom(new Toolbar(stage));
+        sidebar.setBottom(new Toolbar(this));
         root.setLeft(sidebar);
         root.setCenter(new Editor());
         Editor.open(new CodeTab());
+    }
 
-        stage.show();
+    public static Stage getStage() {
+        return stage;
     }
 
 }

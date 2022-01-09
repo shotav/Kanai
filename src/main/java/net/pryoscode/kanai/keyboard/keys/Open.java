@@ -6,7 +6,7 @@ import net.pryoscode.kanai.keyboard.Key;
 public class Open extends Key {
 
     public Open() {
-        super(KeyCode.O);
+        super(true, KeyCode.O);
     }
 
     @Override
