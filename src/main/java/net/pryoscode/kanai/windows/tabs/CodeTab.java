@@ -34,7 +34,6 @@ public class CodeTab extends CustomTab {
             }
         }
         CodeArea code = new CodeArea(text);
-        code.setId("code");
         code.setParagraphGraphicFactory(LineNumberFactory.get(code));
         code.textProperty().addListener(this::onTextChanged);
         setContent(new VirtualizedScrollPane<>(code));

@@ -1,1 +1,34 @@
+@primary: #abb2bf;
+@secondary: #4b5263;
+@foreground: #282c34;
+@background: #21252b;
 
+.root {
+  -fx-background-color: @background;
+}
+
+.button {
+  -fx-background-color: transparent;
+  -fx-text-fill: @primary;
+
+  .ikonli-font-icon {
+    -fx-icon-color: @primary;
+  }
+}
+
+.tree-view, .tree-cell {
+  -fx-text-fill: @primary;
+  -fx-background-color: transparent;
+}
+
+.tab-content-area {
+  -fx-background-color: @foreground;
+
+  .code-area {
+    -fx-background-color: transparent;
+
+    .selection {
+      -fx-fill: @primary;
+    }
+  }
+}
