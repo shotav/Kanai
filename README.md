@@ -46,6 +46,7 @@ A full example can be found [here](https://github.com/PryosCode/Kanai/tree/maste
 
 ```bash
 $ git clone https://github.com/PryosCode/Kanai.git
+$ cd Kanai
 $ chmod +x gradlew
 $ ./gradlew build
 ```
