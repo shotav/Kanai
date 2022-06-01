@@ -27,7 +27,7 @@ public class MyPlugin extends Plugin {
 }
 ```
 
-A full example can be found [here](https://github.com/PryosCode/Kanai/tree/master/sdk/src/test).
+A full example can be found [here](https://github.com/PryosCode/Kanai/tree/master/api/src/test).
 
 ## Build
 
