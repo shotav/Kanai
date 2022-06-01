@@ -1,3 +1,3 @@
-include "sdk"
+include "api"
 
 rootProject.name = "Kanai"

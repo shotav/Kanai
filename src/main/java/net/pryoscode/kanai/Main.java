@@ -1,27 +1,18 @@
 package net.pryoscode.kanai;
 
-import java.net.URL;
-import com.sun.javafx.application.PlatformImpl;
-import javafx.application.Platform;
-import javafx.stage.Stage;
-import net.pryoscode.kanai.config.Config;
-import net.pryoscode.kanai.plugin.Plugins;
-import net.pryoscode.kanai.utils.StylesheetHandlerFactory;
-import net.pryoscode.kanai.windows.Window;
+import com.formdev.flatlaf.FlatDarkLaf;
+import net.pryoscode.kanai.boilerplate.Instance;
+import net.pryoscode.kanai.window.Window;
 
 public class Main {
 
     public static void main(String[] args) {
-        PlatformImpl.startup(() -> {});
-        URL.setURLStreamHandlerFactory(new StylesheetHandlerFactory());
-        Platform.runLater(() -> {
-            Stage window = new Window();
-            Config.init();
-            Updater.init();
-            Discord.init();
-            Plugins.init();
-            window.show();
-        });
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        System.setProperty("apple.awt.application.name", "Kanai Editor");
+        System.setProperty("apple.awt.application.appearance", "NSAppearanceNameDarkAqua");
+
+        FlatDarkLaf.setup();
+        Instance.get(Window.class).setVisible(true);
     }
 
 }

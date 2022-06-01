@@ -8,20 +8,7 @@
 
 # <a href="https://github.com/PryosCode/Kanai/blob/master/src/main/resources/img/icon.svg"><img src="https://github.com/PryosCode/Kanai/raw/master/src/main/resources/img/icon.png" alt="Icon" width="30" height="auto"></a> Kanai Editor
 
-A modern cross-platform code editor.
-
-## Features
-
-- [x] Update Checker
-- [x] Line Numbers
-- [x] File Hierarchy
-- [x] Discord RPC
-- [x] Plugins
-- [x] Themes
-- [ ] Syntax Highlighting
-- [ ] Terminal Emulator
-- [ ] Code Completion
-- [ ] Settings Sync
+A hackable code editor.
 
 ## Download
 
