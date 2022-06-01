@@ -1,4 +1,4 @@
-package net.pryoscode.kanai.boilerplate;
+package net.pryoscode.kanai.code;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;

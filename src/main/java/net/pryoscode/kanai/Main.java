@@ -1,7 +1,7 @@
 package net.pryoscode.kanai;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-import net.pryoscode.kanai.boilerplate.Instance;
+import net.pryoscode.kanai.code.Instance;
 import net.pryoscode.kanai.window.Window;
 
 public class Main {

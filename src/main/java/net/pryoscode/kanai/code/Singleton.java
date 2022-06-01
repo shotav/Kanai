@@ -1,4 +1,4 @@
-package net.pryoscode.kanai.boilerplate;
+package net.pryoscode.kanai.code;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

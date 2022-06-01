@@ -3,7 +3,7 @@ package net.pryoscode.kanai.window;
 import com.formdev.flatlaf.util.SystemInfo;
 import lombok.SneakyThrows;
 import lombok.val;
-import net.pryoscode.kanai.boilerplate.Singleton;
+import net.pryoscode.kanai.code.Singleton;
 import net.pryoscode.kanai.window.menu.Menu;
 import javax.swing.*;
 import java.awt.*;
