@@ -23,6 +23,8 @@ public class Plugins {
 
         val panelsField = Plugin.class.getDeclaredField("PANELS");
         panelsField.setAccessible(true);
+        panelsField.set(null, new ArrayList<>());
+
         val panels = panelsField.get(null);
     }
 
