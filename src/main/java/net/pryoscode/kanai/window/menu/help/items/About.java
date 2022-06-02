@@ -9,7 +9,7 @@ public class About extends JMenuItem implements ActionListener {
 
     public About() {
         super(Language.get("help.about"));
-        addActionListener(this::actionPerformed);
+        addActionListener(this);
     }
 
     @Override
