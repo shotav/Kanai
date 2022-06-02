@@ -12,8 +12,8 @@ import java.awt.*;
 public class Window extends JFrame {
 
     @SneakyThrows
-    public Window() {
-        if (SystemInfo.isMacFullWindowContentSupported ) {
+    private Window() {
+        if (SystemInfo.isMacFullWindowContentSupported) {
             getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
             getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
             getRootPane().putClientProperty("apple.awt.fullscreenable", true);

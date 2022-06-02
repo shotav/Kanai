@@ -1,6 +1,6 @@
 package net.pryoscode.kanai.window.menu.file;
 
-import net.pryoscode.kanai.window.Language;
+import net.pryoscode.kanai.window.utils.Language;
 import net.pryoscode.kanai.window.menu.file.items.*;
 import javax.swing.*;
 
@@ -13,6 +13,7 @@ public class File extends JMenu {
         add(new JSeparator());
         add(new Open());
         add(new OpenFolder());
+        add(new OpenRecent());
         add(new JSeparator());
         add(new Save());
         add(new SaveAs());

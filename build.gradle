@@ -80,5 +80,4 @@ dependencies {
     implementation group: "com.formdev", name: "flatlaf", version: "2.3"
     implementation group: "com.fifesoft", name: "rsyntaxtextarea", version: "3.2.0"
     implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: "2.13.3"
-    implementation group: "com.moandjiezana.toml", name: "toml4j", version: "0.7.2"
 }

@@ -1,9 +1,11 @@
 package net.pryoscode.kanai;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import lombok.experimental.UtilityClass;
 import net.pryoscode.kanai.code.Instance;
 import net.pryoscode.kanai.window.Window;
 
+@UtilityClass
 public class Main {
 
     public static void main(String[] args) {
