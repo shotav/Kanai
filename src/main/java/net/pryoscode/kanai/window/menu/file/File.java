@@ -3,11 +3,13 @@ package net.pryoscode.kanai.window.menu.file;
 import net.pryoscode.kanai.window.utils.Language;
 import net.pryoscode.kanai.window.menu.file.items.*;
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 public class File extends JMenu {
 
     public File() {
         super(Language.get("file"));
+        setMnemonic(KeyEvent.VK_F);
         add(new NewFile());
         add(new NewWindow());
         add(new JSeparator());
