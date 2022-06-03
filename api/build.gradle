@@ -8,6 +8,6 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 task example(type: Jar) {
-    archiveFileName = "Example.jar"
+    archiveFileName = "example.jar"
     from sourceSets.test.output
 }

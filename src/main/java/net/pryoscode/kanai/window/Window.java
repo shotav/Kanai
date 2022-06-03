@@ -2,23 +2,27 @@ package net.pryoscode.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import net.pryoscode.kanai.code.Singleton;
 import net.pryoscode.kanai.window.menu.Menu;
 import javax.swing.*;
 import java.awt.*;
 
+@Slf4j
 @Singleton
 public class Window extends JFrame {
 
     @SneakyThrows
     private Window() {
+        log.info("init");
         if (SystemInfo.isMacFullWindowContentSupported) {
             getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
             getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
             getRootPane().putClientProperty("apple.awt.fullscreenable", true);
         }
 
+        log.info("icon");
         val icon = new ImageIcon(getClass().getClassLoader().getResourceAsStream("img/icon.png").readAllBytes()).getImage();
         if (Taskbar.getTaskbar().isSupported(Taskbar.Feature.ICON_IMAGE)) Taskbar.getTaskbar().setIconImage(icon);
         setIconImage(icon);

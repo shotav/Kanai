@@ -7,7 +7,9 @@ public class Example extends Plugin {
 
     @Override
     public void onEnable() {
-        addPanel(new JLabel("Hello World!"));
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Hello World!"));
+        addPanel(panel);
     }
 
 }

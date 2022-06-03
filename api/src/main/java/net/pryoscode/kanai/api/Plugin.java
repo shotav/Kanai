@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Plugin {
 
-    private static List<JComponent> PANELS;
+    private static List<JPanel> PANELS;
     private static JFrame WINDOW;
 
     public void onEnable() {}
     public void onDisable() {}
 
-    public void addPanel(JComponent component) {
-        PANELS.add(component);
+    public void addPanel(JPanel panel) {
+        PANELS.add(panel);
     }
 
     public JFrame getWindow() {

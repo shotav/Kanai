@@ -3,11 +3,13 @@ package net.pryoscode.kanai.code;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
+@Slf4j
 @UtilityClass
 public class Instance {
 
@@ -26,6 +28,7 @@ public class Instance {
             if (constructor.canAccess(null))
                 throw new SingletonException();
 
+        log.info("new " + clazz.getCanonicalName());
         val constructor = clazz.getDeclaredConstructors()[0];
         constructor.setAccessible(true);
         val object = constructor.newInstance();
