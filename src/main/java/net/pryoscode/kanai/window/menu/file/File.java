@@ -10,6 +10,7 @@ public class File extends JMenu {
     public File() {
         super(Language.get("file"));
         setMnemonic(KeyEvent.VK_F);
+
         add(new NewFile());
         add(new NewWindow());
         add(new JSeparator());

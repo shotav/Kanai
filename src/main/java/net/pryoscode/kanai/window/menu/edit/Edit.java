@@ -3,11 +3,14 @@ package net.pryoscode.kanai.window.menu.edit;
 import net.pryoscode.kanai.window.menu.edit.items.*;
 import net.pryoscode.kanai.window.utils.Language;
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 public class Edit extends JMenu {
 
     public Edit() {
         super(Language.get("edit"));
+        setMnemonic(KeyEvent.VK_E);
+
         add(new Undo());
         add(new Redo());
         add(new JSeparator());
@@ -18,6 +21,9 @@ public class Edit extends JMenu {
         add(new JSeparator());
         add(new Find());
         add(new Replace());
+        add(new JSeparator());
+        add(new FindFiles());
+        add(new ReplaceFiles());
     }
 
 }
