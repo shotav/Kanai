@@ -28,7 +28,7 @@ public class Instance {
             if (constructor.canAccess(null))
                 throw new SingletonException();
 
-        log.info("new " + clazz.getCanonicalName());
+        log.info(clazz.getCanonicalName());
         val constructor = clazz.getDeclaredConstructors()[0];
         constructor.setAccessible(true);
         val object = constructor.newInstance();

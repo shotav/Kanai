@@ -1,11 +1,17 @@
 package net.pryoscode.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
+import jiconfont.icons.font_awesome.FontAwesome;
+import jiconfont.swing.IconFontSwing;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import net.pryoscode.kanai.code.Instance;
 import net.pryoscode.kanai.code.Singleton;
+import net.pryoscode.kanai.window.editor.Editor;
+import net.pryoscode.kanai.window.explorer.Explorer;
 import net.pryoscode.kanai.window.menu.Menu;
+import net.pryoscode.kanai.window.toolbar.Toolbar;
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,6 +22,17 @@ public class Window extends JFrame {
     @SneakyThrows
     private Window() {
         log.info("init");
+
+        IconFontSwing.register(FontAwesome.getIconFont());
+        val root = new JPanel(new BorderLayout());
+        root.add(new Toolbar(), BorderLayout.PAGE_START);
+        add(root);
+
+        val splitPane = new JSplitPane();
+        splitPane.setLeftComponent(Instance.get(Explorer.class));
+        splitPane.setRightComponent(Instance.get(Editor.class));
+        root.add(splitPane, BorderLayout.CENTER);
+
         if (SystemInfo.isMacFullWindowContentSupported) {
             getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
             getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
