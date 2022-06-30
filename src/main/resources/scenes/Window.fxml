@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="dev.shota.kanai.window.controllers.WindowController">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="dev.shota.kanai.window.controllers.ControllerWindow">
     <children>
         <Button fx:id="button" prefWidth="100.0"
                 text="Klick!" GridPane.columnIndex="0" GridPane.rowIndex="0" />
