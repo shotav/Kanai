@@ -1,6 +1,6 @@
 package dev.shota.kanai.window.menu.file.items;
 
-import dev.shota.kanai.code.Instance;
+import dev.shota.kanai.reflection.Instance;
 import dev.shota.kanai.window.utils.Language;
 import javax.swing.*;
 import java.awt.*;

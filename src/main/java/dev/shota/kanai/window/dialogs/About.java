@@ -1,6 +1,6 @@
 package dev.shota.kanai.window.dialogs;
 
-import dev.shota.kanai.code.Instance;
+import dev.shota.kanai.reflection.Instance;
 import dev.shota.kanai.window.utils.Language;
 import dev.shota.kanai.window.Window;
 import javax.swing.*;

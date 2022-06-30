@@ -1,12 +1,12 @@
 package dev.shota.kanai.plugin;
 
-import dev.shota.kanai.code.Instance;
+import dev.shota.kanai.reflection.Instance;
 import dev.shota.kanai.window.Window;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.val;
 import dev.shota.kanai.api.Plugin;
-import dev.shota.kanai.code.Singleton;
+import dev.shota.kanai.reflection.Singleton;
 
 import java.util.ArrayList;
 import java.util.List;

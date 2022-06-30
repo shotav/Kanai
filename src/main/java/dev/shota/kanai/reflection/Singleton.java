@@ -1,4 +1,4 @@
-package dev.shota.kanai.code;
+package dev.shota.kanai.reflection;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

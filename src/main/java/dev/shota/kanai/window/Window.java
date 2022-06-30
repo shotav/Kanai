@@ -9,10 +9,9 @@ import jiconfont.swing.IconFontSwing;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import dev.shota.kanai.code.Instance;
-import dev.shota.kanai.code.Singleton;
+import dev.shota.kanai.reflection.Instance;
+import dev.shota.kanai.reflection.Singleton;
 import dev.shota.kanai.window.menu.Menu;
-
 import javax.swing.*;
 import java.awt.*;
 
