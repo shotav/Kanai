@@ -2,7 +2,6 @@ package dev.shota.kanai.window.menu.file;
 
 import dev.shota.kanai.window.menu.file.items.*;
 import dev.shota.kanai.window.utils.Language;
-import net.pryoscode.kanai.window.menu.file.items.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 

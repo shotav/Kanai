@@ -1,8 +1,6 @@
 package dev.shota.kanai.window.toolbar;
 
 import com.formdev.flatlaf.util.SystemInfo;
-import jiconfont.icons.font_awesome.FontAwesome;
-import jiconfont.swing.IconFontSwing;
 import javax.swing.*;
 
 public class Toolbar extends JToolBar {
@@ -13,7 +11,7 @@ public class Toolbar extends JToolBar {
 
         add(new JLabel("Test"));
         add(Box.createHorizontalGlue());
-        add(new JButton(IconFontSwing.buildIcon(FontAwesome.PLAY, UIManager.getFont("defaultFont").getSize(), UIManager.getColor("Button.foreground"))));
+        //add(new JButton(IconFontSwing.buildIcon(FontAwesome.PLAY, UIManager.getFont("defaultFont").getSize(), UIManager.getColor("Button.foreground"))));
     }
 
 }

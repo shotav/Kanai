@@ -1,78 +1,27 @@
+import org.panteleyev.jpackage.ImageType
+
 plugins {
     id "java"
-    id "io.freefair.lombok" version "6.4.3"
+    id "io.freefair.lombok" version "6.5.0.2"
+    id "org.openjfx.javafxplugin" version "0.0.13"
+    id "org.panteleyev.jpackageplugin" version "1.3.1"
 }
 
-group "net.pryoscode"
+group "dev.shota"
 version VERSION
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+javafx {
+    version = JavaVersion.VERSION_18
+    modules "javafx.base", "javafx.controls", "javafx.graphics", "javafx.swing"
+}
 
 repositories {
     mavenCentral()
-    maven { url "https://jitpack.io" }
-}
-
-jar {
-    archiveFileName = project.name.toLowerCase() + ".jar"
-    duplicatesStrategy = "include"
-    manifest {
-        attributes "Implementation-Version": project.version
-    }
-    from {
-        configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
- 
-task dist(type: Exec) {
-    if (System.getProperty("os.name").toLowerCase().contains("win")) {
-        commandLine "jpackage",
-                "--dest", "dist",
-                "--input", "build/libs",
-                "--main-jar", project.name.toLowerCase() + ".jar",
-                "--name", project.name + " Editor",
-                "--app-version", project.version,
-                "--vendor", "PryosCode",
-                "--copyright", "Copyright 2021 PryosCode",
-                "--type", "exe",
-                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
-                "--icon", "src/main/resources/img/icon.ico",
-                "--license-file", "src/main/resources/license.txt",
-                "--win-dir-chooser",
-                "--win-shortcut",
-                "--win-menu",
-                "--win-menu-group", "PryosCode",
-                "--win-upgrade-uuid", "362df9c4-52e2-4256-a184-447c20cd42e1"
-    } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-        commandLine "jpackage",
-                "--dest", "dist",
-                "--input", "build/libs",
-                "--main-jar", project.name.toLowerCase() + ".jar",
-                "--name", project.name + " Editor",
-                "--app-version", project.version,
-                "--vendor", "PryosCode",
-                "--copyright", "Copyright 2021 PryosCode",
-                "--type", "dmg",
-                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
-                "--icon", "src/main/resources/img/icon.icns",
-                "--license-file", "src/main/resources/license.txt"
-    } else {
-        commandLine "jpackage",
-                "--dest", "dist",
-                "--input", "build/libs",
-                "--main-jar", project.name.toLowerCase() + ".jar",
-                "--name", project.name + " Editor",
-                "--app-version", project.version,
-                "--vendor", "PryosCode",
-                "--copyright", "Copyright 2021 PryosCode",
-                "--type", "deb",
-                "--main-class", project.group + "." + project.name.toLowerCase() + ".Main",
-                "--icon", "src/main/resources/img/icon.png",
-                "--license-file", "src/main/resources/license.txt",
-                "--linux-shortcut",
-                "--linux-menu-group", "PryosCode",
-                "--linux-deb-maintainer", "info@pryoscode.net"
-    }
 }
 
 dependencies {
@@ -82,8 +31,51 @@ dependencies {
     implementation group: "org.apache.logging.log4j", name: "log4j-core", version: "2.17.2"
     implementation group: "org.apache.logging.log4j", name: "log4j-slf4j-impl", version: "2.17.2"
     implementation group: "com.formdev", name: "flatlaf", version: "2.3"
-    implementation group: "com.github.jiconfont", name: "jiconfont-swing", version: "1.0.1"
-    implementation group: "com.github.jiconfont", name: "jiconfont-font_awesome", version: "4.7.0.1"
-    implementation group: "com.fifesoft", name: "rsyntaxtextarea", version: "3.2.0"
     implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: "2.13.3"
+}
+
+jar {
+    archiveFileName = project.name.toLowerCase() + ".jar"
+    duplicatesStrategy = "include"
+    manifest.attributes "Implementation-Version": project.version
+    from { configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+jpackage {
+    appName = "$project.name Editor"
+    appVersion = project.version
+    copyright = "Copyright 2021 shota"
+    appDescription = "A hackable code editor."
+    vendor = "shota"
+    destination = "package"
+    mainClass = "$project.group.${project.name.toLowerCase()}.Main"
+    mainJar = jar.archiveFileName.get()
+    // fileAssociations = ""
+    input = "$buildDir/libs"
+    licenseFile = "${sourceSets.getByName("main").resources.srcDirs[0]}/license.txt"
+    winMenu = true
+    winDirChooser = true
+    winUpgradeUuid = "362df9c4-52e2-4256-a184-447c20cd42e1"
+    winMenuGroup = "shota"
+    winShortcut= true
+    linuxMenuGroup = "shota"
+    linuxShortcut = true
+
+    windows {
+        type = ImageType.EXE
+        icon = "${sourceSets.getByName("main").resources.srcDirs[0]}/icon/icon.ico"
+    }
+    mac {
+        type = ImageType.DMG
+        icon = "${sourceSets.getByName("main").resources.srcDirs[0]}/icon/icon.icns"
+    }
+    linux {
+        type = ImageType.APP_IMAGE
+        icon = "${sourceSets.getByName("main").resources.srcDirs[0]}/icon/icon.png"
+    }
+}
+
+clean {
+    dependsOn ":api:clean"
+    delete "package"
 }

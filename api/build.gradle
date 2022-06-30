@@ -2,10 +2,13 @@ plugins {
     id "java"
 }
 
-group "net.pryoscode"
+group "dev.shota"
 version VERSION
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 task example(type: Jar) {
     archiveFileName = "example.jar"

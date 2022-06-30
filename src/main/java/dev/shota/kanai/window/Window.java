@@ -4,8 +4,6 @@ import com.formdev.flatlaf.util.SystemInfo;
 import dev.shota.kanai.window.editor.Editor;
 import dev.shota.kanai.window.explorer.Explorer;
 import dev.shota.kanai.window.toolbar.Toolbar;
-import jiconfont.icons.font_awesome.FontAwesome;
-import jiconfont.swing.IconFontSwing;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -23,7 +21,7 @@ public class Window extends JFrame {
     private Window() {
         log.info("init");
 
-        IconFontSwing.register(FontAwesome.getIconFont());
+        //IconFontSwing.register(FontAwesome.getIconFont());
         val root = new JPanel(new BorderLayout());
         root.add(new Toolbar(), BorderLayout.PAGE_START);
         add(root);
@@ -40,7 +38,7 @@ public class Window extends JFrame {
         }
 
         log.info("icon");
-        val icon = new ImageIcon(getClass().getClassLoader().getResourceAsStream("img/icon.png").readAllBytes()).getImage();
+        val icon = new ImageIcon(getClass().getClassLoader().getResourceAsStream("icon/icon.png").readAllBytes()).getImage();
         if (Taskbar.getTaskbar().isSupported(Taskbar.Feature.ICON_IMAGE)) Taskbar.getTaskbar().setIconImage(icon);
         setIconImage(icon);
 
