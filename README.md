@@ -6,7 +6,7 @@
     <a href="https://github.com/shotav/Kanai/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/shotav/Kanai?label=License"></a>
 </p>
 
-# <a href="https://github.com/shotav/Kanai/blob/master/src/main/resources/img/icon.svg"><img src="https://github.com/shotav/Kanai/raw/master/src/main/resources/img/icon.png" alt="Icon" width="30" height="auto"></a> Kanai Editor
+# <a href="https://github.com/shotav/Kanai/blob/master/src/main/resources/icon/icon.svg"><img src="https://github.com/shotav/Kanai/raw/master/src/main/resources/icon/icon.png" alt="Icon" width="30" height="auto"></a> Kanai Editor
 
 A hackable code editor.
 
