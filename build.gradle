@@ -42,15 +42,15 @@ jar {
 }
 
 jpackage {
-    appName = "$project.name Editor"
+    appName = "${project.name} Editor"
     appVersion = project.version
     copyright = "Copyright 2021 shota"
     appDescription = "A hackable code editor."
     vendor = "shota"
     destination = "package"
-    mainClass = "$project.group.${project.name.toLowerCase()}.Main"
+    mainClass = "${project.group}.${project.name.toLowerCase()}.Main"
     mainJar = jar.archiveFileName.get()
-    // fileAssociations = ""
+    fileAssociations = List.of("${sourceSets.getByName("main").resources.srcDirs[0]}/associations/text.properties")
     input = "$buildDir/libs"
     licenseFile = "${sourceSets.getByName("main").resources.srcDirs[0]}/license.txt"
     winMenu = true
