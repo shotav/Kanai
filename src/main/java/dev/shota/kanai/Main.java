@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import dev.shota.kanai.reflection.Instance;
 import dev.shota.kanai.plugin.Plugins;
 import dev.shota.kanai.window.Window;
+import javafx.application.Platform;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -19,6 +20,7 @@ public class Main {
         System.setProperty("apple.awt.application.appearance", "NSAppearanceNameDarkAqua");
         FlatDarkLaf.setup();
 
+        Platform.startup(() -> {});
         val window = Instance.get(Window.class);
         Instance.get(Plugins.class);
         window.setVisible(true);

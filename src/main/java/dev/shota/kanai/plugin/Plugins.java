@@ -7,7 +7,6 @@ import lombok.SneakyThrows;
 import lombok.val;
 import dev.shota.kanai.api.Plugin;
 import dev.shota.kanai.reflection.Singleton;
-
 import java.util.ArrayList;
 import java.util.List;
 
