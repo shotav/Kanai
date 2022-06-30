@@ -1,4 +1,3 @@
 package dev.shota.kanai.window.controllers;
 
-public class ControllerAbout {
-}
+public class ControllerAbout {}

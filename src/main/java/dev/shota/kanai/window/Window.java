@@ -2,8 +2,9 @@ package dev.shota.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
 import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -20,11 +21,11 @@ public class Window extends JFrame {
     private Window() {
         log.info("init");
 
-        val root = new BorderPane();
         val panel = new JFXPanel();
-        panel.setScene(new Scene(root, 1280, 720));
+        Pane root = new FXMLLoader().load(getClass().getClassLoader().getResourceAsStream("scenes/Window.fxml"));
+        panel.setScene(new Scene(root, 0, 0));
         add(panel);
-        pack();
+        setSize((int) root.getPrefWidth(), (int) root.getPrefHeight());
 
         if (SystemInfo.isMacOS && SystemInfo.isMacFullWindowContentSupported) {
             getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
