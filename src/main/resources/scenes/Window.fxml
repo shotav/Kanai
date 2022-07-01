@@ -8,6 +8,6 @@
            stylesheets="@/styles/theme.css, @/styles/window.css"
            prefWidth="1280" prefHeight="800">
 
-    <SplitPane/>
+    <SplitPane fx:id="splitPane"/>
 
 </StackPane>

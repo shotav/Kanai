@@ -2,6 +2,7 @@ package dev.shota.kanai.plugin;
 
 import dev.shota.kanai.jvm.Instance;
 import dev.shota.kanai.window.Window;
+import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.val;
@@ -25,7 +26,8 @@ public class Plugins {
         panesField.setAccessible(true);
         panesField.set(null, new ArrayList<>());
 
-        val panes = panesField.get(null);
+        val panes = (List<Pane>) panesField.get(null);
+        Instance.get(Window.class).splitPane.getItems().addAll(panes);
     }
 
 }

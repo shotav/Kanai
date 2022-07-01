@@ -4,8 +4,10 @@ import com.formdev.flatlaf.util.SystemInfo;
 import dev.shota.kanai.jvm.Singleton;
 import dev.shota.kanai.window.menu.Menu;
 import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,8 @@ import java.awt.*;
 @Slf4j
 @Singleton
 public class Window extends JFrame {
+
+    @FXML public SplitPane splitPane;
 
     @SneakyThrows
     private Window() {
