@@ -1,6 +1,6 @@
 package dev.shota.kanai.window.dialogs;
 
-import dev.shota.kanai.reflection.Instance;
+import dev.shota.kanai.jvm.Instance;
 import dev.shota.kanai.window.Window;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;

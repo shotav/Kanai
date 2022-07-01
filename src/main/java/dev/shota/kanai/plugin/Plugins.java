@@ -1,12 +1,12 @@
 package dev.shota.kanai.plugin;
 
-import dev.shota.kanai.reflection.Instance;
+import dev.shota.kanai.jvm.Instance;
 import dev.shota.kanai.window.Window;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.val;
 import dev.shota.kanai.api.Plugin;
-import dev.shota.kanai.reflection.Singleton;
+import dev.shota.kanai.jvm.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +21,11 @@ public class Plugins {
         window.setAccessible(true);
         window.set(null, Instance.get(Window.class));
 
-        val panelsField = Plugin.class.getDeclaredField("PANELS");
-        panelsField.setAccessible(true);
-        panelsField.set(null, new ArrayList<>());
+        val panesField = Plugin.class.getDeclaredField("PANES");
+        panesField.setAccessible(true);
+        panesField.set(null, new ArrayList<>());
 
-        val panels = panelsField.get(null);
+        val panes = panesField.get(null);
     }
 
 }

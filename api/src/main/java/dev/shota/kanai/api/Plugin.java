@@ -1,22 +1,20 @@
 package dev.shota.kanai.api;
 
+import javafx.scene.layout.Pane;
+import lombok.Getter;
 import javax.swing.*;
 import java.util.List;
 
 public class Plugin {
 
-    private static List<JPanel> PANELS;
-    private static JFrame WINDOW;
+    private static List<Pane> PANES;
+    @Getter private static JFrame WINDOW;
 
     public void onEnable() {}
     public void onDisable() {}
 
-    public void addPanel(JPanel panel) {
-        PANELS.add(panel);
-    }
-
-    public JFrame getWindow() {
-        return WINDOW;
+    public void addPane(Pane pane) {
+        PANES.add(pane);
     }
 
 }

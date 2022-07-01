@@ -1,14 +1,14 @@
 package dev.shota.kanai.window.menu.edit;
 
 import dev.shota.kanai.window.menu.edit.items.*;
-import dev.shota.kanai.window.utils.Language;
+import dev.shota.kanai.window.utils.Translation;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class Edit extends JMenu {
 
     public Edit() {
-        super(Language.get("edit"));
+        super(Translation.get("edit"));
         setMnemonic(KeyEvent.VK_E);
 
         add(new Undo());

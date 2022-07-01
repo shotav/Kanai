@@ -1,5 +1,7 @@
 plugins {
     id "java"
+    id "io.freefair.lombok" version "6.5.0.2"
+    id "org.openjfx.javafxplugin" version "0.0.13"
 }
 
 group "dev.shota"
@@ -8,6 +10,19 @@ version VERSION
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+javafx {
+    version = JavaVersion.VERSION_18
+    modules "javafx.base", "javafx.controls", "javafx.graphics"
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+
 }
 
 task example(type: Jar) {

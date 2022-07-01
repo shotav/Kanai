@@ -1,4 +1,4 @@
-package dev.shota.kanai.reflection;
+package dev.shota.kanai.jvm;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;

@@ -1,7 +1,7 @@
 package dev.shota.kanai;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-import dev.shota.kanai.reflection.Instance;
+import dev.shota.kanai.jvm.Instance;
 import dev.shota.kanai.plugin.Plugins;
 import dev.shota.kanai.window.Window;
 import javafx.application.Platform;

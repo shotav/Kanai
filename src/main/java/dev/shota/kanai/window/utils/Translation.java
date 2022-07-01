@@ -5,9 +5,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 @UtilityClass
-public class Language {
+public class Translation {
 
-    private static final ResourceBundle bundle = ResourceBundle.getBundle("langs/language", Locale.getDefault());
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("translations/translation", Locale.getDefault());
 
     public static String get(String key) {
         return bundle.getString(key);

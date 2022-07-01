@@ -1,6 +1,6 @@
 package dev.shota.kanai.window.dialogs;
 
-import dev.shota.kanai.window.utils.Language;
+import dev.shota.kanai.window.utils.Translation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
@@ -11,7 +11,7 @@ public class About extends Dialog {
 
     @SneakyThrows
     public About() {
-        super(Language.get("help.about"));
+        super(Translation.get("help.about"));
         val loader = new FXMLLoader();
         loader.setControllerFactory(param -> this);
         Pane root = loader.load(getClass().getClassLoader().getResourceAsStream("scenes/About.fxml"));

@@ -1,14 +1,14 @@
 package dev.shota.kanai.window.menu.file;
 
 import dev.shota.kanai.window.menu.file.items.*;
-import dev.shota.kanai.window.utils.Language;
+import dev.shota.kanai.window.utils.Translation;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class File extends JMenu {
 
     public File() {
-        super(Language.get("file"));
+        super(Translation.get("file"));
         setMnemonic(KeyEvent.VK_F);
 
         add(new NewFile());

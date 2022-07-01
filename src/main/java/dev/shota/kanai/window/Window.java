@@ -1,7 +1,7 @@
 package dev.shota.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
-import dev.shota.kanai.reflection.Singleton;
+import dev.shota.kanai.jvm.Singleton;
 import dev.shota.kanai.window.menu.Menu;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
