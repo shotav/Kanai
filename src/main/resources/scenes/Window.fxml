@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<SplitPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="dev.shota.kanai.window.Window" prefHeight="1280" prefWidth="800">
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="dev.shota.kanai.window.Window"
+           stylesheets="@/styles/theme.css, @/styles/window.css"
+           prefWidth="1280" prefHeight="800">
 
-    <fx:include source="components/Explorer.fxml"/>
-    <fx:include source="components/Editor.fxml"/>
+    <SplitPane/>
 
-</SplitPane>
+</StackPane>

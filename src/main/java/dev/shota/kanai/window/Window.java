@@ -1,14 +1,15 @@
 package dev.shota.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
+import dev.shota.kanai.reflection.Singleton;
+import dev.shota.kanai.window.menu.Menu;
 import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.SplitPane;
+import javafx.scene.layout.Pane;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import dev.shota.kanai.reflection.Singleton;
-import dev.shota.kanai.window.menu.Menu;
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,8 +22,10 @@ public class Window extends JFrame {
         log.info("init");
 
         val panel = new JFXPanel();
-        val root = new SplitPane();
-        panel.setScene(new Scene(root, 1280, 800));
+        val loader = new FXMLLoader();
+        loader.setControllerFactory(param -> this);
+        Pane root = loader.load(getClass().getClassLoader().getResourceAsStream("scenes/Window.fxml"));
+        panel.setScene(new Scene(root, root.getPrefWidth(), root.getPrefHeight()));
         add(panel);
 
         if (SystemInfo.isMacOS && SystemInfo.isMacFullWindowContentSupported) {
