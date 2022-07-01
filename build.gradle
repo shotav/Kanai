@@ -31,8 +31,9 @@ dependencies {
     implementation group: "org.apache.logging.log4j", name: "log4j-core", version: "2.17.2"
     implementation group: "org.apache.logging.log4j", name: "log4j-slf4j-impl", version: "2.17.2"
     implementation group: "com.formdev", name: "flatlaf", version: "2.3"
-    implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: "2.13.3"
     implementation group: "org.controlsfx", name: "controlsfx", version: "11.1.1"
+    implementation group: "org.fxmisc.richtext", name: "richtextfx", version: "0.10.9"
+    implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: "2.13.3"
 }
 
 jar {
