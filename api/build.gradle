@@ -22,7 +22,8 @@ repositories {
 }
 
 jar {
-
+    duplicatesStrategy = "exclude"
+    from { configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 task example(type: Jar) {
