@@ -4,6 +4,7 @@ import com.formdev.flatlaf.util.SystemInfo;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -22,10 +23,9 @@ public class Window extends JFrame {
         log.info("init");
 
         val panel = new JFXPanel();
-        Pane root = new FXMLLoader().load(getClass().getClassLoader().getResourceAsStream("templates/Window.fxml"));
-        panel.setScene(new Scene(root, 0, 0));
+        val root = new SplitPane();
+        panel.setScene(new Scene(root, 1280, 800));
         add(panel);
-        setSize((int) root.getPrefWidth(), (int) root.getPrefHeight());
 
         if (SystemInfo.isMacOS && SystemInfo.isMacFullWindowContentSupported) {
             getRootPane().putClientProperty("apple.awt.fullWindowContent", true);
@@ -38,6 +38,7 @@ public class Window extends JFrame {
         if (Taskbar.isTaskbarSupported() && Taskbar.getTaskbar().isSupported(Taskbar.Feature.ICON_IMAGE)) Taskbar.getTaskbar().setIconImage(icon);
         setIconImage(icon);
 
+        pack();
         setTitle("Kanai Editor");
         setJMenuBar(new Menu());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
