@@ -22,7 +22,7 @@ public class Window extends JFrame {
         log.info("init");
 
         val panel = new JFXPanel();
-        Pane root = new FXMLLoader().load(getClass().getClassLoader().getResourceAsStream("scenes/Window.fxml"));
+        Pane root = new FXMLLoader().load(getClass().getClassLoader().getResourceAsStream("templates/Window.fxml"));
         panel.setScene(new Scene(root, 0, 0));
         add(panel);
         setSize((int) root.getPrefWidth(), (int) root.getPrefHeight());
