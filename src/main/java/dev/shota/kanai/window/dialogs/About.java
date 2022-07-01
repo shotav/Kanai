@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import lombok.SneakyThrows;
 import lombok.val;
+import java.awt.*;
+import java.net.URI;
 
 public class About extends Dialog {
 
@@ -17,9 +19,12 @@ public class About extends Dialog {
         Pane root = loader.load(getClass().getClassLoader().getResourceAsStream("scenes/About.fxml"));
         setRoot(root);
     }
+
     @FXML
+    @SneakyThrows
     private void github() {
-        System.out.println("Hello World!");
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+            Desktop.getDesktop().browse(new URI("https://github.com/shotav/Kanai"));
     }
 
     @FXML
