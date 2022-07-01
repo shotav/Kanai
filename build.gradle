@@ -38,7 +38,7 @@ dependencies {
 
 jar {
     archiveFileName = project.name.toLowerCase() + ".jar"
-    duplicatesStrategy = "include"
+    duplicatesStrategy = "exclude"
     manifest.attributes "Implementation-Version": project.version
     from { configurations.compileClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) } }
 }
