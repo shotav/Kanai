@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+        fx:controller="dev.shota.kanai.window.dialogs.About"
+        stylesheets="@/styles/theme.css, @/styles/about.css"
+        prefWidth="200" prefHeight="100">
+
+    <left>
+        <ImageView fitWidth="50" preserveRatio="true"><Image url="@/icon/icon.png"/></ImageView>
+    </left>
+
+    <center>
+        <VBox>
+            <Label>Kanai Editor</Label>
+            <Label>Version 0.0.0</Label>
+            <Label>Copyright 2021 shota</Label>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox>
+            <Button onAction="#github">GitHub</Button>
+            <Button onAction="#ok" defaultButton="true">OK</Button>
+        </HBox>
+    </bottom>
+
+</BorderPane>

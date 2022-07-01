@@ -7,7 +7,7 @@ import org.controlsfx.control.PropertySheet;
 public class Settings extends Dialog {
 
     public Settings() {
-        super("Settings", 200, 600);
+        super("Settings");
         val root = new VBox();
 
         {

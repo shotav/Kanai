@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+
+<SplitPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="dev.shota.kanai.window.Window" prefHeight="1280" prefWidth="800">
+
+    <fx:include source="components/Explorer.fxml"/>
+    <fx:include source="components/Editor.fxml"/>
+
+</SplitPane>

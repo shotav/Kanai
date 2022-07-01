@@ -10,18 +10,13 @@ import javax.swing.*;
 
 public class Dialog extends JDialog {
 
-    private final int width;
-    private final int height;
-
-    public Dialog(String title, int width, int height) {
+    public Dialog(String title) {
         super(Instance.get(Window.class), title, true);
-        this.width = width;
-        this.height = height;
     }
 
     public void setRoot(Pane root) {
         val panel = new JFXPanel();
-        panel.setScene(new Scene(root, width, height));
+        panel.setScene(new Scene(root, root.getPrefWidth(), root.getPrefHeight()));
         add(panel);
         pack();
         setLocationRelativeTo(Instance.get(Window.class));
