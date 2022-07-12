@@ -1,7 +1,9 @@
 package dev.shota.kanai.window;
 
 import com.formdev.flatlaf.util.SystemInfo;
+import dev.shota.kanai.jvm.Instance;
 import dev.shota.kanai.jvm.Singleton;
+import dev.shota.kanai.window.editor.Editor;
 import dev.shota.kanai.window.menu.Menu;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXML;
@@ -9,17 +11,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 @Slf4j
 @Singleton
 public class Window extends JFrame {
 
-    @FXML public SplitPane splitPane;
+    @FXML @Getter private SplitPane splitPane;
 
     @SneakyThrows
     private Window() {
@@ -29,6 +33,7 @@ public class Window extends JFrame {
         val loader = new FXMLLoader();
         loader.setControllerFactory(param -> this);
         Pane root = loader.load(getClass().getClassLoader().getResourceAsStream("scenes/Window.fxml"));
+        splitPane.getItems().add(Instance.get(Editor.class).getRoot());
         panel.setScene(new Scene(root, root.getPrefWidth(), root.getPrefHeight()));
         add(panel);
 
@@ -39,7 +44,7 @@ public class Window extends JFrame {
         }
 
         log.info("icon");
-        val icon = new ImageIcon(getClass().getClassLoader().getResourceAsStream("icon/icon.png").readAllBytes()).getImage();
+        val icon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("icon/icon.png")).readAllBytes()).getImage();
         if (Taskbar.isTaskbarSupported() && Taskbar.getTaskbar().isSupported(Taskbar.Feature.ICON_IMAGE)) Taskbar.getTaskbar().setIconImage(icon);
         setIconImage(icon);
 

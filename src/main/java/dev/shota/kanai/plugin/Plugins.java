@@ -24,10 +24,10 @@ public class Plugins {
 
         val panesField = Plugin.class.getDeclaredField("PANES");
         panesField.setAccessible(true);
-        panesField.set(null, new ArrayList<>());
+        panesField.set(null, new ArrayList<Pane>());
 
-        val panes = (List<Pane>) panesField.get(null);
-        Instance.get(Window.class).splitPane.getItems().addAll(panes);
+        val panes = ((List<?>) panesField.get(null)).stream().map(o -> (Pane) o).toList();
+        Instance.get(Window.class).getSplitPane().getItems().addAll(panes);
     }
 
 }
